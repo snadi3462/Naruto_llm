@@ -1,0 +1,6 @@
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+mcp-render-server/node_modules/
+mcp-render-server/dist/
+mcp-render-server/.env

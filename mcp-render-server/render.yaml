@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: mcp-render-server
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.10.0
