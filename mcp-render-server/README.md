@@ -21,7 +21,7 @@ All file access is sandboxed to the vault root and restricted to `.md` files;
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `OBSIDIAN_VAULT_PATH` | No | Absolute path to the vault. Defaults to the parent of this folder (`..`), which is correct when Render's Root Directory is set to `mcp-render-server`. |
-| `MCP_API_KEY` | Recommended | If set, every request to `/mcp` must either send `Authorization: Bearer <key>` or a `?key=<key>` query parameter, or it's rejected with 401. If unset, the endpoint is open to anyone with the URL. |
+| `MCP_API_KEY` | No (currently unset) | If set, every request to `/mcp` must either send `Authorization: Bearer <key>` or a `?key=<key>` query parameter, or it's rejected with 401. Currently unset by choice, so the `/mcp` endpoint is open to anyone with the URL — the 12 access-tier-gated characters (see below) stay gated either way, since that's enforced independently of this key. |
 | `UNLOCKED_CHARACTERS` | No | Comma-separated list of character names (matching their `wiki/entities/` page title), or `ALL`, that are currently allowed through the access-tier gate. Unset = everything gated stays locked. See Access tiers below. |
 | `PORT` | No | Set automatically by Render. Defaults to `3000` locally. |
 
@@ -64,33 +64,31 @@ The server listens on `http://localhost:3000`, with the MCP endpoint at
 
 This repo's root `render.yaml` is a Render Blueprint that builds this
 subfolder as a free-tier web service. From the Render dashboard: **New →
-Blueprint**, connect the repo, and it will prompt for the `MCP_API_KEY`
-secret (generate one yourself, e.g. `openssl rand -base64 24`, or ask Claude
-to generate one — never commit it to the repo).
+Blueprint**, connect the repo. `MCP_API_KEY` is optional — leave it unset
+for an open endpoint (the current setup), or set one later (Environment tab)
+to require auth again; either way it's never committed to the repo.
 
 Render's free plan spins the service down after inactivity; the first
 request after idle time takes ~30–50s to wake it back up.
 
 ## Connecting to Claude
 
+With `MCP_API_KEY` unset (the current default), no auth is needed at all —
+just the plain URL.
+
 **Claude Code CLI:**
 
 ```bash
-claude mcp add --transport http naruto-wiki https://<your-service>.onrender.com/mcp \
-  --header "Authorization: Bearer <your MCP_API_KEY>"
+claude mcp add --transport http naruto-wiki https://<your-service>.onrender.com/mcp
 ```
 
-**Claude.ai / Claude Desktop:** Settings → Connectors → Add custom connector.
-This dialog only takes a single URL field with no custom-header option, so
-the bearer-token header from the CLI example above won't work here — the
-setup flow will just show "Couldn't determine server settings" against a
-bare 401. Instead, paste the key directly into the URL as a query parameter:
+**Claude.ai / Claude Desktop:** Settings → Connectors → Add custom connector,
+paste `https://<your-service>.onrender.com/mcp`. Remember to also toggle the
+connector's tools on for the specific chat you're using (bottom of the chat
+box, tools/search menu) — a connector can be "linked" in Settings without
+being enabled for a given conversation.
 
-```
-https://<your-service>.onrender.com/mcp?key=<your MCP_API_KEY>
-```
-
-Once added, remember to also toggle the connector's tools on for the
-specific chat you're using (bottom of the chat box, tools/search menu) — a
-connector can be "linked" in Settings without being enabled for a given
-conversation.
+If `MCP_API_KEY` is set (auth re-enabled), the CLI needs a
+`--header "Authorization: Bearer <key>"` flag, and claude.ai — whose dialog
+has no header field — needs the key appended to the URL instead:
+`.../mcp?key=<key>`.
