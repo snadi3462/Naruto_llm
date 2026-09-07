@@ -254,3 +254,18 @@ the very start of the file, which silently broke the server's frontmatter regex 
 those files. Fixed by stripping a leading BOM before parsing. Verified against all 12
 characters post-fix: locked by default, and `UNLOCKED_CHARACTERS` grants access
 per-character across wiki and raw copies alike.
+
+## [2026-09-07] schema | Access tiers extended to all 45 entity pages
+
+At the user's request, extended `access_tier: restricted` from the original 12 characters
+to every remaining `wiki/entities/*.md` page (33 more — the full non-Hokage cast: Akamaru,
+Asuma Sarutobi, Chōji Akimichi, Deidara, Hidan, Himawari Uzumaki, Hinata Hyuga, Ino
+Yamanaka, Iruka Umino, Kakuzu, Kawaki, Kiba Inuzuka, Kisame Hoshigaki, Konan, Kurama,
+Kurenai Yūhi, Kushina Uzumaki, Madara Uchiha, Nagato, Neji Hyūga, Obito Uchiha, Orochimaru,
+Rin Nohara, Rock Lee, Sai, Sarada Uchiha, Sasori, Shikamaru Nara, Shino Aburame, Tenten,
+Yahiko, Yamato, Zetsu). No code changes were needed — the server already derives the
+restricted set dynamically from frontmatter rather than a hardcoded list, so tagging the
+remaining pages was sufficient on its own. Concept pages ([[Team 7]], [[Team 8]], [[Team
+10]], [[Team Guy]], [[Akatsuki]]) and source-summary/index/log pages were deliberately left
+untagged — the access-tier system only applies to per-character identity pages, not
+pages that merely discuss multiple characters.

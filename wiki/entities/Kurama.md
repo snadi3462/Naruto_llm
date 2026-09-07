@@ -1,8 +1,9 @@
 ﻿---
 type: entity
 tags: [naruto, character, tailed-beast]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 sources: ["[[Naruto Uzumaki (source)]]", "[[Naruto Characters (aniSearch)]]", "[[Sakura Haruno (source)]]", "[[Ino Yamanaka (source)]]"]
 ---
 

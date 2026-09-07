@@ -1,8 +1,9 @@
 ﻿---
 type: entity
 tags: [naruto, character, deceased]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 sources: ["[[Madara Uchiha (source)]]", "[[Zetsu (source)]]", "[[Nagato (source)]]", "[[Yahiko (source)]]", "[[Hashirama Senju (source)]]", "[[Tobirama Senju (source)]]"]
 ---
 

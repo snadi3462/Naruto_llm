@@ -1,8 +1,9 @@
 ﻿---
 type: entity
 tags: [naruto, character, boruto-era]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 sources: ["[[Sasuke Uchiha (source)]]", "[[Sakura Haruno (source)]]", "[[List of Naruto characters]]"]
 ---
 

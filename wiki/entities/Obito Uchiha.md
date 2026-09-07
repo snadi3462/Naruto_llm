@@ -1,8 +1,9 @@
 ﻿---
 type: entity
 tags: [naruto, character]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 sources: ["[[Kakashi Hatake (source)]]", "[[Naruto Uzumaki (source)]]", "[[Madara Uchiha (source)]]", "[[Zetsu (source)]]"]
 ---
 

@@ -1,8 +1,9 @@
 ﻿---
 type: entity
 tags: [naruto, character, stub]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source)]]", "[[Chōji Akimichi (source)]]", "[[Asuma Sarutobi (source)]]", "[[Ino Yamanaka (source)]]", "[[Neji Hyūga (source)]]"]
 ---
 
