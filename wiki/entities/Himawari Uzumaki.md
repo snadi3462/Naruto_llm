@@ -1,9 +1,8 @@
 ﻿---
 type: entity
 tags: [naruto, character, boruto-era]
-access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-07
+updated: 2026-09-04
 sources: ["[[Sakura Haruno (source)]]", "[[Naruto Uzumaki (source)]]", "[[Ino Yamanaka (source)]]"]
 ---
 

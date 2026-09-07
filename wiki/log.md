@@ -269,3 +269,16 @@ remaining pages was sufficient on its own. Concept pages ([[Team 7]], [[Team 8]]
 10]], [[Team Guy]], [[Akatsuki]]) and source-summary/index/log pages were deliberately left
 untagged — the access-tier system only applies to per-character identity pages, not
 pages that merely discuss multiple characters.
+
+## [2026-09-07] schema | Correction: reverted access tiers back to the original 12
+
+The previous entry misread the user's intent — the goal was always to restrict *only* the
+original 12 characters (Team 7 core + mentors + full Hokage line) and leave everyone else
+readable by default, not to lock the entire cast. Removed `access_tier: restricted` from
+the 33 pages tagged in the prior entry, restoring them to unrestricted and reverting their
+`updated` date back to 2026-09-04 since no real content changed. The 12 original pages
+([[Naruto Uzumaki]], [[Sasuke Uchiha]], [[Sakura Haruno]], [[Kakashi Hatake]], [[Jiraiya]],
+[[Tsunade]], [[Might Guy]], [[Itachi Uchiha]], [[Hashirama Senju]], [[Tobirama Senju]],
+[[Hiruzen Sarutobi]], [[Minato Namikaze]]) are untouched and remain the only gated
+characters. No server code changes needed, same as before — the restricted set is derived
+from frontmatter, so removing the tag from a page is sufficient on its own.

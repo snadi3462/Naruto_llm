@@ -1,9 +1,8 @@
 ﻿---
 type: entity
 tags: [naruto, character, deceased]
-access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-07
+updated: 2026-09-04
 sources: ["[[Konan (source)]]", "[[Nagato (source)]]", "[[Yahiko (source)]]"]
 ---
 

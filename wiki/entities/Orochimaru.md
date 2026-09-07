@@ -1,9 +1,8 @@
 ﻿---
 type: entity
 tags: [naruto, character]
-access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-07
+updated: 2026-09-04
 sources: ["[[Orochimaru (source)]]", "[[Tsunade (source)]]", "[[Yamato (source)]]", "[[Sai (source)]]", "[[Akatsuki (source)]]", "[[Hiruzen Sarutobi (source)]]"]
 ---
 
