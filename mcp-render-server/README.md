@@ -21,7 +21,7 @@ All file access is sandboxed to the vault root and restricted to `.md` files;
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `OBSIDIAN_VAULT_PATH` | No | Absolute path to the vault. Defaults to the parent of this folder (`..`), which is correct when Render's Root Directory is set to `mcp-render-server`. |
-| `MCP_API_KEY` | Recommended | If set, every request to `/mcp` must include `Authorization: Bearer <key>`, or it's rejected with 401. If unset, the endpoint is open to anyone with the URL. |
+| `MCP_API_KEY` | Recommended | If set, every request to `/mcp` must either send `Authorization: Bearer <key>` or a `?key=<key>` query parameter, or it's rejected with 401. If unset, the endpoint is open to anyone with the URL. |
 | `UNLOCKED_CHARACTERS` | No | Comma-separated list of character names (matching their `wiki/entities/` page title), or `ALL`, that are currently allowed through the access-tier gate. Unset = everything gated stays locked. See Access tiers below. |
 | `PORT` | No | Set automatically by Render. Defaults to `3000` locally. |
 
@@ -80,7 +80,17 @@ claude mcp add --transport http naruto-wiki https://<your-service>.onrender.com/
   --header "Authorization: Bearer <your MCP_API_KEY>"
 ```
 
-**Claude.ai / Claude Desktop:** Settings → Connectors → Add custom connector,
-paste `https://<your-service>.onrender.com/mcp`. If the dialog doesn't expose
-a custom-header field, the bearer-token auth above won't work there — swap
-the auth check in `src/index.ts` for a `?key=` query parameter instead.
+**Claude.ai / Claude Desktop:** Settings → Connectors → Add custom connector.
+This dialog only takes a single URL field with no custom-header option, so
+the bearer-token header from the CLI example above won't work here — the
+setup flow will just show "Couldn't determine server settings" against a
+bare 401. Instead, paste the key directly into the URL as a query parameter:
+
+```
+https://<your-service>.onrender.com/mcp?key=<your MCP_API_KEY>
+```
+
+Once added, remember to also toggle the connector's tools on for the
+specific chat you're using (bottom of the chat box, tools/search menu) — a
+connector can be "linked" in Settings without being enabled for a given
+conversation.

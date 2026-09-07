@@ -230,16 +230,20 @@ function buildServer(): McpServer {
   return server;
 }
 
+function isAuthorized(req: express.Request): boolean {
+  if (!API_KEY) return true;
+  if (req.header("authorization") === `Bearer ${API_KEY}`) return true;
+  if (req.query.key === API_KEY) return true;
+  return false;
+}
+
 const app = express();
 app.use(express.json());
 
 app.post("/mcp", async (req, res) => {
-  if (API_KEY) {
-    const auth = req.header("authorization");
-    if (auth !== `Bearer ${API_KEY}`) {
-      res.status(401).json({ error: "Unauthorized" });
-      return;
-    }
+  if (!isAuthorized(req)) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
   }
 
   const server = buildServer();
@@ -263,7 +267,11 @@ app.post("/mcp", async (req, res) => {
   }
 });
 
-app.get("/mcp", (_req, res) => {
+app.get("/mcp", (req, res) => {
+  if (!isAuthorized(req)) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
   res.status(405).json({ error: "Method not allowed. Use POST for MCP requests." });
 });
 
