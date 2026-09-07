@@ -10,6 +10,7 @@ const VAULT_PATH = process.env.OBSIDIAN_VAULT_PATH
   : path.resolve(process.cwd(), "..");
 
 const API_KEY = process.env.MCP_API_KEY;
+const BYPASS_ACCESS_TIERS = process.env.BYPASS_ACCESS_TIERS === "true";
 
 async function scanDirectory(directory: string, onFile: (fullPath: string) => Promise<void> | void) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
@@ -35,6 +36,8 @@ async function scanDirectory(directory: string, onFile: (fullPath: string) => Pr
 // since those can't carry the same frontmatter (raw/ is immutable).
 async function getRestrictedCharacterNames(): Promise<Set<string>> {
   const restricted = new Set<string>();
+  if (BYPASS_ACCESS_TIERS) return restricted;
+
   const entitiesDir = path.join(VAULT_PATH, "wiki", "entities");
 
   let entries: string[];
@@ -285,5 +288,8 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`Obsidian MCP server running on port ${PORT}, serving vault at ${VAULT_PATH}`);
   if (!API_KEY) {
     console.warn("Warning: MCP_API_KEY is not set. The /mcp endpoint is unauthenticated.");
+  }
+  if (BYPASS_ACCESS_TIERS) {
+    console.warn("Warning: BYPASS_ACCESS_TIERS is true. Access tiers are disabled — every character is readable.");
   }
 });

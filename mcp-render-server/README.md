@@ -4,6 +4,14 @@ A minimal [Model Context Protocol](https://modelcontextprotocol.io) server that
 exposes the `raw/`, `wiki/`, and `CLAUDE.md` files of the parent Obsidian vault
 to any MCP-compatible Claude client, over Streamable HTTP.
 
+The same codebase deploys as **two separate Render services** (see
+`render.yaml`), differing only in one env var:
+
+| Service | Access tiers | Use for |
+| --- | --- | --- |
+| `mcp-render-server` | Enforced — the 12 gated characters stay locked until unlocked via `UNLOCKED_CHARACTERS` | The connector you share around / use day to day |
+| `mcp-render-server-full` | Disabled (`BYPASS_ACCESS_TIERS=true`) — everything readable, no gating at all | Your own private/admin connector with unrestricted access |
+
 ## Tools exposed
 
 | Tool | Description |
@@ -22,7 +30,8 @@ All file access is sandboxed to the vault root and restricted to `.md` files;
 | --- | --- | --- |
 | `OBSIDIAN_VAULT_PATH` | No | Absolute path to the vault. Defaults to the parent of this folder (`..`), which is correct when Render's Root Directory is set to `mcp-render-server`. |
 | `MCP_API_KEY` | No (currently unset) | If set, every request to `/mcp` must either send `Authorization: Bearer <key>` or a `?key=<key>` query parameter, or it's rejected with 401. Currently unset by choice, so the `/mcp` endpoint is open to anyone with the URL — the 12 access-tier-gated characters (see below) stay gated either way, since that's enforced independently of this key. |
-| `UNLOCKED_CHARACTERS` | No | Comma-separated list of character names (matching their `wiki/entities/` page title), or `ALL`, that are currently allowed through the access-tier gate. Unset = everything gated stays locked. See Access tiers below. |
+| `UNLOCKED_CHARACTERS` | No | Comma-separated list of character names (matching their `wiki/entities/` page title), or `ALL`, that are currently allowed through the access-tier gate. Unset = everything gated stays locked. Ignored entirely if `BYPASS_ACCESS_TIERS` is true. See Access tiers below. |
+| `BYPASS_ACCESS_TIERS` | No | If `"true"`, access tiers are disabled entirely — every character is readable regardless of frontmatter or `UNLOCKED_CHARACTERS`. This is what makes `mcp-render-server-full` behave differently from `mcp-render-server` despite being the same code. |
 | `PORT` | No | Set automatically by Render. Defaults to `3000` locally. |
 
 ## Access tiers

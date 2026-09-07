@@ -12,3 +12,19 @@ services:
         value: 22.10.0
       - key: MCP_API_KEY
         sync: false
+
+  - type: web
+    name: mcp-render-server-full
+    runtime: node
+    plan: free
+    rootDir: mcp-render-server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.10.0
+      - key: BYPASS_ACCESS_TIERS
+        value: "true"
+      - key: MCP_API_KEY
+        sync: false
