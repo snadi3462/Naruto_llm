@@ -275,7 +275,11 @@ app.get("/mcp", (req, res) => {
     res.status(401).json({ error: "Unauthorized" });
     return;
   }
-  res.status(405).json({ error: "Method not allowed. Use POST for MCP requests." });
+  // Some MCP clients probe with a plain GET before ever sending a POST. This server is
+  // stateless (no server-initiated SSE stream to open), so there's nothing to stream back,
+  // but answering 200 here — instead of 405 — lets that reachability probe succeed instead
+  // of being mistaken for an auth or server-down failure.
+  res.status(200).json({ name: "obsidian-mcp", transport: "streamable-http", note: "Use POST for MCP requests." });
 });
 
 app.get("/", (_req, res) => {
