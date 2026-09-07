@@ -29,6 +29,57 @@ async function scanDirectory(directory: string, onFile: (fullPath: string) => Pr
   }
 }
 
+// Access tiers: a wiki/entities/*.md page with `access_tier: restricted` in its
+// frontmatter gates that character's data. The wiki frontmatter is the single source of
+// truth; this also covers the matching wiki/sources/ and raw/ files by character name,
+// since those can't carry the same frontmatter (raw/ is immutable).
+async function getRestrictedCharacterNames(): Promise<Set<string>> {
+  const restricted = new Set<string>();
+  const entitiesDir = path.join(VAULT_PATH, "wiki", "entities");
+
+  let entries: string[];
+  try {
+    entries = await fs.readdir(entitiesDir);
+  } catch {
+    return restricted;
+  }
+
+  for (const entry of entries) {
+    if (!entry.endsWith(".md")) continue;
+
+    try {
+      const raw = await fs.readFile(path.join(entitiesDir, entry), "utf8");
+      const content = raw.charCodeAt(0) === 0xfeff ? raw.slice(1) : raw;
+      const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (frontmatter && /^access_tier:\s*restricted\s*$/m.test(frontmatter[1])) {
+        restricted.add(entry.slice(0, -3));
+      }
+    } catch {
+      // Ignore files that cannot be read
+    }
+  }
+
+  return restricted;
+}
+
+function characterKeyForPath(relPath: string): string | null {
+  const normalized = relPath.split(path.sep).join("/");
+  const base = path.basename(normalized, ".md");
+
+  if (normalized.startsWith("wiki/entities/")) return base;
+  if (normalized.startsWith("wiki/sources/")) return base.replace(/ \(source\)$/, "");
+  if (normalized.startsWith("raw/")) return base;
+  return null;
+}
+
+function isUnlocked(characterName: string): boolean {
+  const unlocked = process.env.UNLOCKED_CHARACTERS;
+  if (!unlocked) return false;
+
+  const list = unlocked.split(",").map((s) => s.trim().toLowerCase());
+  return list.includes("all") || list.includes(characterName.toLowerCase());
+}
+
 function buildServer(): McpServer {
   const server = new McpServer({
     name: "obsidian-mcp",
@@ -53,6 +104,7 @@ function buildServer(): McpServer {
       inputSchema: {},
     },
     async () => {
+      const restrictedNames = await getRestrictedCharacterNames();
       const notes: string[] = [];
 
       await scanDirectory(VAULT_PATH, (fullPath) => {
@@ -61,11 +113,17 @@ function buildServer(): McpServer {
 
       notes.sort();
 
+      const lines = notes.map((notePath) => {
+        const key = characterKeyForPath(notePath);
+        const locked = key !== null && restrictedNames.has(key) && !isUnlocked(key);
+        return locked ? `${notePath} [restricted]` : notePath;
+      });
+
       return {
         content: [
           {
             type: "text",
-            text: notes.length > 0 ? notes.join("\n") : "No Markdown notes found in the vault.",
+            text: lines.length > 0 ? lines.join("\n") : "No Markdown notes found in the vault.",
           },
         ],
       };
@@ -98,6 +156,22 @@ function buildServer(): McpServer {
         };
       }
 
+      const key = characterKeyForPath(path.relative(vaultRoot, fullPath));
+      if (key !== null) {
+        const restrictedNames = await getRestrictedCharacterNames();
+        if (restrictedNames.has(key) && !isUnlocked(key)) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: `Access restricted: "${key}" is behind an access tier and hasn't been unlocked. Ask the vault owner to add "${key}" (or "ALL") to the UNLOCKED_CHARACTERS environment variable on Render to grant access.`,
+              },
+            ],
+            isError: true,
+          };
+        }
+      }
+
       try {
         const content = await fs.readFile(fullPath, "utf8");
         return { content: [{ type: "text", text: content }] };
@@ -119,14 +193,21 @@ function buildServer(): McpServer {
       },
     },
     async ({ query }) => {
+      const restrictedNames = await getRestrictedCharacterNames();
       const results: string[] = [];
       const searchQuery = query.toLowerCase();
 
       await scanDirectory(VAULT_PATH, async (fullPath) => {
+        const relPath = path.relative(VAULT_PATH, fullPath);
+        const key = characterKeyForPath(relPath);
+        if (key !== null && restrictedNames.has(key) && !isUnlocked(key)) {
+          return; // Skip restricted, locked content entirely
+        }
+
         try {
           const content = await fs.readFile(fullPath, "utf8");
           if (content.toLowerCase().includes(searchQuery)) {
-            results.push(path.relative(VAULT_PATH, fullPath));
+            results.push(relPath);
           }
         } catch {
           // Ignore files that cannot be read

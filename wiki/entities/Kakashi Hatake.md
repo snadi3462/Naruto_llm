@@ -1,8 +1,9 @@
 ﻿---
 type: entity
 tags: [naruto, character]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-07
 sources: ["[[List of Naruto characters]]", "[[Naruto Uzumaki (source)]]", "[[Kakashi Hatake (source)]]"]
 ---
 

@@ -22,7 +22,33 @@ All file access is sandboxed to the vault root and restricted to `.md` files;
 | --- | --- | --- |
 | `OBSIDIAN_VAULT_PATH` | No | Absolute path to the vault. Defaults to the parent of this folder (`..`), which is correct when Render's Root Directory is set to `mcp-render-server`. |
 | `MCP_API_KEY` | Recommended | If set, every request to `/mcp` must include `Authorization: Bearer <key>`, or it's rejected with 401. If unset, the endpoint is open to anyone with the URL. |
+| `UNLOCKED_CHARACTERS` | No | Comma-separated list of character names (matching their `wiki/entities/` page title), or `ALL`, that are currently allowed through the access-tier gate. Unset = everything gated stays locked. See Access tiers below. |
 | `PORT` | No | Set automatically by Render. Defaults to `3000` locally. |
+
+## Access tiers
+
+Any `wiki/entities/<Name>.md` page can carry `access_tier: restricted` in its
+frontmatter (see `CLAUDE.md`). The server reads that frontmatter on every
+request — it's the single source of truth for who's gated, no server-side
+list to keep in sync. For a restricted character, all three of their files
+are gated by name: `wiki/entities/<Name>.md`, `wiki/sources/<Name>
+(source).md`, and `raw/<Name>.md`.
+
+- `read_note` on a locked file returns an `isError` result explaining it's
+  restricted, instead of the content.
+- `search_notes` skips locked files entirely — they never appear in results,
+  matching or not.
+- `list_notes` still lists locked files' paths (so their existence isn't a
+  secret) but appends `[restricted]` to the line instead of hiding it.
+
+Access is granted by adding the character's name (exactly matching their
+entity page title) to `UNLOCKED_CHARACTERS` in the Render dashboard —
+**never** as something Claude can set itself, since the whole point is that
+only the vault owner controls the unlock. `ALL` unlocks every gated
+character at once. This is deliberately not instant: changing an env var on
+Render triggers a redeploy, so there's a short delay between granting access
+and it taking effect — that's the tradeoff for the gate living somewhere
+outside Claude's own tool surface.
 
 ## Local development
 

@@ -228,3 +228,29 @@ link the new pages rather than leaving them as plain-text mentions.
 
 Removed Hashirama Senju and Tobirama Senju from `wiki/index.md`'s open-threads list (now
 paged) and added Konohamaru Sarutobi (Hiruzen's grandson, still unpaged) in their place.
+
+## [2026-09-07] schema | Access tiers added to 12 characters
+
+Added `access_tier: restricted` to the frontmatter of 12 entity pages, at the user's
+request, to gate their data behind the `mcp-render-server`'s access-tier enforcement:
+[[Naruto Uzumaki]], [[Sasuke Uchiha]], [[Sakura Haruno]], [[Kakashi Hatake]], [[Jiraiya]],
+[[Tsunade]], [[Might Guy]], [[Itachi Uchiha]] (Team 7 core + their mentors), plus the full
+Hokage line not already covered — [[Hashirama Senju]], [[Tobirama Senju]], [[Hiruzen
+Sarutobi]], [[Minato Namikaze]].
+
+Documented the new `access_tier` frontmatter field in `CLAUDE.md`'s Page format section.
+Implemented enforcement in `mcp-render-server/src/index.ts`: the server reads
+`wiki/entities/*.md` frontmatter at request time (the single source of truth), and gates
+the matching `wiki/sources/` and `raw/` files by character name too, since those can't
+carry the same frontmatter. `read_note` returns an error on a locked file, `search_notes`
+skips locked files entirely, and `list_notes` still shows their path with a `[restricted]`
+marker. Access is granted per-character via the `UNLOCKED_CHARACTERS` environment variable
+on Render — deliberately not something Claude itself can set, so the gate can't be
+self-bypassed.
+
+Caught and fixed a bug during testing: several of the earlier-session entity pages (Naruto,
+Sasuke, Sakura, Kakashi, Jiraiya, Tsunade, Might Guy, Itachi, Minato) carry a UTF-8 BOM at
+the very start of the file, which silently broke the server's frontmatter regex on exactly
+those files. Fixed by stripping a leading BOM before parsing. Verified against all 12
+characters post-fix: locked by default, and `UNLOCKED_CHARACTERS` grants access
+per-character across wiki and raw copies alike.

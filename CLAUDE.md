@@ -45,6 +45,7 @@ Every wiki page starts with YAML frontmatter:
 ---
 type: source | entity | concept | synthesis
 tags: []
+access_tier: restricted   # optional — omit for normal pages, see Access tiers below
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 sources: []            # wikilinks to wiki/sources/ pages this page draws on
@@ -55,6 +56,16 @@ Body is plain markdown. Entity and concept pages should end with a `## Sources` 
 listing the `wiki/sources/` pages they were built or updated from. Note contradictions
 inline where they occur (e.g. "Per [[Source A]] X happened in 1998; [[Source B]] gives 2001 —
 unresolved") rather than silently picking one.
+
+### Access tiers
+
+An entity page can carry `access_tier: restricted` in its frontmatter to gate that
+character's data behind the `mcp-render-server`'s `UNLOCKED_CHARACTERS` environment
+variable — see `mcp-render-server/README.md` for how the server enforces this (it also
+covers the matching `wiki/sources/` and `raw/` files for that character by name). Absence
+of the field means the page is unrestricted; this is the default for all pages. Setting
+this field is a deliberate, user-directed action — don't add `access_tier: restricted` to
+a page unless the user asks for that character to be gated.
 
 ## Operations
 
