@@ -16,11 +16,12 @@ series.
 
 Orphaned in the Second Shinobi World War, Yahiko banded together with Konan and later
 [[Nagato]], vowing to become strong enough to protect them and end Amegakure's suffering.
-Trained by [[Jiraiya]], he became the group's natural, charismatic public leader — though he
-privately always deferred to Nagato as the one who would achieve "true peace" through his
-Rinnegan. Personality-wise resembles [[Naruto Uzumaki]] in his refusal to give up on his
-dream, but with a harder "eye for an eye" edge and a self-acknowledged god complex about
-ending war through force if necessary.
+Trained by a wandering Konoha shinobi (see [[Jiraiya]] — access restricted), he became the
+group's natural, charismatic public leader — though he privately always deferred to Nagato as
+the one who would achieve "true peace" through his Rinnegan. Personality-wise resembles a
+certain future shinobi (see [[Naruto Uzumaki]] — access restricted) in his refusal to give up
+on his dream, but with a harder "eye for an eye" edge and a self-acknowledged god complex
+about ending war through force if necessary.
 
 ## Death
 
@@ -33,10 +34,10 @@ to entrust Nagato with their shared mission of peace.
 
 Yahiko's corpse becomes the Deva Path of Nagato's Six Paths of Pain — the body "Pain" most
 often speaks and acts through, since both Nagato and Konan continued to see Yahiko as
-Akatsuki's true leader even after his death. The Deva Path goes on to kill Hanzō, fight
-[[Jiraiya]], and destroy Konoha during Pain's Assault, before being the last Path defeated by
-[[Naruto Uzumaki]]. Buried alongside Nagato at a shrine in Amegakure after Konan retrieves
-both bodies.
+Akatsuki's true leader even after his death. The Deva Path goes on to kill Hanzō, fight a
+formidable intruder, and destroy Konoha during Pain's Assault, before being the last Path
+defeated (see [[Jiraiya]], [[Naruto Uzumaki]] — access restricted). Buried alongside Nagato
+at a shrine in Amegakure after Konan retrieves both bodies.
 
 ## Sources
 

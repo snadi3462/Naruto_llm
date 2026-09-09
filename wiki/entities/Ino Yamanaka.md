@@ -8,7 +8,7 @@ sources: ["[[Ino Yamanaka (source)]]", "[[Sai (source)]]", "[[Team 10 (Asuma) (s
 
 # Ino Yamanaka
 
-Yamanaka clan kunoichi and [[Team 10]] member; [[Sakura Haruno]]'s childhood friend/rival; [[Sai]]'s wife; head of the Konoha Barrier Team and Shikamaru Nara's telepathic communications officer during the current crisis.
+Yamanaka clan kunoichi and [[Team 10]] member; a childhood friend/rival (see [[Sakura Haruno]] — access restricted); [[Sai]]'s wife; head of the Konoha Barrier Team and Shikamaru Nara's telepathic communications officer during the current crisis.
 
 ## Background and personality
 

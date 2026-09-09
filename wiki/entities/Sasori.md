@@ -15,7 +15,8 @@ restricted).
 
 ## Background and personality
 
-Orphaned young (his parents killed by Sakumo Hatake, [[Kakashi Hatake]]'s father), Sasori was
+Orphaned young (his parents killed by Sakumo Hatake, a Konoha jōnin's father — see
+[[Kakashi Hatake]], access restricted), Sasori was
 taught puppetry by his grandmother Chiyo as emotional therapy — but building puppet replicas
 of his dead parents only deepened his emotional emptiness once he realized they couldn't give
 him real parental love. Grew cold and nihilistic, converting his own body into a puppet in

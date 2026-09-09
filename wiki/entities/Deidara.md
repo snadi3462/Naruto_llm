@@ -10,7 +10,7 @@ sources: ["[[Deidara (source)]]", "[[Sasuke Uchiha (source)]]", "[[Sasori (sourc
 
 Former Iwagakure Explosion Corps member, [[Akatsuki]]'s youngest member — an explosive-clay
 artist partnered first with [[Sasori]], then Tobi (Obito). **Deceased** — died detonating
-himself against [[Sasuke Uchiha]].
+himself against a rival (see [[Sasuke Uchiha]] — access restricted).
 
 ## Background and personality
 

@@ -16,7 +16,8 @@ spy, errand-runner, and (secretly) the ancient mastermind behind its entire true
 
 Originally one of Kaguya Ōtsutsuki's Infinite Tsukuyomi victims, White Zetsu was pulled from
 the Demonic Statue of the Outer Path by Black Zetsu and grown from [[Madara Uchiha]]'s
-cultivation of Hashirama Senju's DNA — Madara believed he had created an artificial human
+cultivation of an early Hokage's DNA (see [[Hashirama Senju]] — access restricted) — Madara
+believed he had created an artificial human
 army, unaware Black Zetsu had engineered the whole process. Black Zetsu itself had spent years
 hidden inside Madara's own body, letting Madara believe it was a manifestation of his own
 will — see [[Madara Uchiha]] for the full deception. Zetsu cared for and befriended a young
@@ -34,13 +35,15 @@ a single entity able to disagree internally while still cooperating.
 
 Never a front-line fighter; instead specializes in reconnaissance, disguise (a "flawless"
 Substitute Technique that can imitate anyone), and body disposal (literally devouring dead
-Akatsuki members to protect the organization's secrets). Being composed of Hashirama's cells
-grants near-total regeneration and limited Wood Release.
+Akatsuki members to protect the organization's secrets). Being composed of transplanted cells
+(see [[Hashirama Senju]] — access restricted) grants near-total regeneration and limited Wood
+Release.
 
 ## Death
 
-During the Fourth Shinobi World War, White Zetsu is used as a live test subject for [[Sasuke
-Uchiha]]'s new Mangekyō Sharingan technique and incinerated by Amaterasu — a low-key end
+During the Fourth Shinobi World War, White Zetsu is used as a live test subject for a new
+Uchiha Mangekyō Sharingan technique (see [[Sasuke Uchiha]] — access restricted) and
+incinerated by Amaterasu — a low-key end
 relative to most Akatsuki members, consistent with his non-combat role. Black Zetsu's own
 fate (and true nature as the story's ultimate architect) extends well beyond this source.
 

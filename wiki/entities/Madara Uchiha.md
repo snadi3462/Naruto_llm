@@ -8,10 +8,11 @@ sources: ["[[Madara Uchiha (source)]]", "[[Zetsu (source)]]", "[[Nagato (source)
 
 # Madara Uchiha
 
-Legendary leader of the Uchiha clan, co-founder of Konohagakure alongside his rival-turned-
-friend Hashirama Senju, and the true architect behind the entire Akatsuki/Eye of the Moon
-Plan that [[Obito Uchiha]] later executes in his name. **Deceased** — twice: a faked death
-via Izanagi, then a final, genuine death during the Fourth Shinobi World War.
+Legendary leader of the Uchiha clan, co-founder of Konohagakure alongside a rival-turned-
+friend (see [[Hashirama Senju]] — access restricted), and the true architect behind the
+entire Akatsuki/Eye of the Moon Plan that [[Obito Uchiha]] later executes in his name.
+**Deceased** — twice: a faked death via Izanagi, then a final, genuine death during the
+Fourth Shinobi World War.
 
 Madara is the connective figure tying together most of the wiki's antagonist-side threads:
 [[Obito Uchiha]]'s fall, [[Nagato]]'s Rinnegan and manipulation, and [[Zetsu]]/[[Akatsuki]]'s

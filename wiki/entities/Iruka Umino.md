@@ -8,8 +8,8 @@ sources: ["[[Iruka Umino (source)]]", "[[Naruto Uzumaki (source)]]", "[[Hiruzen 
 
 # Iruka Umino
 
-Academy instructor (later Headmaster) at Konohagakure, and the first adult [[Naruto Uzumaki]]
-genuinely trusted.
+Academy instructor (later Headmaster) at Konohagakure, and the first adult a certain student
+genuinely trusted (see [[Naruto Uzumaki]] — access restricted).
 
 ## Background
 

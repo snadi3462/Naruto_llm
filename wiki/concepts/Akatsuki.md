@@ -58,9 +58,9 @@ Madara himself, was ultimately a pawn in this longer scheme.
 | [[Itachi Uchiha]] | [[Kisame Hoshigaki]] | Deceased — see his page for detail (access restricted) |
 | [[Kisame Hoshigaki]] | [[Itachi Uchiha]] | Deceased — assisted suicide to protect secrets |
 | [[Orochimaru]] | [[Sasori]] (early) | Defected before the main story begins, taking his ring |
-| [[Sasori]] | [[Orochimaru]], then [[Deidara]] | Deceased — killed by Chiyo and Sakura Haruno |
-| [[Deidara]] | [[Sasori]], then Tobi | Deceased — self-detonation against Sasuke Uchiha |
-| [[Kakuzu]] | [[Hidan]] | Deceased — killed by Kakashi Hatake |
+| [[Sasori]] | [[Orochimaru]], then [[Deidara]] | Deceased — killed by Chiyo and a Konoha medic-nin (see [[Sakura Haruno]], access restricted) |
+| [[Deidara]] | [[Sasori]], then Tobi | Deceased — self-detonation against a rival (see [[Sasuke Uchiha]], access restricted) |
+| [[Kakuzu]] | [[Hidan]] | Deceased — killed by a Konoha jōnin (see [[Kakashi Hatake]], access restricted) |
 | [[Hidan]] | [[Kakuzu]] | **Not dead** — buried alive, slowly starving |
 | [[Zetsu]] | (operates without a fixed partner) | White Zetsu deceased; Black Zetsu's fate extends beyond current sources |
 | [[Madara Uchiha]] | — | Deceased (twice — faked, then final) |

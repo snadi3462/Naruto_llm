@@ -8,9 +8,9 @@ sources: ["[[Kisame Hoshigaki (source)]]", "[[Itachi Uchiha (source)]]", "[[Akat
 
 # Kisame Hoshigaki
 
-Former Seven Ninja Swordsmen of the Mist member, [[Itachi Uchiha]]'s [[Akatsuki]] partner —
-"the Monster of the Hidden Mist." **Deceased** — died by assisted suicide to protect
-organizational secrets.
+Former Seven Ninja Swordsmen of the Mist member, an [[Akatsuki]] partner's right hand (see
+[[Itachi Uchiha]] — access restricted) — "the Monster of the Hidden Mist." **Deceased** —
+died by assisted suicide to protect organizational secrets.
 
 ## Background and personality
 
