@@ -12,7 +12,7 @@ Aburame clan member and [[Team 8]]'s insect-user; later an Academy homeroom teac
 
 ## Background and personality
 
-As a child, Shino grew close to an older Root recruit, Torune Aburame, who was given up to Danzō's Root specifically to spare Shino that same fate — a sacrifice Shino processes by breeding insects derived from Torune's own, staying connected to him in the only way he can. Stoic, mysterious, and prone to being called "creepy," Shino rarely shows emotion and holds grudges (notably against Naruto for initially failing to recognize him), but is deeply loyal underneath — helping Hinata train and openly advocating for her confidence when few others do. Mellows visibly by adulthood, laughing and smiling more openly.
+As a child, Shino grew close to an older Root recruit, Torune Aburame, who was given up to Danzō's Root specifically to spare Shino that same fate — a sacrifice Shino processes by breeding insects derived from Torune's own, staying connected to him in the only way he can. Stoic, mysterious, and prone to being called "creepy," Shino rarely shows emotion and holds grudges (notably against a classmate for initially failing to recognize him — see [[Naruto Uzumaki]], access restricted), but is deeply loyal underneath — helping Hinata train and openly advocating for her confidence when few others do. Mellows visibly by adulthood, laughing and smiling more openly.
 
 ## Abilities
 
@@ -25,7 +25,7 @@ Houses a symbiotic breed of insects (kikaichū) that feed on his own chakra in e
 
 ## Status
 
-Reaches the Kawaki & Himawari Academy Arc, still teaching, but the ingested source does not follow him into the *New Era: Part II* crisis chapters — his status during [[Naruto Uzumaki]]'s disappearance is unconfirmed.
+Reaches the Kawaki & Himawari Academy Arc, still teaching, but the ingested source does not follow him into the *New Era: Part II* crisis chapters — his status during that crisis is unconfirmed (see [[Naruto Uzumaki]] — access restricted).
 
 ## Sources
 

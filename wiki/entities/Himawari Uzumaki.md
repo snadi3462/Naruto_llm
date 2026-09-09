@@ -8,9 +8,9 @@ sources: ["[[Sakura Haruno (source)]]", "[[Naruto Uzumaki (source)]]", "[[Ino Ya
 
 # Himawari Uzumaki
 
-Daughter of [[Naruto Uzumaki]] and [[Hinata Hyuga]]; younger sibling of Boruto Uzumaki.
-Named after Neji Hyuga's favorite flower (the sunflower) in tribute to his death protecting
-Naruto and Hinata.
+Daughter of [[Naruto Uzumaki]] (access restricted) and [[Hinata Hyuga]]; younger sibling of
+Boruto Uzumaki. Named after Neji Hyuga's favorite flower (the sunflower) in tribute to his
+death protecting his loved ones.
 
 ## Later significance — corroborated, mechanism still unresolved
 

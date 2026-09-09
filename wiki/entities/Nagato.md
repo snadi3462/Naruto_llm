@@ -17,9 +17,9 @@ Konoha.
 Orphaned during the Second Shinobi World War (his parents killed defending him from Konoha
 shinobi, whom young Nagato then killed in grief using a Rinnegan he didn't know he had —
 secretly implanted by [[Madara Uchiha]] as an infant), Nagato was taken in by fellow orphans
-[[Yahiko]] and [[Konan]]. The three were trained by [[Jiraiya]], who came to believe Nagato
-was the prophesied "Child of the Prophecy" destined to bring peace, and founded [[Akatsuki]]
-together with that goal.
+[[Yahiko]] and [[Konan]]. The three were trained by a wandering Konoha shinobi (see
+[[Jiraiya]] — access restricted), who came to believe Nagato was destined to bring peace, and
+founded [[Akatsuki]] together with that goal.
 
 ## Personality
 
@@ -29,8 +29,9 @@ responsibility to save the world from itself. Yahiko's death breaks his early pa
 concludes the world will only value peace after experiencing catastrophic shared pain, and
 becomes willing to kill on a mass scale to enforce that lesson — while still showing genuine
 courtesy to strong opponents and mourning Akatsuki members who die. Reconciles with his
-former ideals after meeting [[Naruto Uzumaki]], whose example convinces him his conviction in
-Akatsuki's methods was itself a corruption of what he'd once believed.
+former ideals after a pivotal encounter that convinces him his conviction in Akatsuki's
+methods was itself a corruption of what he'd once believed (see [[Naruto Uzumaki]] — access
+restricted).
 
 ## Death — from Yahiko's to his own
 
@@ -40,11 +41,12 @@ kunai first, entrusting him with their shared mission. Nagato incorporates Yahik
 into his Six Paths of Pain technique as the Deva Path, the public face of "Pain" for the rest
 of the story.
 
-**Nagato's own death**: as Pain, he nearly destroys Konoha during Pain's Assault, killing
-[[Jiraiya]] and devastating the village, before [[Naruto Uzumaki]] talks him down. Recognizing
-the person he once was, Nagato sacrifices his own life using the Samsara of Heavenly Life
-Technique to revive everyone he killed in the attack, entrusting Naruto with the peace he
-himself failed to achieve.
+**Nagato's own death**: as Pain, he nearly destroys Konoha during Pain's Assault and
+devastates the village before being talked down (see [[Jiraiya]], [[Naruto Uzumaki]] — access
+restricted, for what happens to each of them in this arc). Recognizing the person he once
+was, Nagato sacrifices his own life using the Samsara of Heavenly Life Technique to revive
+everyone he killed in the attack, entrusting the peace he himself failed to achieve to the
+person who reached him.
 
 ## Abilities
 

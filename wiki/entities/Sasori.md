@@ -10,7 +10,8 @@ sources: ["[[Sasori (source)]]", "[[Orochimaru (source)]]", "[[Deidara (source)]
 
 Former Sunagakure Puppet Brigade member, "Sasori of the Red Sand" — [[Akatsuki]]'s puppet
 master, originally partnered with [[Orochimaru]] and later [[Deidara]]. **Deceased** — killed
-by his own grandmother Chiyo and [[Sakura Haruno]].
+by his own grandmother Chiyo and a Konoha medic-nin (see [[Sakura Haruno]] — access
+restricted).
 
 ## Background and personality
 
@@ -32,8 +33,8 @@ Kazekage.
 
 ## Death
 
-Confronted by his own grandmother Chiyo and [[Sakura Haruno]] during the Kazekage Rescue
-Mission, Sasori is ultimately killed when Chiyo impales his core (his one remaining living
+Confronted by his own grandmother Chiyo and a Konoha medic-nin (see [[Sakura Haruno]] —
+access restricted) during the Kazekage Rescue Mission, Sasori is ultimately killed when Chiyo impales his core (his one remaining living
 part) using his own first puppets — replicas of his dead parents, "Mother" and "Father." In
 his final moments, moved by Kankurō's later assertion that art lives on through what one
 pours their soul into, Sasori entrusts those same puppets to Kankurō, softening his nihilism

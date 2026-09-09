@@ -12,7 +12,7 @@ Team Guy's weapons and fūinjutsu specialist.
 
 ## Background and personality
 
-Dreamed as a child of becoming a legendary kunoichi like [[Tsunade]], and tried to follow her path into medical ninjutsu before her poor chakra control forced her to abandon it — she found her own strength instead in fūinjutsu-based weaponry, a formative lesson in not imitating someone else's path. Strongly opinionated about women's capability in combat (pushing back hard on Neji Hyuga's early skepticism), inquisitive and observant, and often exasperated by teammates [[Rock Lee]] and [[Might Guy]]'s antics — but fiercely loyal underneath, risking herself to rescue Lee during the Chūnin Exams and defending Neji when needed.
+Dreamed as a child of becoming a legendary kunoichi like one of the Sannin (see [[Tsunade]] — access restricted), and tried to follow that path into medical ninjutsu before her poor chakra control forced her to abandon it — she found her own strength instead in fūinjutsu-based weaponry, a formative lesson in not imitating someone else's path. Strongly opinionated about women's capability in combat (pushing back hard on Neji Hyuga's early skepticism), inquisitive and observant, and often exasperated by teammates [[Rock Lee]] and [[Might Guy]]'s antics — but fiercely loyal underneath, risking herself to rescue Lee during the Chūnin Exams and defending Neji when needed.
 
 ## Abilities
 

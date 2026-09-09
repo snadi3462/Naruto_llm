@@ -14,12 +14,12 @@ Mother of [[Naruto Uzumaki]], wife of [[Minato Namikaze]], and the second jinch�
 ## Overview
 
 Nicknamed the "Red Hot-Blooded Habanero." Gave birth to Naruto in a remote, guarded location
-to protect the vulnerable moment when Kurama's seal on her weakened during delivery. Tobi
-exploited exactly this vulnerability, capturing her and ripping Kurama free to attack the
-village. She and Minato both die from the ordeal of protecting Naruto and resealing the fox.
-She knitted Naruto a scarf before her death, which he finds and treasures as an adult in
-*The Last: Naruto the Movie*. She is one of only a handful of jinchūriki known to have
-survived a tailed beast's extraction.
+to protect the vulnerable moment when her tailed-beast seal weakened during delivery. Tobi
+exploited exactly this vulnerability, capturing her and ripping the beast free to attack the
+village. Kushina dies from the ordeal of protecting Naruto and resealing it (see
+[[Minato Namikaze]] — access restricted, for his side of that night). She knitted Naruto a
+scarf before her death, later found and treasured by him. She is one of only a handful of
+jinchūriki known to have survived a tailed beast's extraction.
 
 ## Sources
 

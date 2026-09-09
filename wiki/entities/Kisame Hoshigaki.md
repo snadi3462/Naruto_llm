@@ -18,10 +18,10 @@ Killed his own trusted superior, Fuguki, upon learning Fuguki had betrayed Kirig
 selling secrets — an act that left Kisame disillusioned, believing his entire life and sense
 of duty had been a lie. This disillusionment made him receptive to Obito Uchiha's "world of
 truth" pitch (the Eye of the Moon Plan) when first approached. Loves fighting and is quite
-sadistic, but genuinely deferential to and protective of [[Itachi Uchiha]] once partnered
-with him — the only Akatsuki pairing built on real, if understated, friendship. Believes he
-and Itachi are both "comrade-killers" destined for meaningless deaths, a nihilism Itachi
-gently pushes back against near the end of his own life.
+sadistic, but genuinely deferential to and protective of his partner once paired together
+(see [[Itachi Uchiha]] — access restricted) — the only Akatsuki pairing built on real, if
+understated, friendship. Believes they're both "comrade-killers" destined for meaningless
+deaths, a nihilism his partner gently pushes back against near the end (access restricted).
 
 ## Abilities
 

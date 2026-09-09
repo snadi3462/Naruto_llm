@@ -17,12 +17,12 @@ Childhood friends with [[Asuma Sarutobi]] since their Academy entrance ceremony,
 ## Key facts
 
 - Becomes pregnant with Asuma's child shortly before his death fighting Hidan; gives birth to their daughter, Mirai Sarutobi, and raises her alone.
-- Retires from active shinobi duty after the Fourth Shinobi World War to be a full-time mother — the only one of the four principal Part-I sensei (with [[Might Guy]], [[Kakashi Hatake]], and herself) not defined by a Hokage-adjacent role in later life.
+- Retires from active shinobi duty after the Fourth Shinobi World War to be a full-time mother — the only one of the four principal Part-I sensei not defined by a prominent leadership role in later life (see [[Might Guy]], [[Kakashi Hatake]] — access restricted).
 - Remains a recurring, trusted advisor to her former students as adults — Shino turns to her for teaching advice in the *New Era*.
 
 ## Abilities
 
-A genjutsu prodigy rivaling even Itachi Uchiha, specializing in flora-based illusions (Demonic Illusion: Tree Binding Death) capable of affecting multiple targets simultaneously.
+A genjutsu prodigy rivaling the very best in the village (see [[Itachi Uchiha]] — access restricted), specializing in flora-based illusions (Demonic Illusion: Tree Binding Death) capable of affecting multiple targets simultaneously.
 
 ## Status
 

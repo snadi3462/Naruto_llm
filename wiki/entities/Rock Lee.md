@@ -12,7 +12,7 @@ Team Guy's taijutsu-only prodigy, [[Might Guy]]'s protégé and spiritual succes
 
 ## Background and personality
 
-Unable to use ninjutsu or genjutsu, Lee is mocked in the Academy until [[Might Guy]] takes a special interest in him and dedicates himself to training Lee into a taijutsu master — Lee in turn models his entire appearance and philosophy on Guy's, becoming an even more intense echo of his sensei's "nice guy," never-give-up persona. Deeply honorable: refuses to hold grudges against those who defeat him (including Gaara, who nearly ends his career) and is disgusted by unnecessary cruelty to enemies. Believes hard work can surpass natural genius — a belief validated when his rival/teammate Neji Hyuga, defeated by "failure" Naruto, comes to respect him fully.
+Unable to use ninjutsu or genjutsu, Lee is mocked in the Academy until [[Might Guy]] takes a special interest in him and dedicates himself to training Lee into a taijutsu master — Lee in turn models his entire appearance and philosophy on Guy's, becoming an even more intense echo of his sensei's "nice guy," never-give-up persona. Deeply honorable: refuses to hold grudges against those who defeat him (including Gaara, who nearly ends his career) and is disgusted by unnecessary cruelty to enemies. Believes hard work can surpass natural genius — a belief validated when his rival/teammate Neji Hyuga, defeated by a written-off underdog (see [[Naruto Uzumaki]] — access restricted), comes to respect him fully.
 
 ## Abilities
 
@@ -20,7 +20,7 @@ A taijutsu master of the Strong Fist style; masters progressively more of the Ei
 
 ## Key arcs
 
-- **Chūnin Exams**: nearly loses use of his limbs fighting Gaara with the Reverse Lotus; [[Tsunade]] performs a 50%-survival-odds surgery to save his ninja career, which Lee accepts and survives.
+- **Chūnin Exams**: nearly loses use of his limbs fighting Gaara with the Reverse Lotus; a 50%-survival-odds surgery saves his ninja career (see [[Tsunade]] — access restricted), which Lee accepts and survives.
 - **Sasuke Recovery Mission**: accidentally drinks sake instead of medicine, triggering the Drunken Fist to turn the tide against Kimimaro.
 - **New Era**: reaches jōnin rank, marries (unnamed in this source), and has a son, Metal Lee, whom he and Guy both mentor.
 

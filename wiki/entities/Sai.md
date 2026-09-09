@@ -8,7 +8,7 @@ sources: ["[[Sai (source)]]", "[[Yamato (source)]]", "[[Tsunade (source)]]"]
 
 # Sai
 
-Root-trained shinobi added to [[Team 7]] (as "Team Kakashi") to replace [[Sasuke Uchiha]].
+Root-trained shinobi added to [[Team 7]] (access restricted) as a replacement member.
 Later marries Ino Yamanaka (becoming **Sai Yamanaka**) and becomes Konoha's Anbu Chief.
 
 ## Background
@@ -26,18 +26,20 @@ unfinished picture book depicting their shared history, unable to bring himself 
 
 Introduced as almost totally emotionless, masking blank affect with a small fake smile and
 speaking in blunt, socially disastrous "truths" learned from books rather than experience
-(nicknaming [[Sakura Haruno]] "Ugly" on their first meeting). Gradually — through exposure to
-[[Naruto Uzumaki]]'s devotion to the "traitor" [[Sasuke Uchiha]], and through re-encountering
-Shin's reincarnated corpse during the Fourth Shinobi World War — Sai rediscovers genuine
-emotion: rage at Shin's exploitation, grief at losing him again, and eventually real
-affection, humor, and parental warmth. By adulthood he has fully rejected Root's teachings.
+(nicknaming [[Sakura Haruno]] "Ugly" on their first meeting — access restricted). Gradually —
+through exposure to a teammate's devotion to a "traitor" friend (see [[Naruto Uzumaki]],
+[[Sasuke Uchiha]] — access restricted), and through re-encountering Shin's reincarnated
+corpse during the Fourth Shinobi World War — Sai rediscovers genuine emotion: rage at Shin's
+exploitation, grief at losing him again, and eventually real affection, humor, and parental
+warmth. By adulthood he has fully rejected Root's teachings.
 
 ## Key arcs
 
-- **Tenchi Bridge Reconnaissance Mission**: assigned by Danzō (via [[Tsunade]]) to Team
-  Kakashi under [[Yamato]], secretly tasked with allying with [[Orochimaru]] to destroy
-  Konoha, then with assassinating Sasuke. Has a genuine change of heart mid-mission and
-  chooses to protect Naruto's bond with Sasuke instead.
+- **Tenchi Bridge Reconnaissance Mission**: assigned by Danzō to Team Kakashi under
+  [[Yamato]] (see [[Tsunade]] — access restricted), secretly tasked with allying with
+  [[Orochimaru]] to destroy Konoha, then with assassinating a teammate. Has a genuine change
+  of heart mid-mission and chooses to protect that teammate's bond instead (access
+  restricted).
 - **Fourth Shinobi World War**: fights his own reincarnated "brother" Shin (manipulated by
   Sasori); Shin's soul is freed by seeing Sai's finished picture book, and Sai weeps as his
   body turns to ash.
@@ -46,10 +48,10 @@ affection, humor, and parental warmth. By adulthood he has fully rejected Root's
   incident) and, later, the Kawaki Arc's threats alongside Shikamaru and Amado.
 - **New Era: Part II**: remains one of the most consistently active characters through the
   current crisis — security chief for Shikamaru Nara, who is confirmed **acting/interim
-  Hokage** during [[Naruto Uzumaki]]'s disappearance (Boruto's Return Arc, Mamushi Arc). Sai
-  clashes with the Fire Daimyō's advisor Kobu over secrecy around Shikamaru's decisions, and
-  defends Shikamaru's judgment even when kept out of the loop. See [[Team 7]] "Current
-  crisis" section.
+  Hokage** during this period (see [[Naruto Uzumaki]] — access restricted). Sai clashes with
+  the Fire Daimyō's advisor Kobu over secrecy around Shikamaru's decisions, and defends
+  Shikamaru's judgment even when kept out of the loop. See [[Team 7]] "Current crisis"
+  section (access restricted).
 
 ## Status
 

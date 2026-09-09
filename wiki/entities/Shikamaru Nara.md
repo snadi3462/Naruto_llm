@@ -20,32 +20,25 @@ this page is more than a placeholder. Expand fully once a Shikamaru-specific sou
   against bullies).
 - A recognized genius (IQ over 200, first noticed by Asuma) whose laziness masks real
   tactical brilliance — devises the plan that traps and kills Hidan in revenge for Asuma's
-  death, and is later the one who provokes the reincarnated Sound Four into carelessness to
-  let Naruto sense and rescue his captured comrades (per [[Neji Hyūga (source)]]).
-- Leads the unauthorized revenge mission against Hidan after Asuma's death; [[Tsunade]]
-  initially forbids it (the squad doesn't meet the standard four-man requirement), relenting
-  only when [[Kakashi Hatake]] volunteers to lead it.
+  death, and is later involved in a mission to rescue captured comrades (per
+  [[Neji Hyūga (source)]]; see [[Naruto Uzumaki]] — access restricted).
+- Leads the unauthorized revenge mission against Hidan after Asuma's death; initially
+  forbidden on procedural grounds, relenting only when a fellow jōnin volunteers to lead it
+  (see [[Tsunade]], [[Kakashi Hatake]] — access restricted).
 - Asuma's dying words entrust Shikamaru specifically with protecting his and Kurenai's then-
   unborn daughter, Mirai — a responsibility he takes seriously into adulthood, regularly
   checking on Kurenai and later Mirai herself.
-- Promoted to jōnin; becomes [[Naruto Uzumaki]]'s advisor and right-hand man once Naruto
-  becomes Hokage. Marries Temari of Sunagakure and has a son, Shikadai.
+- Promoted to jōnin; becomes a close advisor and right-hand man to a village leader (see
+  [[Naruto Uzumaki]] — access restricted). Marries Temari of Sunagakure and has a son,
+  Shikadai.
 
 ## Current crisis (New Era: Part II)
 
-- Confirmed serving as Konoha's **acting/interim Hokage** during [[Naruto Uzumaki]]'s
-  disappearance, per [[Sai (source)]] and [[Ino Yamanaka (source)]], with [[Sai]]
-  as his security chief and [[Ino Yamanaka]] running his private telepathic communications.
-- Per [[Sai (source)]]'s Mamushi Arc: faces real political pressure — the Fire Daimyō's
-  advisor Kobu suspects him of covering for the criminalized Boruto Uzumaki and is building a
-  case to have him removed as Hokage.
-- Per [[Ino Yamanaka (source)]]'s Boruto's Return Arc: privately believes Boruto's
-  account that [[Naruto Uzumaki]] and [[Hinata Hyuga]] are alive and that [[Himawari
-  Uzumaki]] is the new Nine-Tails jinchūriki, but can't act on this belief openly — when
-  Boruto is captured and interrogated as a suspected traitor, Shikamaru asks Ino (as a friend,
-  not an order) to secretly reconnect him with Boruto, and she refuses. This puts Shikamaru
-  in a position of knowing more than he can politically act on. See [[Team 7]] "Current
-  crisis" for the full combined picture.
+Confirmed serving as Konoha's **acting/interim Hokage** during a current-era crisis, with
+[[Sai]] as his security chief and [[Ino Yamanaka]] running his private telepathic
+communications, and facing real political pressure over it. Full detail on this arc —
+including the crisis itself, who's involved, and Shikamaru's political bind — is covered on
+[[Naruto Uzumaki]] and [[Team 7]] "Current crisis" (both access restricted).
 
 ## Sources
 
