@@ -15,8 +15,8 @@ Raw file: `raw/Sasori.md`
 
 Biography of Sasori, Akatsuki's puppet master: a Sunagakure defector who converted his own
 body into an immortal puppet in pursuit of "eternal art," partnered first with [[Orochimaru]]
-and later [[Deidara]], killed by his own grandmother Chiyo (aided by [[Sakura Haruno]])
-during the Kazekage Rescue Mission.
+and later [[Deidara]], killed by his own grandmother Chiyo (aided by a Konoha medic-nin — see
+[[Sakura Haruno]], access restricted) during the Kazekage Rescue Mission.
 
 ## Key takeaways
 
@@ -27,10 +27,10 @@ during the Kazekage Rescue Mission.
 - Confirms his original Akatsuki partnership was with [[Orochimaru]] — both shared an
   obsession with immortality — corroborating [[Orochimaru (source)]]'s account of the
   partnership before Orochimaru's defection.
-- Details his death at the hands of his own grandmother Chiyo and [[Sakura Haruno]] during
-  the Kazekage Rescue Mission — a battle not previously covered on [[Sakura Haruno]]'s own
-  page — and his final emotional moment, entrusting his first puppets ("Mother and Father")
-  to Kankurō, softening his nihilism just before dying.
+- Details his death at the hands of his own grandmother Chiyo and a Konoha medic-nin (see
+  [[Sakura Haruno]] — access restricted) during the Kazekage Rescue Mission, and his final
+  emotional moment, entrusting his first puppets ("Mother and Father") to Kankurō, softening
+  his nihilism just before dying.
 
 ## Sources
 

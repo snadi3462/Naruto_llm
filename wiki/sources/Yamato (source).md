@@ -14,9 +14,10 @@ Raw file: `raw/Yamato.md`
 ## Summary
 
 Exhaustive fan-wiki biography of Yamato (codename "Tenzō"), the Wood Release-wielding Anbu
-who leads Team Kakashi as [[Kakashi Hatake]]'s temporary replacement — one of [[Orochimaru]]'s
-surviving Wood Release test subjects, raised in Root, and specifically valued for his ability
-to suppress [[Kurama]]'s chakra within [[Naruto Uzumaki]].
+who leads Team Kakashi as a temporary replacement (see [[Kakashi Hatake]] — access
+restricted) — one of [[Orochimaru]]'s surviving Wood Release test subjects, raised in Root,
+and specifically valued for his ability to suppress a jinchūriki's tailed-beast chakra (see
+[[Kurama]], [[Naruto Uzumaki]] — access restricted).
 
 ## Key takeaways
 
@@ -24,9 +25,10 @@ to suppress [[Kurama]]'s chakra within [[Naruto Uzumaki]].
   experiments (60 kidnapped children, all but Yamato died) — found and raised by Danzō
   Shimura in Root under the codename Kinoe before defecting to Kakashi's custody and adopting
   the name "Tenzō," later "Yamato."
-- Details his Anbu service under [[Kakashi Hatake]] alongside a young [[Itachi Uchiha]], and
-  his eventual assignment (by [[Tsunade]]) to lead Team 7/Team Kakashi in Kakashi's absence,
-  chosen specifically because his Wood Release can suppress Naruto's Nine-Tails chakra.
+- Details his Anbu service alongside a young fellow agent (see [[Kakashi Hatake]],
+  [[Itachi Uchiha]] — access restricted), and his eventual assignment to lead Team 7/Team
+  Kakashi in his captain's absence (see [[Tsunade]] — access restricted), chosen specifically
+  because his Wood Release can suppress the Nine-Tails' chakra (access restricted).
 - Confirms his role restraining and then earning the trust of [[Sai]] during the Tenchi
   Bridge Reconnaissance Mission, corroborating [[Sai (source)]]'s account of the same
   events from Sai's perspective.
@@ -35,8 +37,8 @@ to suppress [[Kurama]]'s chakra within [[Naruto Uzumaki]].
   any source describing later jinchūriki-control problems.
 - This source's own arc ends in the *New Era* (Mitsuki's Disappearance Arc), assigned to
   covertly surveil the pardoned [[Orochimaru]] — it does **not** carry Yamato into the
-  *New Era: Part II* crisis chapters covered by [[Sai (source)]], so his status during
-  Naruto's disappearance is unconfirmed.
+  *New Era: Part II* crisis chapters covered by [[Sai (source)]], so his status during that
+  crisis is unconfirmed.
 
 ## Sources
 

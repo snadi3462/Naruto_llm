@@ -18,8 +18,8 @@ Biography of Rock Lee, Team Guy's taijutsu-only prodigy: his inability to use ni
 ## Key takeaways
 
 - Establishes Lee's defining constraint and triumph: unable to use ninjutsu or genjutsu, he becomes one of Konoha's strongest taijutsu users through sheer dedication under [[Might Guy]] — directly mirroring Guy's own life story, per [[Might Guy (source)]].
-- Details the Chūnin Exams injury (Gaara crushes his arm and leg) and [[Tsunade]]'s high-risk 50%-survival surgery that saves his ninja career — corroborated by [[Tsunade (source)]].
-- Confirms he masters progressively more of the Eight Gates over his life, eventually all eight by adulthood, and marries (unnamed in this source) with a son, Metal Lee — his earlier romantic interest in [[Sakura Haruno]] goes unresolved/unaddressed rather than explicitly ended.
+- Details the Chūnin Exams injury (Gaara crushes his arm and leg) and a high-risk 50%-survival surgery that saves his ninja career (see [[Tsunade]] — access restricted) — corroborated by [[Tsunade (source)]].
+- Confirms he masters progressively more of the Eight Gates over his life, eventually all eight by adulthood, and marries (unnamed in this source) with a son, Metal Lee — his earlier romantic interest in a classmate goes unresolved/unaddressed rather than explicitly ended (see [[Sakura Haruno]] — access restricted).
 - Reaches the Kawaki Arc (fighting and being quickly defeated by Isshiki, alongside Kiba and Tenten) but does not continue into the *New Era: Part II* crisis chapters.
 
 ## Sources

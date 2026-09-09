@@ -18,7 +18,7 @@ Biography of Akamaru, [[Kiba Inuzuka]]'s ninken partner and [[Team 8]] member: t
 ## Key takeaways
 
 - Confirms the mechanics of Kiba and Akamaru's collaboration techniques in detail (Beast Human Clone, Fang Passing Fang, Dynamic Marking, the Double/Three-Headed Wolf transformations) — a close match to [[Kiba Inuzuka (source)]]'s account.
-- Notes Akamaru's role in the Fourth Shinobi World War, including carrying an exhausted Neji Hyuga and receiving a chakra transfer from [[Naruto Uzumaki]] during the final battle against the Ten-Tails.
+- Notes Akamaru's role in the Fourth Shinobi World War, including carrying an exhausted Neji Hyuga and receiving a chakra transfer from an ally during the final battle against the Ten-Tails (see [[Naruto Uzumaki]] — access restricted).
 - By the *New Era*, Akamaru is elderly, spends most of his time napping, and has offspring of his own; he's overprotective of Kiba's relationship with Tamaki.
 - Like [[Kiba Inuzuka (source)]], this source's coverage ends with the Kawaki Arc and does not reach the *New Era: Part II* crisis chapters.
 

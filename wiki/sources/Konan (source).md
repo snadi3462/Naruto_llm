@@ -16,7 +16,8 @@ Raw file: `raw/Konan.md`
 Biography of Konan, [[Akatsuki]]'s co-founder and Nagato's steadfast partner: an Amegakure
 war orphan and paper-ninjutsu master who stays loyal to Nagato and Yahiko's original vision
 of peace even as Nagato/Pain's methods darken, ultimately defecting after Nagato's death to
-lead Amegakure toward the peace [[Naruto Uzumaki]] represents.
+lead Amegakure toward a peace embodied by someone she comes to trust (see
+[[Naruto Uzumaki]] — access restricted).
 
 ## Key takeaways
 
@@ -26,7 +27,8 @@ lead Amegakure toward the peace [[Naruto Uzumaki]] represents.
 - Details her paper-based fighting style (Dance of the Shikigami) and her closing role in the
   story: defending Nagato's remains and honoring his final wish, she fights and apparently
   kills Tobi (Obito) before he reveals he survived via Izanagi and kills her — her final act
-  is affirming that Naruto represents "the flower of hope" Nagato and Yahiko died for.
+  is affirming her faith in "the flower of hope" Nagato and Yahiko died for (see
+  [[Naruto Uzumaki]] — access restricted).
 - Establishes her as the emotional throughline connecting all three Akatsuki founders across
   the organization's full history, present at nearly every major turning point covered in
   [[Nagato (source)]] and [[Yahiko (source)]].

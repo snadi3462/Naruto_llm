@@ -23,13 +23,14 @@ and mission-list reference.
 
 - Confirms Team 8, alongside Team Kakashi, is one of only two Konoha 11 teams to lose no
   members during Part II (Team Asuma loses Asuma Sarutobi; Team Guy loses Neji Hyuga).
-- Notes Kurenai's maternity leave (daughter Mirai Sarutobi, with [[Kakashi Hatake]] covering
-  some of her squad-leader duties) and that [[Hinata Hyuga]] later marries [[Naruto Uzumaki]]
-  — already covered on her page — while Kiba dates Tamaki and Shino becomes an Academy
-  teacher.
-- Lists several joint missions with [[Team 7]] / Team Kakashi (locating one of
-  [[Orochimaru]]'s abandoned bases; the Itachi Pursuit Mission as part of the Eight Man
-  Squad), reinforcing the two teams' recurring operational overlap.
+- Notes Kurenai's maternity leave (daughter Mirai Sarutobi, with a fellow jōnin covering some
+  of her squad-leader duties — see [[Kakashi Hatake]], access restricted) and that
+  [[Hinata Hyuga]] later marries within the Konoha 11's extended circle (see
+  [[Naruto Uzumaki]] — access restricted) — already covered on her page — while Kiba dates
+  Tamaki and Shino becomes an Academy teacher.
+- Lists several joint missions with [[Team 7]] (access restricted) / Team Kakashi (locating
+  one of [[Orochimaru]]'s abandoned bases; the Itachi Pursuit Mission as part of the Eight
+  Man Squad), reinforcing the two teams' recurring operational overlap.
 - Does not cover Kiba, Shino, Akamaru, or Kurenai individually in depth — flagged as an open
   thread; a dedicated source would be needed before creating full entity pages for them.
 

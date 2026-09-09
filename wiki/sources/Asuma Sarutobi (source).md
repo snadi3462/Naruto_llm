@@ -19,7 +19,7 @@ Biography of Asuma Sarutobi, [[Team 10]]'s sensei, son of the Third Hokage, and 
 
 - Establishes Asuma as [[Kurenai Yūhi]]'s lifelong romantic partner and the father of her daughter Mirai, dying before her birth — directly corroborated by [[Kurenai Yūhi (source)]].
 - Details his death: fatally wounded by Hidan's ritual technique, Asuma gives each of his students individually tailored parting words (praising Ino's dependability, Chōji's kindness, Shikamaru's intelligence) before entrusting Shikamaru with protecting his and Kurenai's unborn child — the emotional foundation for [[Chōji Akimichi]] and [[Ino Yamanaka]]'s adult characters.
-- Confirms his instrumental role in training the "Ino–Shika–Chō" formation and in [[Naruto Uzumaki]]'s wind-nature chakra training.
+- Confirms his instrumental role in training the "Ino–Shika–Chō" formation and in a fellow shinobi's wind-nature chakra training (see [[Naruto Uzumaki]] — access restricted).
 - His own coverage ends with his death and a brief *New Era* cameo (Time Slip Arc, appearing to the past Team 10) — he does not appear in any *New Era: Part II* material, unsurprisingly given his death decades earlier.
 
 ## Sources

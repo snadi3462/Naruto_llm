@@ -22,8 +22,9 @@ role and personality, with Black Zetsu's true nature only touched on briefly.
 
 - Explains White Zetsu's origin as one of Kaguya Ōtsutsuki's Infinite Tsukuyomi victims,
   pulled from the Demonic Statue of the Outer Path by Black Zetsu and grown from [[Madara
-  Uchiha]]'s cultivation of Hashirama Senju's DNA — corroborating [[Madara Uchiha
-  (source)]]'s account of the White Zetsu Army's creation.
+  Uchiha]]'s cultivation of an early Hokage's DNA (see [[Hashirama Senju]] — access
+  restricted) — corroborating [[Madara Uchiha (source)]]'s account of the White Zetsu Army's
+  creation.
 - Details Zetsu's function within [[Akatsuki]] as its only member who operates without a
   fixed partner — spying, disposing of dead members' bodies (and eating them), and serving
   as the main communication link between Nagato/Pain and Obito, who otherwise never met.
@@ -31,8 +32,9 @@ role and personality, with Black Zetsu's true nature only touched on briefly.
   survive and later "adopting" him as a friend — a detail that deepens [[Obito Uchiha]]'s
   backstory beyond what's currently on his page.
 - **Notes Zetsu's death**: White Zetsu is killed during the Fourth Shinobi World War, used
-  as a test subject for Sasuke's new Mangekyō Sharingan technique and incinerated by
-  Amaterasu — a much lower-key end than most Akatsuki members given his non-combat role.
+  as a test subject for a new Uchiha technique (see [[Sasuke Uchiha]] — access restricted)
+  and incinerated by Amaterasu — a much lower-key end than most Akatsuki members given his
+  non-combat role.
 
 ## Sources
 

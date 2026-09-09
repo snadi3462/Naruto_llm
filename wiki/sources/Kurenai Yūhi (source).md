@@ -18,7 +18,7 @@ Biography of Kurenai Yūhi (later Kurenai Sarutobi), [[Team 8]]'s jōnin sensei 
 ## Key takeaways
 
 - Confirms the romance between Kurenai and [[Asuma Sarutobi]] was genuine and long-standing (childhood friends who grew into a couple), and that she was pregnant with their daughter Mirai when Asuma died fighting Hidan — directly corroborated by [[Asuma Sarutobi (source)]].
-- Details her genjutsu mastery, rivaling even Itachi Uchiha's, and her role sealing away student [[Yakumo Kurama]]'s uncontrollable kekkei genkai to protect others (a decision she initially lies about, which Shino sees through).
+- Details her genjutsu mastery, rivaling the very best in the village (see [[Itachi Uchiha]] — access restricted), and her role sealing away student [[Yakumo Kurama]]'s uncontrollable kekkei genkai to protect others (a decision she initially lies about, which Shino sees through).
 - Confirms she retires from active shinobi work after the Fourth Shinobi World War to raise Mirai full-time, remaining a recurring mentor figure to her former students Kiba and Shino as they navigate adulthood and, later, Shino's own teaching career.
 - Reaches the *New Era* (Chūnin Re-Examination Arc, watching over an injured Mirai) but does not continue into the *New Era: Part II* crisis chapters.
 

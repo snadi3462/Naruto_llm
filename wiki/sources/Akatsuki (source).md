@@ -27,8 +27,8 @@ Kaguya Ōtsutsuki.
   peace via mass destruction defines the organization's Part I/II activity.
 - Confirms [[Orochimaru]] was an early member who defected before the story's start (taking
   his ring, which is why he's never replaced) — corroborating [[Orochimaru (source)]] —
-  and details [[Itachi Uchiha]]'s membership and his partnership with Kisame Hoshigaki, useful
-  cross-reference for [[Itachi Uchiha (source)]].
+  and details a member's partnership with Kisame Hoshigaki, useful cross-reference for
+  [[Itachi Uchiha (source)]] (access restricted).
 - Establishes the full manipulation chain behind the entire war: Black Zetsu tricked Madara
   Uchiha into founding the *idea* of Akatsuki, then used Obito (as "Tobi," posing as Madara)
   to steer Nagato's real Akatsuki toward capturing all nine tailed beasts — all in service of

@@ -20,16 +20,13 @@ lineage, etc. later in the article).
 
 ## Key takeaways
 
-- Kishimoto designed the original trio — [[Naruto Uzumaki]], [[Sasuke Uchiha]], [[Sakura Haruno]]
-  — as the template for every other three-person genin team (the "Ino-Shika-Cho" pattern
-  seen in [[Team 7]] and Team 10 is a direct echo of this).
-- Naruto was modeled partly on *Dragon Ball*'s Goku (energetic, mischievous); Sasuke was
-  built as the "cool genius" rival archetype; Sakura's design brief was vaguer — Kishimoto
-  said he had no fixed idea of an "ideal heroine" and leaned on her energy and infatuation
-  with Sasuke instead.
-- [[Team 7]] (Naruto, Sasuke, Sakura, [[Kakashi Hatake]]) disbands after Sasuke's defection
-  at the end of Part I, reforms in Part II as "Team Kakashi" with Sai and Yamato added, and
-  fully reunites after Naruto and Sasuke's final battle.
+- Kishimoto designed the original trio (see [[Team 7]] — access restricted) as the template
+  for every other three-person genin team (the "Ino-Shika-Cho" pattern seen in Team 10 is a
+  direct echo of this).
+- Character design background for the original trio and their sensei is covered in detail on
+  [[Team 7]] (access restricted) rather than repeated here.
+- [[Team 7]] (access restricted) disbands after a member's defection at the end of Part I,
+  reforms in Part II as "Team Kakashi" with Sai and Yamato added, and fully reunites later.
 - The article covers three generations: the original *Naruto* cast, the *Naruto Shippūden*
   additions (Sai, Yamato), and the *Boruto* generation (Boruto Uzumaki, Sarada Uchiha,
   Mitsuki, Kawaki) — many of whom are the children of Part I/II characters.

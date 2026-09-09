@@ -13,18 +13,19 @@ Raw file: `raw/Madara Uchiha.md`
 
 ## Summary
 
-Exhaustive biography of Madara Uchiha — Konohagakure's co-founder alongside his rival-turned-
-friend Hashirama Senju, and the true architect of the entire Akatsuki/Eye of the Moon Plan
-that [[Obito Uchiha]] later executes in his name. The single most consequential figure in
-the wiki's *Naruto* coverage to date, tying together [[Akatsuki]], [[Obito Uchiha]], [[Itachi
-Uchiha]], [[Nagato]], and [[Zetsu]]'s stories into one origin.
+Exhaustive biography of Madara Uchiha — Konohagakure's co-founder alongside a rival-turned-
+friend (see [[Hashirama Senju]] — access restricted), and the true architect of the entire
+Akatsuki/Eye of the Moon Plan that [[Obito Uchiha]] later executes in his name. The single
+most consequential figure in the wiki's *Naruto* coverage to date, tying together
+[[Akatsuki]], [[Obito Uchiha]], [[Itachi Uchiha]] (access restricted), [[Nagato]], and
+[[Zetsu]]'s stories into one origin.
 
 ## Key takeaways
 
-- Establishes the Uchiha–Senju conflict and Konoha's founding: Madara and Hashirama began as
+- Establishes the Uchiha–Senju conflict and Konoha's founding: Madara and his rival began as
   childhood friends across enemy clan lines, became reluctant rivals, and jointly founded
   Konohagakure — before splitting irreparably over how to keep the resulting peace, ending in
-  Madara's (faked) death at Hashirama's hands.
+  Madara's faked death (see [[Hashirama Senju]] — access restricted, for the full account).
 - Reveals Madara secretly survived via a pre-programmed Izanagi, implanted his own Rinnegan
   into an infant [[Nagato]] without his knowledge, and — decades later, dying of old age —
   recruited and manipulated a devastated young [[Obito Uchiha]] into carrying out his Eye of
@@ -36,8 +37,9 @@ Uchiha]], [[Nagato]], and [[Zetsu]]'s stories into one origin.
   corroborating [[Zetsu (source)]] and setting up the reveal that Black Zetsu was using
   Madara (and everyone after him) toward Kaguya Ōtsutsuki's revival the entire time.
 - Details his eventual full revival during the Fourth Shinobi World War, his near-total
-  victory, betrayal by Black Zetsu, and final reconciliation with Hashirama moments before his
-  true death — resolving the friendship that began the entire story arc.
+  victory, betrayal by Black Zetsu, and final reconciliation with his old rival moments before
+  his true death (see [[Hashirama Senju]] — access restricted) — resolving the friendship
+  that began the entire story arc.
 
 ## Sources
 

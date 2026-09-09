@@ -20,7 +20,7 @@ Biography of Shino Aburame, [[Team 8]]'s stoic insect-user: his adoptive-brother
 - Explains Shino's formative loss: his adoptive brother Torune was given to Danzō's Root by their own choice to spare Shino that fate, a sacrifice Shino never fully processes emotionally but honors by breeding insects derived from Torune's own.
 - Details his role in [[Team 8]] — often at odds with Kiba's impulsiveness but deeply loyal, and instrumental in Hinata's growth as a fighter.
 - Confirms his career as an Academy homeroom teacher in the *New Era*, teaching the class that includes Boruto Uzumaki, Mitsuki, Shikadai, Inojin, and Metal Lee — directly overlapping with [[Kurenai Yūhi (source)]]'s account of Shino seeking her mentorship advice.
-- Reaches the Kawaki & Himawari Academy Arc (still teaching, unaware of the surrounding crisis) but does not continue into the *New Era: Part II* crisis chapters — his status during Naruto's disappearance is unconfirmed.
+- Reaches the Kawaki & Himawari Academy Arc (still teaching, unaware of the surrounding crisis) but does not continue into the *New Era: Part II* crisis chapters — his status during that crisis is unconfirmed (see [[Naruto Uzumaki]] — access restricted).
 
 ## Sources
 
