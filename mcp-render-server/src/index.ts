@@ -30,39 +30,73 @@ async function scanDirectory(directory: string, onFile: (fullPath: string) => Pr
   }
 }
 
-// Access tiers: a wiki/entities/*.md page with `access_tier: restricted` in its
-// frontmatter gates that character's data. The wiki frontmatter is the single source of
-// truth; this also covers the matching wiki/sources/ and raw/ files by character name,
-// since those can't carry the same frontmatter (raw/ is immutable).
+// Access tiers: a wiki/entities/*.md or wiki/concepts/*.md page with `access_tier:
+// restricted` in its frontmatter gates that page. For entities, the wiki frontmatter is
+// the single source of truth and also covers the matching wiki/sources/ and raw/ files by
+// character name, since those can't carry the same frontmatter (raw/ is immutable).
+// Concepts (e.g. a team page built entirely around restricted members) have no raw/sources
+// counterpart, so gating the concept file itself is the whole gate.
 async function getRestrictedCharacterNames(): Promise<Set<string>> {
   const restricted = new Set<string>();
   if (BYPASS_ACCESS_TIERS) return restricted;
 
-  const entitiesDir = path.join(VAULT_PATH, "wiki", "entities");
+  const dirs = [path.join(VAULT_PATH, "wiki", "entities"), path.join(VAULT_PATH, "wiki", "concepts")];
 
-  let entries: string[];
-  try {
-    entries = await fs.readdir(entitiesDir);
-  } catch {
-    return restricted;
-  }
-
-  for (const entry of entries) {
-    if (!entry.endsWith(".md")) continue;
-
+  for (const dir of dirs) {
+    let entries: string[];
     try {
-      const raw = await fs.readFile(path.join(entitiesDir, entry), "utf8");
-      const content = raw.charCodeAt(0) === 0xfeff ? raw.slice(1) : raw;
-      const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-      if (frontmatter && /^access_tier:\s*restricted\s*$/m.test(frontmatter[1])) {
-        restricted.add(entry.slice(0, -3));
-      }
+      entries = await fs.readdir(dir);
     } catch {
-      // Ignore files that cannot be read
+      continue;
+    }
+
+    for (const entry of entries) {
+      if (!entry.endsWith(".md")) continue;
+
+      try {
+        const raw = await fs.readFile(path.join(dir, entry), "utf8");
+        const content = raw.charCodeAt(0) === 0xfeff ? raw.slice(1) : raw;
+        const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+        if (frontmatter && /^access_tier:\s*restricted\s*$/m.test(frontmatter[1])) {
+          restricted.add(entry.slice(0, -3));
+        }
+      } catch {
+        // Ignore files that cannot be read
+      }
     }
   }
 
   return restricted;
+}
+
+// wiki/index.md and wiki/log.md are operational/meta pages (catalog + append-only history)
+// rather than character lore, so unlike entity pages they aren't gated wholesale — their
+// own conventions (index.md as the primary navigation aid, log.md as append-only) make
+// blocking them outright too costly. Instead, individual lines that disclose a restricted
+// character are filtered out at serve time, leaving the rest of the file intact.
+const LINE_FILTERED_PATHS = new Set(["wiki/index.md", "wiki/log.md"]);
+
+function restrictedNamePatterns(restrictedNames: Set<string>): RegExp[] {
+  const patterns: RegExp[] = [];
+  for (const name of restrictedNames) {
+    if (isUnlocked(name)) continue;
+    const words = name.split(" ");
+    const tokens = new Set<string>([name, words[0], words[words.length - 1]]);
+    for (const token of tokens) {
+      const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      patterns.push(new RegExp(`\\b${escaped}\\b`, "i"));
+    }
+  }
+  return patterns;
+}
+
+function redactRestrictedLines(content: string, restrictedNames: Set<string>): string {
+  const patterns = restrictedNamePatterns(restrictedNames);
+  if (patterns.length === 0) return content;
+  return content
+    .split("\n")
+    .map((line) => (patterns.some((p) => p.test(line)) ? "[line omitted — references access-tier-restricted content]" : line))
+    .join("\n");
 }
 
 function characterKeyForPath(relPath: string): string | null {
@@ -70,6 +104,7 @@ function characterKeyForPath(relPath: string): string | null {
   const base = path.basename(normalized, ".md");
 
   if (normalized.startsWith("wiki/entities/")) return base;
+  if (normalized.startsWith("wiki/concepts/")) return base;
   if (normalized.startsWith("wiki/sources/")) return base.replace(/ \(source\)$/, "");
   if (normalized.startsWith("raw/")) return base;
   return null;
@@ -176,7 +211,12 @@ function buildServer(): McpServer {
       }
 
       try {
-        const content = await fs.readFile(fullPath, "utf8");
+        let content = await fs.readFile(fullPath, "utf8");
+        const relPath = path.relative(vaultRoot, fullPath).split(path.sep).join("/");
+        if (LINE_FILTERED_PATHS.has(relPath)) {
+          const restrictedNames = await getRestrictedCharacterNames();
+          content = redactRestrictedLines(content, restrictedNames);
+        }
         return { content: [{ type: "text", text: content }] };
       } catch {
         return {
@@ -208,7 +248,11 @@ function buildServer(): McpServer {
         }
 
         try {
-          const content = await fs.readFile(fullPath, "utf8");
+          let content = await fs.readFile(fullPath, "utf8");
+          const normalizedRel = relPath.split(path.sep).join("/");
+          if (LINE_FILTERED_PATHS.has(normalizedRel)) {
+            content = redactRestrictedLines(content, restrictedNames);
+          }
           if (content.toLowerCase().includes(searchQuery)) {
             results.push(relPath);
           }

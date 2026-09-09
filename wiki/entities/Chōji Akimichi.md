@@ -20,7 +20,7 @@ Converts consumed calories into chakra via his clan's Multi-Size Technique, enab
 
 ## Key arcs
 
-- **Sasuke Recovery Mission**: takes all three Three Coloured Pills to kill Jirōbō after he mocks Shikamaru, nearly dying from the toll; saved by Nara clan medical research and [[Tsunade]]'s expertise.
+- **Sasuke Recovery Mission**: takes all three Three Coloured Pills to kill Jirōbō after he mocks Shikamaru, nearly dying from the toll; saved by Nara clan medical research and expert medical intervention (see [[Tsunade]] — access restricted).
 - **Fourth Shinobi World War**: initially can't bring himself to fight his reincarnated sensei [[Asuma Sarutobi]], but finds the resolve to defeat him after his father shields him from an attack — Asuma's dying words years earlier (calling Chōji's kindness his true strength) come full circle here.
 - **New Era**: marries Karui and has a daughter, Chōchō, whom he trains in the clan's techniques — corroborated by [[Asuma Sarutobi (source)]]'s legacy section and [[Ino Yamanaka (source)]].
 

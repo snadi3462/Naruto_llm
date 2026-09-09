@@ -13,20 +13,18 @@ genuinely trusted.
 
 ## Background
 
-Orphaned as a child during the Nine-Tails' attack on Konoha — the same event that made Naruto
-a jinchūriki — Iruka grew up starved for attention and comforted through his grief by the
-Third Hokage, [[Hiruzen Sarutobi]], whom he later credits as his model for becoming a teacher
-himself.
+Orphaned as a child during the Nine-Tails' attack on Konoha, Iruka grew up starved for
+attention and comforted through his grief by the Third Hokage (see [[Hiruzen Sarutobi]] —
+access restricted), whom he later credits as his model for becoming a teacher himself.
 
-## Relationship with Naruto
+## Relationship with Naruto (see [[Naruto Uzumaki]] — access restricted, for his side of it)
 
-Initially uneasy about teaching the container of the beast that killed his own parents, Iruka
-becomes the first adult in the village to treat Naruto with real, unconditional care rather
-than fear or pity. He protects Naruto from Mizuki's attack after Naruto's jinchūriki status is
-revealed, and lets Naruto graduate the Academy in recognition of the effort behind his
-self-taught Shadow Clone Technique rather than by strict letter of the rules. Naruto comes to
-see Iruka as a father figure — a bond made explicit when Naruto asks Iruka to stand in as his
-father at his wedding to [[Hinata Hyuga]] (see [[Naruto Uzumaki]] for the wedding itself).
+Initially uneasy about his assignment for reasons tied to his own past, Iruka becomes the
+first adult in the village to treat his student with real, unconditional care rather than
+fear or pity. He shields him from danger early in his career, and vouches for him at a
+pivotal Academy milestone in recognition of effort rather than strict letter of the rules.
+Their bond deepens into something like father and son, made explicit at a major life event
+later in the story.
 
 ## Personality
 

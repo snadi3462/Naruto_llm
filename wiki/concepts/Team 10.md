@@ -11,14 +11,15 @@ sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source
 Also known as Team Asuma. The "Ino–Shika–Chō" generation — a formation inherited from their
 parents' generation, named for a Hanafuda card combination (Boar/Deer/Butterfly). Members:
 [[Shikamaru Nara]], [[Chōji Akimichi]], [[Ino Yamanaka]], led by [[Asuma Sarutobi]] until his
-death in Part II fighting Akatsuki's Hidan; [[Kakashi Hatake]] leads them temporarily
-afterward so they can avenge him, over [[Tsunade]]'s initial objection.
+death in Part II fighting Akatsuki's Hidan; another jōnin leads them temporarily afterward so
+they can avenge him (see [[Kakashi Hatake]], [[Tsunade]] — access restricted).
 
 ## Roster
 
-- **[[Shikamaru Nara]]** — see his (stub) page; becomes [[Naruto Uzumaki]]'s Hokage advisor,
+- **[[Shikamaru Nara]]** — see his (stub) page; becomes a close advisor to a prominent leader,
   and — per [[Sai (source)]] and [[Ino Yamanaka (source)]]'s current-era chapters —
-  acting/interim Hokage during Naruto's disappearance. Marries Temari; son Shikadai.
+  acting/interim Hokage during a later crisis (see [[Naruto Uzumaki]] — access restricted).
+  Marries Temari; son Shikadai.
 - **[[Chōji Akimichi]]** — kind-hearted, self-doubting heavy hitter; marries Karui, daughter
   Chōchō.
 - **[[Ino Yamanaka]]** — mind-technique specialist; marries [[Sai]] (see his page for detail
@@ -29,19 +30,18 @@ afterward so they can avenge him, over [[Tsunade]]'s initial objection.
 
 ## Notable facts
 
-- According to [[Sakura Haruno]], [[Team 7]] and Team 10 have the best teamwork of any two
-  Konoha genin teams.
-- Team 10's revenge mission against Hidan is initially blocked by [[Tsunade]] (they don't
-  meet the standard four-man-cell requirement); [[Kakashi Hatake]] volunteering to lead them
-  is what allows it to proceed — corroborated by both [[Team 10 (Asuma) (source)]] and
+- [[Team 7]] and Team 10 are considered to have the best teamwork of any two Konoha genin
+  teams (per a Team 7 member's own assessment — access restricted).
+- Team 10's revenge mission against Hidan is initially blocked on procedural grounds; another
+  jōnin volunteering to lead them is what allows it to proceed (see [[Kakashi Hatake]],
+  [[Tsunade]] — access restricted) — corroborated by both [[Team 10 (Asuma) (source)]] and
   [[Tsunade (source)]].
-- Naruto nicknamed them "The Idiot (O-baka) Trio" during the Chūnin Exams, referencing each
-  member's most obvious habit (food for Chōji, complaining for Shikamaru, obsessing over
-  Sasuke for Ino).
+- The trio picked up a nickname during the Chūnin Exams referencing each member's most
+  obvious habit (food for Chōji, complaining for Shikamaru, obsessing over a teammate for
+  Ino).
 - Team 10 is the source of the wiki's most current information on the *New Era: Part II*
   crisis — see [[Ino Yamanaka]] and [[Shikamaru Nara]] for Shikamaru's tenure as acting
-  Hokage and the confirmation that Naruto, Hinata, and Himawari's jinchūriki status are all
-  real per Boruto's own account. See [[Team 7]] "Current crisis" for the combined picture.
+  Hokage. See [[Team 7]] "Current crisis" for the combined picture (access restricted).
 
 ## Sources
 

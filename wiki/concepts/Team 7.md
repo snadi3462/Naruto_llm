@@ -1,8 +1,9 @@
 ﻿---
 type: concept
 tags: [naruto, team]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-09
 sources: ["[[List of Naruto characters]]", "[[Naruto Uzumaki (source)]]", "[[Sasuke Uchiha (source)]]", "[[Kakashi Hatake (source)]]", "[[Sakura Haruno (source)]]", "[[Sai (source)]]", "[[Yamato (source)]]", "[[Tsunade (source)]]", "[[Ino Yamanaka (source)]]"]
 ---
 

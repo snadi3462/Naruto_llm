@@ -12,11 +12,11 @@ Son of the Third Hokage, [[Hiruzen Sarutobi]], former member of the Twelve Guard
 
 ## Background and personality
 
-Left Konoha for years over a disagreement with his father before returning to resume active duty; only came to fully understand and respect [[Hiruzen Sarutobi|Hiruzen]]'s sacrifice for the village after his father's death during the Konoha Crush. Blunt to the point of calling his students exactly what they are ("glutton," "loud mouth," "slacker") while genuinely caring for and believing in each of them — he's the one who first recognizes Shikamaru's genius-level intellect (IQ over 200) beneath the laziness. Long, quietly acknowledged romantic partner of [[Kurenai Yūhi]] since childhood.
+Left Konoha for years over a disagreement with his father before returning to resume active duty; only came to fully understand and respect his father's sacrifice for the village after [[Hiruzen Sarutobi|Hiruzen]]'s death during the Konoha Crush (see [[Hiruzen Sarutobi]] — access restricted). Blunt to the point of calling his students exactly what they are ("glutton," "loud mouth," "slacker") while genuinely caring for and believing in each of them — he's the one who first recognizes Shikamaru's genius-level intellect (IQ over 200) beneath the laziness. Long, quietly acknowledged romantic partner of [[Kurenai Yūhi]] since childhood.
 
 ## Abilities
 
-A close-combat specialist using wind-chakra-infused trench knives (Chakra Blades); helped train [[Naruto Uzumaki]] in wind-nature chakra.
+A close-combat specialist using wind-chakra-infused trench knives (Chakra Blades); also helped train a fellow shinobi in wind-nature chakra (see [[Naruto Uzumaki]] — access restricted).
 
 ## Death
 

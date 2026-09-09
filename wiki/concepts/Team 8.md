@@ -18,12 +18,13 @@ heightened smell (Inuzuka clan). Led by [[Kurenai Yūhi]].
 - **[[Kiba Inuzuka]]** — hot-headed, protective of Hinata, later a dog breeder and Military
   Police investigator.
 - **[[Akamaru]]** — Kiba's ninken partner and full teammate in his own right.
-- **[[Hinata Hyuga]]** — later marries [[Naruto Uzumaki]]; see her own page for full detail.
+- **[[Hinata Hyuga]]** — marries within the Konoha 11's extended circle; see her own page for
+  full detail (partner's page access restricted).
 - **[[Shino Aburame]]** — quiet insect-user; becomes an Academy homeroom teacher, later
   Boruto's generation's own teacher.
 - **[[Kurenai Yūhi]]** (sensei) — takes maternity leave in Part II (daughter Mirai
-  Sarutobi, fathered by [[Asuma Sarutobi]] of [[Team 10]]), with [[Kakashi Hatake]] covering
-  some squad-leader duties; retires from active duty after the war to raise Mirai full-time.
+  Sarutobi, fathered by [[Asuma Sarutobi]] of [[Team 10]]), with a fellow jōnin covering some
+  squad-leader duties; retires from active duty after the war to raise Mirai full-time.
 
 ## Notable facts
 
@@ -35,8 +36,8 @@ heightened smell (Inuzuka clan). Led by [[Kurenai Yūhi]].
   Itachi Pursuit Mission.
 - All four members reach the *New Era*'s Kawaki Arc, fighting Isshiki's invasion under
   Shikamaru Nara's coordination, but none of their sources continue into the
-  *New Era: Part II* crisis chapters covered on [[Team 7]] — their status during Naruto's
-  disappearance is unconfirmed.
+  *New Era: Part II* crisis chapters covered on [[Team 7]] (access restricted) — their
+  status during that crisis is unconfirmed.
 
 ## Sources
 

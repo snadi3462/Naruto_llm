@@ -14,20 +14,18 @@ known through his entity page and source.
 
 ## Overview
 
-Meets Naruto as children when he defends her from bullies on her first day at the Ninja
-Academy; her admiration for his kindness and determination grows into love over the course
-of the series, though Naruto remains largely oblivious to it until *The Last: Naruto the
-Movie*. During Pain's Assault on Konoha, she openly confesses her love and is nearly killed
-protecting him — a turning point in Naruto's own feelings, though he doesn't consciously
-recognize them as love until later. They marry in *Konoha Hiden: The Perfect Day for a
+Meets Naruto as children on her first day at the Ninja Academy; her admiration grows into
+love over the course of the series, mutual only much later (see [[Naruto Uzumaki]] — access
+restricted, for his side of it). During Pain's Assault on Konoha, she openly confesses her
+love and is nearly killed protecting him. They marry in *Konoha Hiden: The Perfect Day for a
 Wedding* and have two children, Boruto and Himawari.
 
 ## Later status
 
-Per the Kawaki Arc / New Era chapters of [[Naruto Uzumaki (source)]], Hinata is trapped
-alongside Naruto, unconscious, for three years in a dimension created through Kawaki and
-Ada's actions — her fate is tied directly to his and is similarly unresolved as of the
-Flashforward section.
+Per the Kawaki Arc / New Era chapters of [[Naruto Uzumaki (source)]], Hinata is trapped,
+unconscious, for three years in a dimension tied to the current crisis — her status is
+unresolved as of the Flashforward section (see [[Naruto Uzumaki]] — access restricted, for
+the fuller picture).
 
 ## Sources
 

@@ -18,8 +18,9 @@ founding.
 ## Eras
 
 - **Yahiko's Akatsuki**: founded by war orphans [[Yahiko]], [[Nagato]], and [[Konan]] of
-  Amegakure — trained by [[Jiraiya]] — to end the Five Great Nations' proxy wars in their home
-  country. Ends when Danzō Shimura and Hanzō ambush the founders, forcing Yahiko's suicide.
+  Amegakure — trained by a wandering Konoha shinobi (see [[Jiraiya]] — access restricted) —
+  to end the Five Great Nations' proxy wars in their home country. Ends when Danzō Shimura
+  and Hanzō ambush the founders, forcing Yahiko's suicide.
 - **Nagato's Akatsuki**: [[Nagato]], radicalized by Yahiko's death into the "Pain" persona
   (using Yahiko's own corpse as the Deva Path), redirects the group toward a philosophy of
   shock-and-awe destruction to force world peace. This is the Akatsuki most of the *Naruto*
@@ -54,7 +55,7 @@ Madara himself, was ultimately a pawn in this longer scheme.
 | [[Nagato]] ("Pain") | [[Konan]] | Deceased — self-sacrifice reviving Konoha |
 | [[Konan]] | [[Nagato]] | Deceased — killed by Obito Uchiha |
 | [[Yahiko]] | [[Nagato]], [[Konan]] | Deceased — self-sacrifice; corpse becomes the Deva Path |
-| [[Itachi Uchiha]] | [[Kisame Hoshigaki]] | Deceased — secretly a Konoha double agent throughout |
+| [[Itachi Uchiha]] | [[Kisame Hoshigaki]] | Deceased — see his page for detail (access restricted) |
 | [[Kisame Hoshigaki]] | [[Itachi Uchiha]] | Deceased — assisted suicide to protect secrets |
 | [[Orochimaru]] | [[Sasori]] (early) | Defected before the main story begins, taking his ring |
 | [[Sasori]] | [[Orochimaru]], then [[Deidara]] | Deceased — killed by Chiyo and Sakura Haruno |

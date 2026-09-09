@@ -21,7 +21,7 @@ Heightened senses (especially smell) that let him judge an enemy's strength by s
 ## Key facts
 
 - Grows from a small puppy in Part I to a full-sized adult dog Kiba rides in Part II.
-- Carries an exhausted Neji Hyuga during the Fourth Shinobi World War and receives a direct chakra transfer from [[Naruto Uzumaki]] in the war's climax.
+- Carries an exhausted Neji Hyuga during the Fourth Shinobi World War and receives a direct chakra transfer from an ally in the war's climax (see [[Naruto Uzumaki]] — access restricted).
 - By the *New Era* he's elderly, mostly naps, and has offspring of his own.
 
 ## Status
