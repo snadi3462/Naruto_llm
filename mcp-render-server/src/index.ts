@@ -9,8 +9,36 @@ const VAULT_PATH = process.env.OBSIDIAN_VAULT_PATH
   ? path.resolve(process.env.OBSIDIAN_VAULT_PATH)
   : path.resolve(process.cwd(), "..");
 
-const API_KEY = process.env.MCP_API_KEY;
 const BYPASS_ACCESS_TIERS = process.env.BYPASS_ACCESS_TIERS === "true";
+
+// Per-person access tokens: MCP_ACCESS_TOKENS is a comma-separated list of
+// "label=token" pairs, e.g. "you=abc123,alice=def456". Every request must present
+// one of these tokens (as `Authorization: Bearer <token>` or `?key=<token>`) — there
+// is no "unset means open" fallback, since the whole point is that access always
+// requires a token. Revoking one person means deleting their "label=token" entry from
+// this env var on Render and saving (triggers a redeploy) — everyone else's tokens
+// keep working.
+function parseAccessTokens(): Map<string, string> {
+  const tokens = new Map<string, string>();
+  const raw = process.env.MCP_ACCESS_TOKENS;
+  if (!raw) return tokens;
+
+  for (const entry of raw.split(",")) {
+    const trimmed = entry.trim();
+    if (!trimmed) continue;
+
+    const eq = trimmed.indexOf("=");
+    if (eq === -1) continue;
+
+    const label = trimmed.slice(0, eq).trim();
+    const token = trimmed.slice(eq + 1).trim();
+    if (label && token) tokens.set(token, label);
+  }
+
+  return tokens;
+}
+
+const ACCESS_TOKENS = parseAccessTokens();
 
 async function scanDirectory(directory: string, onFile: (fullPath: string) => Promise<void> | void) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
@@ -277,21 +305,32 @@ function buildServer(): McpServer {
   return server;
 }
 
-function isAuthorized(req: express.Request): boolean {
-  if (!API_KEY) return true;
-  if (req.header("authorization") === `Bearer ${API_KEY}`) return true;
-  if (req.query.key === API_KEY) return true;
-  return false;
+function resolveAccessLabel(req: express.Request): string | null {
+  const authHeader = req.header("authorization");
+  if (authHeader?.startsWith("Bearer ")) {
+    const label = ACCESS_TOKENS.get(authHeader.slice("Bearer ".length));
+    if (label) return label;
+  }
+
+  const queryToken = req.query.key;
+  if (typeof queryToken === "string") {
+    const label = ACCESS_TOKENS.get(queryToken);
+    if (label) return label;
+  }
+
+  return null;
 }
 
 const app = express();
 app.use(express.json());
 
 app.post("/mcp", async (req, res) => {
-  if (!isAuthorized(req)) {
+  const label = resolveAccessLabel(req);
+  if (!label) {
     res.status(401).json({ error: "Unauthorized" });
     return;
   }
+  console.log(`MCP request from "${label}"`);
 
   const server = buildServer();
   const transport = new StreamableHTTPServerTransport({
@@ -315,7 +354,7 @@ app.post("/mcp", async (req, res) => {
 });
 
 app.get("/mcp", (req, res) => {
-  if (!isAuthorized(req)) {
+  if (!resolveAccessLabel(req)) {
     res.status(401).json({ error: "Unauthorized" });
     return;
   }
@@ -334,8 +373,13 @@ const PORT = Number(process.env.PORT) || 3000;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Obsidian MCP server running on port ${PORT}, serving vault at ${VAULT_PATH}`);
-  if (!API_KEY) {
-    console.warn("Warning: MCP_API_KEY is not set. The /mcp endpoint is unauthenticated.");
+  if (ACCESS_TOKENS.size === 0) {
+    console.warn(
+      "Warning: MCP_ACCESS_TOKENS is not set or empty. No token will be accepted — the /mcp endpoint " +
+        "is closed to everyone until at least one \"label=token\" entry is configured."
+    );
+  } else {
+    console.log(`Access tokens configured for: ${[...ACCESS_TOKENS.values()].join(", ")}`);
   }
   if (BYPASS_ACCESS_TIERS) {
     console.warn("Warning: BYPASS_ACCESS_TIERS is true. Access tiers are disabled — every character is readable.");
