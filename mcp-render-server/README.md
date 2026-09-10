@@ -34,12 +34,43 @@ All file access is sandboxed to the vault root and restricted to `.md` files;
 | `BYPASS_ACCESS_TIERS` | No | If `"true"`, access tiers are disabled entirely — every character is readable regardless of frontmatter or `UNLOCKED_CHARACTERS`. This is what makes `mcp-render-server-full` behave differently from `mcp-render-server` despite being the same code. |
 | `PORT` | No | Set automatically by Render. Defaults to `3000` locally. |
 
+## OAuth
+
+Both services also act as their own minimal OAuth 2.1 authorization server
+(authorization code grant with PKCE, plus dynamic client registration), so
+MCP clients that support OAuth discovery — including Claude.ai's custom
+connector flow — get a real sign-in page instead of a token pasted into the
+URL.
+
+- Hitting `/mcp` without credentials returns `401` with a `WWW-Authenticate`
+  header pointing at `/.well-known/oauth-protected-resource`, which in turn
+  points at this server as the authorization server
+  (`/.well-known/oauth-authorization-server`).
+- The client registers itself via `POST /register` (no manual setup needed),
+  then opens `/authorize` in a browser. The login page asks for one of the
+  `MCP_ACCESS_TOKENS` values as the credential — same tokens as before, just
+  entered on a form instead of pasted into a URL or header.
+- On success it redirects back to the client with an authorization code,
+  which the client exchanges at `POST /token` (PKCE-verified) for a
+  short-lived access token (1 hour) and a refresh token.
+- The resulting OAuth access token is used exactly like a static token —
+  `Authorization: Bearer <token>` on `/mcp` — and is checked by the same
+  code path.
+
+This sits on top of the existing token list, not instead of it: adding or
+revoking a person is still done by editing `MCP_ACCESS_TOKENS`, same as
+below. All OAuth state (registered clients, issued tokens) lives in memory
+only — an idle spin-down on Render's free tier restarts the process and
+wipes it, forcing anyone connected via OAuth to sign in again. Clients that
+skip OAuth and just send a static bearer/query token are unaffected by this.
+
 ## Access tokens
 
 Every request to `/mcp` — from you or anyone else — needs a token from
-`MCP_ACCESS_TOKENS`. This is a flat allowlist, not real OAuth: there's no
-login page or consent screen, just a shared secret per person that the
-server checks on every request.
+`MCP_ACCESS_TOKENS`, either directly (as a static bearer/query token) or via
+the OAuth login form above. This is a flat allowlist, not a real user
+database: there's no per-person password, just a shared secret per person
+that the server checks on every request or every login.
 
 **Format**: `label=token` pairs separated by commas, e.g.
 
@@ -112,21 +143,27 @@ request after idle time takes ~30–50s to wake it back up.
 
 ## Connecting to Claude
 
-Every connection needs one of the tokens from `MCP_ACCESS_TOKENS` (see
-Access tokens above).
+**Claude.ai / Claude Desktop (recommended — OAuth):** Settings → Connectors →
+Add custom connector → enter just the base MCP URL,
+`https://<your-service>.onrender.com/mcp`, with no token in it. Claude
+discovers that this server supports OAuth, registers itself automatically,
+and opens the sign-in page — enter one of the tokens from
+`MCP_ACCESS_TOKENS` there. Remember to also toggle the connector's tools on
+for the specific chat you're using (bottom of the chat box, tools/search
+menu) — a connector can be "linked" in Settings without being enabled for a
+given conversation.
 
-**Claude Code CLI:**
+**Claude Code CLI (static token, no OAuth):**
 
 ```bash
 claude mcp add --transport http naruto-wiki https://<your-service>.onrender.com/mcp --header "Authorization: Bearer <your-token>"
 ```
 
-**Claude.ai / Claude Desktop:** Settings → Connectors → Add custom connector.
-Since that dialog has no header field, append the token to the URL instead:
-`https://<your-service>.onrender.com/mcp?key=<your-token>`. Remember to also
-toggle the connector's tools on for the specific chat you're using (bottom of
-the chat box, tools/search menu) — a connector can be "linked" in Settings
-without being enabled for a given conversation.
+**Legacy query-token form**, for any client whose connector dialog has no
+header field and doesn't support OAuth discovery:
+`https://<your-service>.onrender.com/mcp?key=<your-token>`.
 
 Give each person their own token rather than reusing yours, so you can
-revoke one person's access later without affecting anyone else's.
+revoke one person's access later without affecting anyone else's. This
+applies whether they connect via OAuth or a static token — both draw from
+the same `MCP_ACCESS_TOKENS` list.

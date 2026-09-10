@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import express from "express";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -39,6 +40,123 @@ function parseAccessTokens(): Map<string, string> {
 }
 
 const ACCESS_TOKENS = parseAccessTokens();
+
+// --- OAuth 2.1 (authorization code + PKCE + dynamic client registration) ---
+//
+// This server is its own minimal authorization server, layered on top of the existing
+// MCP_ACCESS_TOKENS list rather than replacing it: the /authorize login page asks for one
+// of those same "label=token" values as the login credential, then issues a short-lived
+// OAuth access token (plus a refresh token) bound to that label. The static tokens
+// (Authorization: Bearer <token> / ?key=<token>) keep working unchanged for clients that
+// don't do the OAuth dance (e.g. the Claude Code CLI's --header flag) — resolveAccessLabel
+// below accepts either kind of token.
+//
+// All OAuth state (registered clients, in-flight auth codes, issued tokens) lives only in
+// memory. On Render's free tier the process is killed and restarted from scratch after an
+// idle spin-down, which wipes this state — any client mid-flow or holding an issued token
+// at that point has to redo the browser login. That's an accepted tradeoff for staying
+// dependency-free (no database); see ARCHITECTURE.md.
+
+interface OAuthClient {
+  redirectUris: string[];
+}
+const oauthClients = new Map<string, OAuthClient>();
+
+interface AuthCode {
+  label: string;
+  clientId: string;
+  redirectUri: string;
+  codeChallenge: string;
+  expiresAt: number;
+}
+const authCodes = new Map<string, AuthCode>();
+
+interface IssuedAccessToken {
+  label: string;
+  expiresAt: number;
+}
+const issuedAccessTokens = new Map<string, IssuedAccessToken>();
+const issuedRefreshTokens = new Map<string, string>(); // refresh token -> label
+
+const AUTH_CODE_TTL_MS = 5 * 60 * 1000;
+const ACCESS_TOKEN_TTL_MS = 60 * 60 * 1000;
+
+function randomToken(bytes = 32): string {
+  return crypto.randomBytes(bytes).toString("base64url");
+}
+
+function pruneExpiredAuthCodes() {
+  const now = Date.now();
+  for (const [code, entry] of authCodes) {
+    if (entry.expiresAt < now) authCodes.delete(code);
+  }
+}
+
+function issueTokenPair(label: string) {
+  const accessToken = randomToken();
+  const refreshToken = randomToken();
+  issuedAccessTokens.set(accessToken, { label, expiresAt: Date.now() + ACCESS_TOKEN_TTL_MS });
+  issuedRefreshTokens.set(refreshToken, label);
+  return {
+    access_token: accessToken,
+    token_type: "Bearer",
+    expires_in: Math.floor(ACCESS_TOKEN_TTL_MS / 1000),
+    refresh_token: refreshToken,
+  };
+}
+
+function verifyPkce(codeChallenge: string, codeVerifier: string): boolean {
+  const hash = crypto.createHash("sha256").update(codeVerifier).digest("base64url");
+  return hash === codeChallenge;
+}
+
+function getBaseUrl(req: express.Request): string {
+  return `${req.protocol}://${req.get("host")}`;
+}
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c] as string));
+}
+
+function renderLoginPage(opts: {
+  clientId: string;
+  redirectUri: string;
+  state: string;
+  codeChallenge: string;
+  error: string | null;
+}): string {
+  return `<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sign in — Obsidian MCP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: system-ui, sans-serif; background: #111; color: #eee; display: flex;
+         align-items: center; justify-content: center; height: 100vh; margin: 0; }
+  form { background: #1b1b1b; padding: 2rem; border-radius: 8px; width: 320px; }
+  h1 { font-size: 1.05rem; margin: 0 0 1rem; }
+  input { width: 100%; padding: .5rem; margin-bottom: 1rem; box-sizing: border-box;
+          border-radius: 4px; border: 1px solid #444; background: #222; color: #eee; }
+  button { width: 100%; padding: .6rem; border-radius: 4px; border: none; background: #4a7dff;
+           color: #fff; font-weight: 600; cursor: pointer; }
+  .error { color: #ff6b6b; font-size: .85rem; margin: -.5rem 0 1rem; }
+</style>
+</head>
+<body>
+<form method="POST" action="/authorize">
+  <h1>Sign in to the Obsidian MCP server</h1>
+  ${opts.error ? `<div class="error">${escapeHtml(opts.error)}</div>` : ""}
+  <input type="password" name="access_token" placeholder="Your access token" autofocus required>
+  <input type="hidden" name="client_id" value="${escapeHtml(opts.clientId)}">
+  <input type="hidden" name="redirect_uri" value="${escapeHtml(opts.redirectUri)}">
+  <input type="hidden" name="state" value="${escapeHtml(opts.state)}">
+  <input type="hidden" name="code_challenge" value="${escapeHtml(opts.codeChallenge)}">
+  <button type="submit">Continue</button>
+</form>
+</body>
+</html>`;
+}
 
 async function scanDirectory(directory: string, onFile: (fullPath: string) => Promise<void> | void) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
@@ -305,29 +423,218 @@ function buildServer(): McpServer {
   return server;
 }
 
-function resolveAccessLabel(req: express.Request): string | null {
-  const authHeader = req.header("authorization");
-  if (authHeader?.startsWith("Bearer ")) {
-    const label = ACCESS_TOKENS.get(authHeader.slice("Bearer ".length));
-    if (label) return label;
-  }
+// Accepts either a static MCP_ACCESS_TOKENS entry or a token issued by the /token
+// endpoint via the OAuth flow below — both are just bearer strings from this point on.
+function resolveToken(candidate: string | undefined): string | null {
+  if (!candidate) return null;
 
-  const queryToken = req.query.key;
-  if (typeof queryToken === "string") {
-    const label = ACCESS_TOKENS.get(queryToken);
-    if (label) return label;
+  const staticLabel = ACCESS_TOKENS.get(candidate);
+  if (staticLabel) return staticLabel;
+
+  const issued = issuedAccessTokens.get(candidate);
+  if (issued) {
+    if (issued.expiresAt > Date.now()) return issued.label;
+    issuedAccessTokens.delete(candidate); // expired, clean up
   }
 
   return null;
 }
 
+function resolveAccessLabel(req: express.Request): string | null {
+  const authHeader = req.header("authorization");
+  const bearer = authHeader?.startsWith("Bearer ") ? authHeader.slice("Bearer ".length) : undefined;
+  const label = resolveToken(bearer);
+  if (label) return label;
+
+  const queryToken = req.query.key;
+  return resolveToken(typeof queryToken === "string" ? queryToken : undefined);
+}
+
+function sendUnauthorized(req: express.Request, res: express.Response) {
+  const base = getBaseUrl(req);
+  res
+    .status(401)
+    .set("WWW-Authenticate", `Bearer resource_metadata="${base}/.well-known/oauth-protected-resource"`)
+    .json({ error: "Unauthorized" });
+}
+
 const app = express();
+app.set("trust proxy", true); // Render sits behind a proxy; needed for req.protocol/host to be correct
 app.use(express.json());
+
+// --- OAuth 2.1 discovery + authorization endpoints ---
+// See the "OAuth 2.1" comment above ACCESS_TOKENS' declaration for the overall design.
+
+app.get("/.well-known/oauth-authorization-server", (req, res) => {
+  const base = getBaseUrl(req);
+  res.json({
+    issuer: base,
+    authorization_endpoint: `${base}/authorize`,
+    token_endpoint: `${base}/token`,
+    registration_endpoint: `${base}/register`,
+    response_types_supported: ["code"],
+    grant_types_supported: ["authorization_code", "refresh_token"],
+    code_challenge_methods_supported: ["S256"],
+    token_endpoint_auth_methods_supported: ["none"],
+    scopes_supported: ["mcp"],
+  });
+});
+
+app.get("/.well-known/oauth-protected-resource", (req, res) => {
+  const base = getBaseUrl(req);
+  res.json({
+    resource: `${base}/mcp`,
+    authorization_servers: [base],
+  });
+});
+
+app.post("/register", (req, res) => {
+  const body = req.body ?? {};
+  const redirectUris = Array.isArray(body.redirect_uris)
+    ? body.redirect_uris.filter((u: unknown): u is string => typeof u === "string")
+    : [];
+
+  if (redirectUris.length === 0) {
+    res.status(400).json({ error: "invalid_client_metadata", error_description: "redirect_uris is required." });
+    return;
+  }
+
+  const clientId = randomToken(16);
+  oauthClients.set(clientId, { redirectUris });
+
+  res.status(201).json({
+    client_id: clientId,
+    redirect_uris: redirectUris,
+    token_endpoint_auth_method: "none",
+    grant_types: ["authorization_code", "refresh_token"],
+    response_types: ["code"],
+  });
+});
+
+app.get("/authorize", (req, res) => {
+  const { response_type, client_id, redirect_uri, state, code_challenge, code_challenge_method } = req.query;
+
+  if (response_type !== "code") {
+    res.status(400).send('Unsupported response_type; only "code" is supported.');
+    return;
+  }
+  if (typeof client_id !== "string" || !oauthClients.has(client_id)) {
+    res.status(400).send("Unknown client_id. Register the client via POST /register first.");
+    return;
+  }
+  const client = oauthClients.get(client_id)!;
+  if (typeof redirect_uri !== "string" || !client.redirectUris.includes(redirect_uri)) {
+    res.status(400).send("redirect_uri does not match a registered redirect URI for this client.");
+    return;
+  }
+  if (typeof code_challenge !== "string" || code_challenge_method !== "S256") {
+    res.status(400).send("PKCE with code_challenge_method=S256 is required.");
+    return;
+  }
+
+  res.status(200).type("html").send(
+    renderLoginPage({
+      clientId: client_id,
+      redirectUri: redirect_uri,
+      state: typeof state === "string" ? state : "",
+      codeChallenge: code_challenge,
+      error: null,
+    })
+  );
+});
+
+app.post("/authorize", express.urlencoded({ extended: false }), (req, res) => {
+  const { access_token, client_id, redirect_uri, state, code_challenge } = req.body ?? {};
+
+  if (typeof client_id !== "string" || !oauthClients.has(client_id)) {
+    res.status(400).send("Unknown client_id.");
+    return;
+  }
+  const client = oauthClients.get(client_id)!;
+  if (typeof redirect_uri !== "string" || !client.redirectUris.includes(redirect_uri)) {
+    res.status(400).send("Invalid redirect_uri.");
+    return;
+  }
+
+  const label = typeof access_token === "string" ? ACCESS_TOKENS.get(access_token) : undefined;
+  if (!label) {
+    res
+      .status(401)
+      .type("html")
+      .send(
+        renderLoginPage({
+          clientId: client_id,
+          redirectUri: redirect_uri,
+          state: typeof state === "string" ? state : "",
+          codeChallenge: typeof code_challenge === "string" ? code_challenge : "",
+          error: "That access token wasn't recognized. Ask the vault owner for a valid token.",
+        })
+      );
+    return;
+  }
+
+  pruneExpiredAuthCodes();
+  const code = randomToken();
+  authCodes.set(code, {
+    label,
+    clientId: client_id,
+    redirectUri: redirect_uri,
+    codeChallenge: typeof code_challenge === "string" ? code_challenge : "",
+    expiresAt: Date.now() + AUTH_CODE_TTL_MS,
+  });
+
+  const redirectUrl = new URL(redirect_uri);
+  redirectUrl.searchParams.set("code", code);
+  if (typeof state === "string" && state) redirectUrl.searchParams.set("state", state);
+  res.redirect(redirectUrl.toString());
+});
+
+app.post("/token", express.urlencoded({ extended: false }), (req, res) => {
+  const body = req.body ?? {};
+  pruneExpiredAuthCodes();
+
+  if (body.grant_type === "authorization_code") {
+    const { code, redirect_uri, client_id, code_verifier } = body;
+    const entry = typeof code === "string" ? authCodes.get(code) : undefined;
+
+    if (!entry) {
+      res.status(400).json({ error: "invalid_grant", error_description: "Authorization code is invalid or expired." });
+      return;
+    }
+    authCodes.delete(code); // single use, regardless of what happens below
+
+    if (entry.clientId !== client_id || entry.redirectUri !== redirect_uri) {
+      res.status(400).json({ error: "invalid_grant", error_description: "client_id or redirect_uri mismatch." });
+      return;
+    }
+    if (typeof code_verifier !== "string" || !verifyPkce(entry.codeChallenge, code_verifier)) {
+      res.status(400).json({ error: "invalid_grant", error_description: "PKCE verification failed." });
+      return;
+    }
+
+    res.json(issueTokenPair(entry.label));
+    return;
+  }
+
+  if (body.grant_type === "refresh_token") {
+    const refreshToken = body.refresh_token;
+    const label = typeof refreshToken === "string" ? issuedRefreshTokens.get(refreshToken) : undefined;
+    if (!label) {
+      res.status(400).json({ error: "invalid_grant", error_description: "Refresh token is invalid or revoked." });
+      return;
+    }
+    issuedRefreshTokens.delete(refreshToken); // rotate on use
+    res.json(issueTokenPair(label));
+    return;
+  }
+
+  res.status(400).json({ error: "unsupported_grant_type" });
+});
 
 app.post("/mcp", async (req, res) => {
   const label = resolveAccessLabel(req);
   if (!label) {
-    res.status(401).json({ error: "Unauthorized" });
+    sendUnauthorized(req, res);
     return;
   }
   console.log(`MCP request from "${label}"`);
@@ -355,7 +662,7 @@ app.post("/mcp", async (req, res) => {
 
 app.get("/mcp", (req, res) => {
   if (!resolveAccessLabel(req)) {
-    res.status(401).json({ error: "Unauthorized" });
+    sendUnauthorized(req, res);
     return;
   }
   // Some MCP clients probe with a plain GET before ever sending a POST. This server is
