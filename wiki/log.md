@@ -282,3 +282,42 @@ the 33 pages tagged in the prior entry, restoring them to unrestricted and rever
 [[Hiruzen Sarutobi]], [[Minato Namikaze]]) are untouched and remain the only gated
 characters. No server code changes needed, same as before — the restricted set is derived
 from frontmatter, so removing the tag from a page is sufficient on its own.
+
+## [2026-09-10] ingest | Batch ingest of 32 raw sources (Sand Siblings, Tailed Beasts, Taka, other villages, major antagonists/supporting cast)
+
+Unsupervised batch ingest at the user's request, covering nearly the entire non-Boruto
+character gap flagged in earlier lint passes. Boruto-era characters (Boruto, Mitsuki,
+Konohamaru, the Boruto-generation genin, Momoshiki/Kinshiki/Urashiki/Isshiki Ōtsutsuki)
+were deliberately excluded per the user's instruction to hold them for later.
+
+New `wiki/sources/` + `wiki/entities/` page pairs created for: [[Gaara]], [[Temari]],
+[[Kankurō]] (the [[Three Sand Siblings]]); [[Gyūki]], [[Shukaku]], [[Saiken]], [[Kokuō]],
+[[Son Gokū]], [[Isobu]], [[Matatabi]] (all remaining [[Tailed Beasts]] except Chōmei, whose
+raw file was empty — flagged as a data gap, not ingested); [[Suigetsu Hōzuki]], [[Karin]],
+[[Jūgo]] ([[Taka]]); [[Mei Terumī]], [[Chōjūrō]], [[Ao]], [[Darui]], [[A (Third
+Raikage)]], [[Karui]] (Kiri/Kumo/Iwa Kage-tier cast); [[Zabuza Momochi]], [[Haku]],
+[[Killer B]], [[Shizune]], [[Anko Mitarashi]], [[Chiyo]], [[Danzō Shimura]], [[Kabuto
+Yakushi]], [[Kaguya Ōtsutsuki]].
+
+Also ingested dedicated raw sources for two characters that previously only had
+synthesized stub-adjacent pages: [[Kurama]] (resolved the wiki's long-standing open
+question — the mechanism connecting Kurama's death to [[Himawari Uzumaki]]'s new
+jinchūriki status, now explained as a rebirth) and [[Hinata Hyuga]] (added her own
+backstory — Hyūga heiress disinheritance — previously covered only through Naruto's page).
+
+Created three new concept pages: [[Three Sand Siblings]], [[Tailed Beasts]] (shared
+origin/history, avoiding repeating near-identical lore across all nine individual beast
+pages), and [[Taka]]. Lightly cross-referenced [[Shikamaru Nara]]'s stub page with new
+detail on his marriage to Temari.
+
+All new content was written as original summaries from the raw fan-wiki source material,
+not reproduced verbatim, consistent with the wiki's existing style. `wiki/index.md`
+updated with all new pages; open threads list revised to remove resolved items.
+
+## [2026-09-10] ingest | Chōmei (source) — closing the Tailed Beasts gap
+
+`raw/Chōmei.md` was empty at the time of the batch ingest above; the user re-clipped it
+and it now has content. Filed [[Chōmei (source)]] and [[Chōmei]] (Seven-Tails, formerly
+sealed within Fū) following the same pattern as the other eight tailed beasts. Updated
+[[Tailed Beasts]]'s roster table and sources to include it — the tailed beast roster is
+now complete, all nine filed.

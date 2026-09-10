@@ -2,15 +2,15 @@
 type: entity
 tags: [naruto, character, stub]
 created: 2026-09-04
-updated: 2026-09-04
-sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source)]]", "[[Chōji Akimichi (source)]]", "[[Asuma Sarutobi (source)]]", "[[Ino Yamanaka (source)]]", "[[Neji Hyūga (source)]]"]
+updated: 2026-09-10
+sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source)]]", "[[Chōji Akimichi (source)]]", "[[Asuma Sarutobi (source)]]", "[[Ino Yamanaka (source)]]", "[[Neji Hyūga (source)]]", "[[Temari (source)]]", "[[Gaara (source)]]"]
 ---
 
 # Shikamaru Nara
 
-**Still a stub page** — no dedicated Shikamaru source has been ingested yet, but enough
-incidental detail has now accumulated across his teammates' and colleagues' biographies that
-this page is more than a placeholder. Expand fully once a Shikamaru-specific source arrives.
+**Still a stub page** — no dedicated Shikamaru source has been ingested yet, but
+substantial detail has now accumulated from his teammates', colleagues', and especially
+his wife [[Temari]]'s biographies. Expand fully once a Shikamaru-specific source arrives.
 
 ## What's known so far
 
@@ -29,8 +29,14 @@ this page is more than a placeholder. Expand fully once a Shikamaru-specific sou
   unborn daughter, Mirai — a responsibility he takes seriously into adulthood, regularly
   checking on Kurenai and later Mirai herself.
 - Promoted to jōnin; becomes a close advisor and right-hand man to a village leader (see
-  [[Naruto Uzumaki]] — access restricted). Marries Temari of Sunagakure and has a son,
-  Shikadai.
+  [[Naruto Uzumaki]] — access restricted).
+- **Marriage to [[Temari]]**: their partnership grows from a hard-fought Chūnin Exams
+  match (he wins tactically but forfeits) into a recurring mission partnership, then
+  romance made explicit in the *Shikamaru Hiden* novel/arc — he asks her out after she
+  helps snap him out of an enemy's genjutsu. They marry, and Temari relocates to Konoha
+  as a member of the Nara clan; their son is Shikadai. Temari is characteristically the
+  more assertive half of the marriage (a dynamic the wiki's sources compare to his own
+  parents, Shikaku and Yoshino).
 
 ## Current crisis (New Era: Part II)
 

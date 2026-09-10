@@ -3,8 +3,8 @@ type: entity
 tags: [naruto, character, tailed-beast]
 access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-09
-sources: ["[[Naruto Uzumaki (source)]]", "[[Naruto Characters (aniSearch)]]", "[[Sakura Haruno (source)]]", "[[Ino Yamanaka (source)]]"]
+updated: 2026-09-10
+sources: ["[[Naruto Uzumaki (source)]]", "[[Naruto Characters (aniSearch)]]", "[[Sakura Haruno (source)]]", "[[Ino Yamanaka (source)]]", "[[Kurama (source)]]"]
 ---
 
 # Kurama
@@ -34,17 +34,17 @@ hid this cost from Naruto deliberately, knowing Naruto wouldn't risk it otherwis
 permanently strips Naruto of Kurama's chakra and the abilities built on it — a significant,
 lasting downgrade to his fighting capability going into the later *Boruto*-era arcs.
 
-## Possible successor — corroborated, mechanism still unresolved
+## Rebirth within Himawari — mechanism resolved
 
-[[Sakura Haruno (source)]] describes [[Himawari Uzumaki]] (Naruto's daughter), in the
-*New Era: Part II* chapters, as "the new Nine-Tails' jinchūriki." This is now independently
-corroborated by [[Ino Yamanaka (source)]], which describes Himawari using that power to
-heal an injured Boruto during the Boruto's Return Arc — two separate sources now treat
-Himawari's jinchūriki status as an established fact of the current era, not a one-off claim.
-**What sources ingested so far still don't explain is the mechanism**: how this squares with
-Kurama's death during the Kawaki Arc — whether a new Nine-Tails exists, whether Kurama itself
-was somehow revived, or something else. Flagged here and on [[Himawari Uzumaki]] as the
-remaining open question, pending a future source on the *Boruto* endgame.
+[[Sakura Haruno (source)]] and [[Ino Yamanaka (source)]] both describe [[Himawari
+Uzumaki]] (Naruto's daughter), in the *New Era: Part II* chapters, as the new Nine-Tails'
+jinchūriki — [[Ino Yamanaka (source)]] additionally shows her using that power to heal an
+injured Boruto during the Boruto's Return Arc. [[Kurama (source)]] resolves the mechanism
+those two sources left open: after dying from Baryon Mode's toll during the Kawaki Arc,
+the remaining kernels of Kurama's chakra find their way into Himawari, and Kurama itself
+reforms as a much smaller cub — much as it did when first created by Hagoromo — within
+her. It takes on a mentoring role toward her, training her to control her newfound power
+much as it once did for Naruto.
 
 ## Sources
 
@@ -52,3 +52,4 @@ remaining open question, pending a future source on the *Boruto* endgame.
 - [[Naruto Characters (aniSearch)]]
 - [[Sakura Haruno (source)]]
 - [[Ino Yamanaka (source)]]
+- [[Kurama (source)]]
