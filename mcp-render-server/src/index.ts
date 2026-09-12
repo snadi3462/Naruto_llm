@@ -799,6 +799,31 @@ function sendUnauthorized(req: express.Request, res: express.Response) {
 
 const app = express();
 app.set("trust proxy", true); // Render sits behind a proxy; needed for req.protocol/host to be correct
+
+// Claude.ai's connector setup UI, and the MCP client it drives, call this server directly
+// from the browser (cross-origin) to probe OAuth discovery and then to talk to /mcp itself.
+// Without CORS headers the browser blocks those requests before this server ever sees
+// them, surfacing as "Couldn't check the server" / "Couldn't determine how this server
+// signs in" in the connector dialog even though the server is up and correctly configured.
+// There's no cookie-based session here — every request is authorized by a bearer token in
+// the Authorization header (checked on every request regardless of origin) — so reflecting
+// the caller's origin is safe rather than a security boundary being loosened.
+app.use((req, res, next) => {
+  const origin = req.header("origin");
+  if (origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Vary", "Origin");
+  }
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Authorization, Content-Type, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID");
+  res.header("Access-Control-Expose-Headers", "Mcp-Session-Id, WWW-Authenticate");
+  if (req.method === "OPTIONS") {
+    res.sendStatus(204);
+    return;
+  }
+  next();
+});
+
 app.use(express.json());
 
 // --- OAuth 2.1 discovery + authorization endpoints ---

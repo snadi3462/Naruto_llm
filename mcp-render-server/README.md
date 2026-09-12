@@ -226,3 +226,14 @@ Give each person their own token rather than reusing yours, so you can
 revoke one person's access later without affecting anyone else's. This
 applies whether they connect via OAuth or a static token — both draw from
 the same `MCP_ACCESS_TOKENS` list.
+
+**If the connector dialog says "Couldn't check the server" / "Couldn't
+determine how this server signs in":** that's a browser CORS block, not an
+auth or server-down problem — claude.ai's connector setup runs in your
+browser and probes the OAuth discovery endpoints cross-origin before it ever
+gets to asking for a token. The server sends `Access-Control-Allow-Origin`
+(reflecting the caller's origin) and the other CORS headers the MCP spec's
+browser-based clients expect on every response, including preflight
+`OPTIONS` requests, so this shouldn't happen on a server running the current
+code — if you see it, the deployed service is probably still running an
+older build; redeploy and try again.
