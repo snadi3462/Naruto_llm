@@ -5,12 +5,55 @@ import path from "node:path";
 import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import pg from "pg";
 
 const VAULT_PATH = process.env.OBSIDIAN_VAULT_PATH
   ? path.resolve(process.env.OBSIDIAN_VAULT_PATH)
   : path.resolve(process.cwd(), "..");
 
+// --- Scratchpad DB (scoped write access) ---
+//
+// The vault's wiki/ and raw/ content is served read-only above (Claude owns wiki/, the
+// user owns raw/, and neither is ever written to over MCP). Separately, this server can
+// optionally connect to the same Postgres database db-sync/ mirrors the vault into
+// (DATABASE_URL) to expose a small, deliberately narrow write surface: a single
+// `mcp_notes` table that isn't part of the vault schema at all. The four db_* tools below
+// are the *only* SQL this server ever runs against that connection, every statement is
+// parameterized (no table/column name is ever built from tool input), and none of them
+// touch `wiki_pages` or `raw_files` — so a write tool existing at all can't be turned into
+// a way to edit or delete wiki/raw content. If DATABASE_URL isn't set, the db_* tools
+// report that clearly instead of the server failing to start.
+const pool = process.env.DATABASE_URL ? new pg.Pool({ connectionString: process.env.DATABASE_URL }) : null;
+
+const ENSURE_NOTES_TABLE_SQL = `
+  CREATE TABLE IF NOT EXISTS mcp_notes (
+    id         SERIAL PRIMARY KEY,
+    title      TEXT,
+    content    TEXT NOT NULL,
+    author     TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  );
+`;
+
+let notesSchemaReady: Promise<void> | null = null;
+function ensureNotesSchema(): Promise<void> {
+  if (!pool) return Promise.reject(new Error("DATABASE_URL is not configured on this server."));
+  if (!notesSchemaReady) {
+    notesSchemaReady = pool.query(ENSURE_NOTES_TABLE_SQL).then(() => undefined);
+  }
+  return notesSchemaReady;
+}
+
+// Local-dev-only escape hatch: forces every request to bypass access tiers regardless
+// of which token was used. Leave unset in production — the per-token ":full" suffix
+// below is the real mechanism for granting full access to specific people.
 const BYPASS_ACCESS_TIERS = process.env.BYPASS_ACCESS_TIERS === "true";
+
+interface AccessTokenEntry {
+  label: string;
+  full: boolean; // true = this token's holder bypasses access tiers entirely
+}
 
 // Per-person access tokens: MCP_ACCESS_TOKENS is a comma-separated list of
 // "label=token" pairs, e.g. "you=abc123,alice=def456". Every request must present
@@ -19,8 +62,14 @@ const BYPASS_ACCESS_TIERS = process.env.BYPASS_ACCESS_TIERS === "true";
 // requires a token. Revoking one person means deleting their "label=token" entry from
 // this env var on Render and saving (triggers a redeploy) — everyone else's tokens
 // keep working.
-function parseAccessTokens(): Map<string, string> {
-  const tokens = new Map<string, string>();
+//
+// Appending ":full" to a token's value (e.g. "you=abc123:full") marks that specific
+// token as bypassing the access-tier gate entirely, while every other token still
+// goes through it normally. This is what lets one deployed server, one OAuth login
+// page, and one client_id serve both a restricted and an unrestricted login — the
+// password someone is given decides their access level, not which URL they connect to.
+function parseAccessTokens(): Map<string, AccessTokenEntry> {
+  const tokens = new Map<string, AccessTokenEntry>();
   const raw = process.env.MCP_ACCESS_TOKENS;
   if (!raw) return tokens;
 
@@ -32,8 +81,14 @@ function parseAccessTokens(): Map<string, string> {
     if (eq === -1) continue;
 
     const label = trimmed.slice(0, eq).trim();
-    const token = trimmed.slice(eq + 1).trim();
-    if (label && token) tokens.set(token, label);
+    let value = trimmed.slice(eq + 1).trim();
+    let full = false;
+    if (value.toLowerCase().endsWith(":full")) {
+      full = true;
+      value = value.slice(0, -":full".length);
+    }
+    const token = value;
+    if (label && token) tokens.set(token, { label, full });
   }
 
   return tokens;
@@ -51,32 +106,96 @@ const ACCESS_TOKENS = parseAccessTokens();
 // don't do the OAuth dance (e.g. the Claude Code CLI's --header flag) — resolveAccessLabel
 // below accepts either kind of token.
 //
-// All OAuth state (registered clients, in-flight auth codes, issued tokens) lives only in
-// memory. On Render's free tier the process is killed and restarted from scratch after an
-// idle spin-down, which wipes this state — any client mid-flow or holding an issued token
-// at that point has to redo the browser login. That's an accepted tradeoff for staying
-// dependency-free (no database); see ARCHITECTURE.md.
+// A given login's access level (tiered vs. full) rides along with it through this whole
+// flow — the auth code, the issued access token, and its refresh token all carry the
+// same "full" flag the login token had, so one client_id / one login page can serve both
+// restricted and unrestricted logins depending purely on which password was entered.
+//
+// State (registered clients, in-flight auth codes, issued tokens) is persisted in the same
+// Postgres database db-sync/ mirrors the vault into and the mcp_notes scratchpad uses
+// (DATABASE_URL), so it survives Render's free-tier idle spin-downs instead of being wiped
+// on every restart. Falls back to in-memory storage — the original behavior — when
+// DATABASE_URL isn't set, so local dev without Postgres still works unchanged. Every table
+// is scoped by SERVICE_NAME (in case you ever do run more than one deployment against the
+// same database) so tokens/clients from one never resolve on another.
+
+const SERVICE_NAME = process.env.SERVICE_NAME || "default";
+
+const ENSURE_OAUTH_SCHEMA_SQL = `
+  CREATE TABLE IF NOT EXISTS oauth_clients (
+    service_name  TEXT NOT NULL,
+    client_id     TEXT NOT NULL,
+    redirect_uris TEXT[] NOT NULL,
+    created_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (service_name, client_id)
+  );
+  CREATE TABLE IF NOT EXISTS oauth_auth_codes (
+    service_name   TEXT NOT NULL,
+    code           TEXT NOT NULL,
+    label          TEXT NOT NULL,
+    full_access    BOOLEAN NOT NULL DEFAULT false,
+    client_id      TEXT NOT NULL,
+    redirect_uri   TEXT NOT NULL,
+    code_challenge TEXT NOT NULL,
+    expires_at     TIMESTAMPTZ NOT NULL,
+    PRIMARY KEY (service_name, code)
+  );
+  CREATE TABLE IF NOT EXISTS oauth_access_tokens (
+    service_name TEXT NOT NULL,
+    token        TEXT NOT NULL,
+    label        TEXT NOT NULL,
+    full_access  BOOLEAN NOT NULL DEFAULT false,
+    expires_at   TIMESTAMPTZ NOT NULL,
+    PRIMARY KEY (service_name, token)
+  );
+  CREATE TABLE IF NOT EXISTS oauth_refresh_tokens (
+    service_name TEXT NOT NULL,
+    token        TEXT NOT NULL,
+    label        TEXT NOT NULL,
+    full_access  BOOLEAN NOT NULL DEFAULT false,
+    created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (service_name, token)
+  );
+  ALTER TABLE oauth_auth_codes ADD COLUMN IF NOT EXISTS full_access BOOLEAN NOT NULL DEFAULT false;
+  ALTER TABLE oauth_access_tokens ADD COLUMN IF NOT EXISTS full_access BOOLEAN NOT NULL DEFAULT false;
+  ALTER TABLE oauth_refresh_tokens ADD COLUMN IF NOT EXISTS full_access BOOLEAN NOT NULL DEFAULT false;
+`;
+
+let oauthSchemaReady: Promise<void> | null = null;
+function ensureOAuthSchema(): Promise<void> {
+  if (!pool) return Promise.resolve();
+  if (!oauthSchemaReady) {
+    oauthSchemaReady = pool.query(ENSURE_OAUTH_SCHEMA_SQL).then(() => undefined);
+  }
+  return oauthSchemaReady;
+}
 
 interface OAuthClient {
   redirectUris: string[];
 }
-const oauthClients = new Map<string, OAuthClient>();
-
 interface AuthCode {
   label: string;
+  full: boolean;
   clientId: string;
   redirectUri: string;
   codeChallenge: string;
   expiresAt: number;
 }
-const authCodes = new Map<string, AuthCode>();
-
 interface IssuedAccessToken {
   label: string;
+  full: boolean;
   expiresAt: number;
 }
-const issuedAccessTokens = new Map<string, IssuedAccessToken>();
-const issuedRefreshTokens = new Map<string, string>(); // refresh token -> label
+interface IssuedRefreshToken {
+  label: string;
+  full: boolean;
+}
+
+// In-memory fallback, used only when DATABASE_URL isn't configured.
+const memClients = new Map<string, OAuthClient>();
+const memAuthCodes = new Map<string, AuthCode>();
+const memAccessTokens = new Map<string, IssuedAccessToken>();
+const memRefreshTokens = new Map<string, IssuedRefreshToken>();
 
 const AUTH_CODE_TTL_MS = 5 * 60 * 1000;
 const ACCESS_TOKEN_TTL_MS = 60 * 60 * 1000;
@@ -85,24 +204,135 @@ function randomToken(bytes = 32): string {
   return crypto.randomBytes(bytes).toString("base64url");
 }
 
-function pruneExpiredAuthCodes() {
-  const now = Date.now();
-  for (const [code, entry] of authCodes) {
-    if (entry.expiresAt < now) authCodes.delete(code);
+async function registerOAuthClient(redirectUris: string[]): Promise<string> {
+  const clientId = randomToken(16);
+  if (pool) {
+    await ensureOAuthSchema();
+    await pool.query(`INSERT INTO oauth_clients (service_name, client_id, redirect_uris) VALUES ($1, $2, $3)`, [
+      SERVICE_NAME,
+      clientId,
+      redirectUris,
+    ]);
+  } else {
+    memClients.set(clientId, { redirectUris });
   }
+  return clientId;
 }
 
-function issueTokenPair(label: string) {
+async function getOAuthClient(clientId: string): Promise<OAuthClient | null> {
+  if (pool) {
+    await ensureOAuthSchema();
+    const result = await pool.query(`SELECT redirect_uris FROM oauth_clients WHERE service_name = $1 AND client_id = $2`, [
+      SERVICE_NAME,
+      clientId,
+    ]);
+    return result.rowCount ? { redirectUris: result.rows[0].redirect_uris } : null;
+  }
+  return memClients.get(clientId) ?? null;
+}
+
+async function createAuthCode(entry: Omit<AuthCode, "expiresAt">): Promise<string> {
+  const code = randomToken();
+  const expiresAt = Date.now() + AUTH_CODE_TTL_MS;
+  if (pool) {
+    await ensureOAuthSchema();
+    await pool.query(
+      `INSERT INTO oauth_auth_codes (service_name, code, label, full_access, client_id, redirect_uri, code_challenge, expires_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+      [SERVICE_NAME, code, entry.label, entry.full, entry.clientId, entry.redirectUri, entry.codeChallenge, new Date(expiresAt)]
+    );
+  } else {
+    memAuthCodes.set(code, { ...entry, expiresAt });
+  }
+  return code;
+}
+
+// Deletes the code as it reads it (single use), and treats an already-expired code as if
+// it didn't exist.
+async function consumeAuthCode(code: string): Promise<AuthCode | null> {
+  if (pool) {
+    await ensureOAuthSchema();
+    const result = await pool.query(
+      `DELETE FROM oauth_auth_codes WHERE service_name = $1 AND code = $2 AND expires_at > now()
+       RETURNING label, full_access, client_id, redirect_uri, code_challenge`,
+      [SERVICE_NAME, code]
+    );
+    if (!result.rowCount) return null;
+    const row = result.rows[0];
+    return {
+      label: row.label,
+      full: row.full_access,
+      clientId: row.client_id,
+      redirectUri: row.redirect_uri,
+      codeChallenge: row.code_challenge,
+      expiresAt: 0,
+    };
+  }
+  const entry = memAuthCodes.get(code);
+  memAuthCodes.delete(code);
+  if (!entry || entry.expiresAt < Date.now()) return null;
+  return entry;
+}
+
+async function issueTokenPair(label: string, full: boolean) {
   const accessToken = randomToken();
   const refreshToken = randomToken();
-  issuedAccessTokens.set(accessToken, { label, expiresAt: Date.now() + ACCESS_TOKEN_TTL_MS });
-  issuedRefreshTokens.set(refreshToken, label);
+  const expiresAt = Date.now() + ACCESS_TOKEN_TTL_MS;
+  if (pool) {
+    await ensureOAuthSchema();
+    await pool.query(
+      `INSERT INTO oauth_access_tokens (service_name, token, label, full_access, expires_at) VALUES ($1, $2, $3, $4, $5)`,
+      [SERVICE_NAME, accessToken, label, full, new Date(expiresAt)]
+    );
+    await pool.query(`INSERT INTO oauth_refresh_tokens (service_name, token, label, full_access) VALUES ($1, $2, $3, $4)`, [
+      SERVICE_NAME,
+      refreshToken,
+      label,
+      full,
+    ]);
+  } else {
+    memAccessTokens.set(accessToken, { label, full, expiresAt });
+    memRefreshTokens.set(refreshToken, { label, full });
+  }
   return {
     access_token: accessToken,
     token_type: "Bearer",
     expires_in: Math.floor(ACCESS_TOKEN_TTL_MS / 1000),
     refresh_token: refreshToken,
   };
+}
+
+// Deletes the refresh token as it reads it (rotated on every use).
+async function consumeRefreshToken(token: string): Promise<IssuedRefreshToken | null> {
+  if (pool) {
+    await ensureOAuthSchema();
+    const result = await pool.query(
+      `DELETE FROM oauth_refresh_tokens WHERE service_name = $1 AND token = $2 RETURNING label, full_access`,
+      [SERVICE_NAME, token]
+    );
+    return result.rowCount ? { label: result.rows[0].label, full: result.rows[0].full_access } : null;
+  }
+  const entry = memRefreshTokens.get(token);
+  memRefreshTokens.delete(token);
+  return entry ?? null;
+}
+
+async function resolveIssuedAccessToken(token: string): Promise<AccessTokenEntry | null> {
+  if (pool) {
+    await ensureOAuthSchema();
+    const result = await pool.query(
+      `SELECT label, full_access FROM oauth_access_tokens WHERE service_name = $1 AND token = $2 AND expires_at > now()`,
+      [SERVICE_NAME, token]
+    );
+    return result.rowCount ? { label: result.rows[0].label, full: result.rows[0].full_access } : null;
+  }
+  const entry = memAccessTokens.get(token);
+  if (!entry) return null;
+  if (entry.expiresAt < Date.now()) {
+    memAccessTokens.delete(token);
+    return null;
+  }
+  return { label: entry.label, full: entry.full };
 }
 
 function verifyPkce(codeChallenge: string, codeVerifier: string): boolean {
@@ -182,9 +412,9 @@ async function scanDirectory(directory: string, onFile: (fullPath: string) => Pr
 // character name, since those can't carry the same frontmatter (raw/ is immutable).
 // Concepts (e.g. a team page built entirely around restricted members) have no raw/sources
 // counterpart, so gating the concept file itself is the whole gate.
-async function getRestrictedCharacterNames(): Promise<Set<string>> {
+async function getRestrictedCharacterNames(bypass: boolean): Promise<Set<string>> {
   const restricted = new Set<string>();
-  if (BYPASS_ACCESS_TIERS) return restricted;
+  if (bypass) return restricted;
 
   const dirs = [path.join(VAULT_PATH, "wiki", "entities"), path.join(VAULT_PATH, "wiki", "concepts")];
 
@@ -264,11 +494,15 @@ function isUnlocked(characterName: string): boolean {
   return list.includes("all") || list.includes(characterName.toLowerCase());
 }
 
-function buildServer(): McpServer {
+function buildServer(label: string, tokenFull: boolean): McpServer {
   const server = new McpServer({
     name: "obsidian-mcp",
     version: "1.0.0",
   });
+
+  // BYPASS_ACCESS_TIERS (local dev only) forces bypass for everyone; tokenFull is the
+  // per-token ":full" flag resolved for this specific request/session.
+  const bypass = BYPASS_ACCESS_TIERS || tokenFull;
 
   server.registerTool(
     "get_server_status",
@@ -288,7 +522,7 @@ function buildServer(): McpServer {
       inputSchema: {},
     },
     async () => {
-      const restrictedNames = await getRestrictedCharacterNames();
+      const restrictedNames = await getRestrictedCharacterNames(bypass);
       const notes: string[] = [];
 
       await scanDirectory(VAULT_PATH, (fullPath) => {
@@ -342,7 +576,7 @@ function buildServer(): McpServer {
 
       const key = characterKeyForPath(path.relative(vaultRoot, fullPath));
       if (key !== null) {
-        const restrictedNames = await getRestrictedCharacterNames();
+        const restrictedNames = await getRestrictedCharacterNames(bypass);
         if (restrictedNames.has(key) && !isUnlocked(key)) {
           return {
             content: [
@@ -360,7 +594,7 @@ function buildServer(): McpServer {
         let content = await fs.readFile(fullPath, "utf8");
         const relPath = path.relative(vaultRoot, fullPath).split(path.sep).join("/");
         if (LINE_FILTERED_PATHS.has(relPath)) {
-          const restrictedNames = await getRestrictedCharacterNames();
+          const restrictedNames = await getRestrictedCharacterNames(bypass);
           content = redactRestrictedLines(content, restrictedNames);
         }
         return { content: [{ type: "text", text: content }] };
@@ -382,7 +616,7 @@ function buildServer(): McpServer {
       },
     },
     async ({ query }) => {
-      const restrictedNames = await getRestrictedCharacterNames();
+      const restrictedNames = await getRestrictedCharacterNames(bypass);
       const results: string[] = [];
       const searchQuery = query.toLowerCase();
 
@@ -420,31 +654,136 @@ function buildServer(): McpServer {
     }
   );
 
+  server.registerTool(
+    "db_add_note",
+    {
+      description:
+        "Add a note to the scratchpad database. This writes only to the mcp_notes table — a " +
+        "separate scratch area, not part of the wiki — and never touches wiki/ or raw/ content.",
+      inputSchema: {
+        content: z.string().min(1).describe("Note body"),
+        title: z.string().optional().describe("Optional short title for the note"),
+      },
+    },
+    async ({ content, title }) => {
+      try {
+        await ensureNotesSchema();
+        const result = await pool!.query(
+          `INSERT INTO mcp_notes (title, content, author) VALUES ($1, $2, $3)
+           RETURNING id, title, content, author, created_at`,
+          [title ?? null, content, label]
+        );
+        const row = result.rows[0];
+        return { content: [{ type: "text", text: `Note added (id=${row.id}).\n${JSON.stringify(row, null, 2)}` }] };
+      } catch (error) {
+        return { content: [{ type: "text", text: `Error adding note: ${(error as Error).message}` }], isError: true };
+      }
+    }
+  );
+
+  server.registerTool(
+    "db_edit_note",
+    {
+      description:
+        "Edit an existing note in the scratchpad database (mcp_notes table) by id. Only fields " +
+        "you provide are changed. Cannot affect wiki/ or raw/ content.",
+      inputSchema: {
+        id: z.number().int().positive().describe("id of the note to edit"),
+        content: z.string().min(1).optional().describe("New note body"),
+        title: z.string().optional().describe("New title"),
+      },
+    },
+    async ({ id, content, title }) => {
+      try {
+        await ensureNotesSchema();
+        const result = await pool!.query(
+          `UPDATE mcp_notes
+             SET title = COALESCE($1, title),
+                 content = COALESCE($2, content),
+                 updated_at = now()
+           WHERE id = $3
+           RETURNING id, title, content, author, created_at, updated_at`,
+          [title ?? null, content ?? null, id]
+        );
+        if (result.rowCount === 0) {
+          return { content: [{ type: "text", text: `No note found with id=${id}.` }], isError: true };
+        }
+        return { content: [{ type: "text", text: JSON.stringify(result.rows[0], null, 2) }] };
+      } catch (error) {
+        return { content: [{ type: "text", text: `Error editing note: ${(error as Error).message}` }], isError: true };
+      }
+    }
+  );
+
+  server.registerTool(
+    "db_delete_note",
+    {
+      description:
+        "Delete a note from the scratchpad database (mcp_notes table) by id. Cannot affect " +
+        "wiki/ or raw/ content.",
+      inputSchema: {
+        id: z.number().int().positive().describe("id of the note to delete"),
+      },
+    },
+    async ({ id }) => {
+      try {
+        await ensureNotesSchema();
+        const result = await pool!.query(`DELETE FROM mcp_notes WHERE id = $1`, [id]);
+        if (result.rowCount === 0) {
+          return { content: [{ type: "text", text: `No note found with id=${id}.` }], isError: true };
+        }
+        return { content: [{ type: "text", text: `Note ${id} deleted.` }] };
+      } catch (error) {
+        return { content: [{ type: "text", text: `Error deleting note: ${(error as Error).message}` }], isError: true };
+      }
+    }
+  );
+
+  server.registerTool(
+    "db_list_notes",
+    {
+      description: "List notes from the scratchpad database (mcp_notes table), most recent first.",
+      inputSchema: {},
+    },
+    async () => {
+      try {
+        await ensureNotesSchema();
+        const result = await pool!.query(
+          `SELECT id, title, content, author, created_at, updated_at FROM mcp_notes ORDER BY created_at DESC LIMIT 200`
+        );
+        return {
+          content: [
+            {
+              type: "text",
+              text: result.rows.length > 0 ? JSON.stringify(result.rows, null, 2) : "No notes yet.",
+            },
+          ],
+        };
+      } catch (error) {
+        return { content: [{ type: "text", text: `Error listing notes: ${(error as Error).message}` }], isError: true };
+      }
+    }
+  );
+
   return server;
 }
 
 // Accepts either a static MCP_ACCESS_TOKENS entry or a token issued by the /token
 // endpoint via the OAuth flow below — both are just bearer strings from this point on.
-function resolveToken(candidate: string | undefined): string | null {
+async function resolveToken(candidate: string | undefined): Promise<AccessTokenEntry | null> {
   if (!candidate) return null;
 
-  const staticLabel = ACCESS_TOKENS.get(candidate);
-  if (staticLabel) return staticLabel;
+  const staticEntry = ACCESS_TOKENS.get(candidate);
+  if (staticEntry) return staticEntry;
 
-  const issued = issuedAccessTokens.get(candidate);
-  if (issued) {
-    if (issued.expiresAt > Date.now()) return issued.label;
-    issuedAccessTokens.delete(candidate); // expired, clean up
-  }
-
-  return null;
+  return resolveIssuedAccessToken(candidate);
 }
 
-function resolveAccessLabel(req: express.Request): string | null {
+async function resolveAccessLabel(req: express.Request): Promise<AccessTokenEntry | null> {
   const authHeader = req.header("authorization");
   const bearer = authHeader?.startsWith("Bearer ") ? authHeader.slice("Bearer ".length) : undefined;
-  const label = resolveToken(bearer);
-  if (label) return label;
+  const entry = await resolveToken(bearer);
+  if (entry) return entry;
 
   const queryToken = req.query.key;
   return resolveToken(typeof queryToken === "string" ? queryToken : undefined);
@@ -488,7 +827,7 @@ app.get("/.well-known/oauth-protected-resource", (req, res) => {
   });
 });
 
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
   const body = req.body ?? {};
   const redirectUris = Array.isArray(body.redirect_uris)
     ? body.redirect_uris.filter((u: unknown): u is string => typeof u === "string")
@@ -499,8 +838,7 @@ app.post("/register", (req, res) => {
     return;
   }
 
-  const clientId = randomToken(16);
-  oauthClients.set(clientId, { redirectUris });
+  const clientId = await registerOAuthClient(redirectUris);
 
   res.status(201).json({
     client_id: clientId,
@@ -511,18 +849,18 @@ app.post("/register", (req, res) => {
   });
 });
 
-app.get("/authorize", (req, res) => {
+app.get("/authorize", async (req, res) => {
   const { response_type, client_id, redirect_uri, state, code_challenge, code_challenge_method } = req.query;
 
   if (response_type !== "code") {
     res.status(400).send('Unsupported response_type; only "code" is supported.');
     return;
   }
-  if (typeof client_id !== "string" || !oauthClients.has(client_id)) {
+  const client = typeof client_id === "string" ? await getOAuthClient(client_id) : null;
+  if (typeof client_id !== "string" || !client) {
     res.status(400).send("Unknown client_id. Register the client via POST /register first.");
     return;
   }
-  const client = oauthClients.get(client_id)!;
   if (typeof redirect_uri !== "string" || !client.redirectUris.includes(redirect_uri)) {
     res.status(400).send("redirect_uri does not match a registered redirect URI for this client.");
     return;
@@ -543,21 +881,21 @@ app.get("/authorize", (req, res) => {
   );
 });
 
-app.post("/authorize", express.urlencoded({ extended: false }), (req, res) => {
+app.post("/authorize", express.urlencoded({ extended: false }), async (req, res) => {
   const { access_token, client_id, redirect_uri, state, code_challenge } = req.body ?? {};
 
-  if (typeof client_id !== "string" || !oauthClients.has(client_id)) {
+  const client = typeof client_id === "string" ? await getOAuthClient(client_id) : null;
+  if (typeof client_id !== "string" || !client) {
     res.status(400).send("Unknown client_id.");
     return;
   }
-  const client = oauthClients.get(client_id)!;
   if (typeof redirect_uri !== "string" || !client.redirectUris.includes(redirect_uri)) {
     res.status(400).send("Invalid redirect_uri.");
     return;
   }
 
-  const label = typeof access_token === "string" ? ACCESS_TOKENS.get(access_token) : undefined;
-  if (!label) {
+  const loginEntry = typeof access_token === "string" ? ACCESS_TOKENS.get(access_token) : undefined;
+  if (!loginEntry) {
     res
       .status(401)
       .type("html")
@@ -573,14 +911,12 @@ app.post("/authorize", express.urlencoded({ extended: false }), (req, res) => {
     return;
   }
 
-  pruneExpiredAuthCodes();
-  const code = randomToken();
-  authCodes.set(code, {
-    label,
+  const code = await createAuthCode({
+    label: loginEntry.label,
+    full: loginEntry.full,
     clientId: client_id,
     redirectUri: redirect_uri,
     codeChallenge: typeof code_challenge === "string" ? code_challenge : "",
-    expiresAt: Date.now() + AUTH_CODE_TTL_MS,
   });
 
   const redirectUrl = new URL(redirect_uri);
@@ -589,19 +925,17 @@ app.post("/authorize", express.urlencoded({ extended: false }), (req, res) => {
   res.redirect(redirectUrl.toString());
 });
 
-app.post("/token", express.urlencoded({ extended: false }), (req, res) => {
+app.post("/token", express.urlencoded({ extended: false }), async (req, res) => {
   const body = req.body ?? {};
-  pruneExpiredAuthCodes();
 
   if (body.grant_type === "authorization_code") {
     const { code, redirect_uri, client_id, code_verifier } = body;
-    const entry = typeof code === "string" ? authCodes.get(code) : undefined;
+    const entry = typeof code === "string" ? await consumeAuthCode(code) : null; // single use, regardless of what happens below
 
     if (!entry) {
       res.status(400).json({ error: "invalid_grant", error_description: "Authorization code is invalid or expired." });
       return;
     }
-    authCodes.delete(code); // single use, regardless of what happens below
 
     if (entry.clientId !== client_id || entry.redirectUri !== redirect_uri) {
       res.status(400).json({ error: "invalid_grant", error_description: "client_id or redirect_uri mismatch." });
@@ -612,19 +946,18 @@ app.post("/token", express.urlencoded({ extended: false }), (req, res) => {
       return;
     }
 
-    res.json(issueTokenPair(entry.label));
+    res.json(await issueTokenPair(entry.label, entry.full));
     return;
   }
 
   if (body.grant_type === "refresh_token") {
     const refreshToken = body.refresh_token;
-    const label = typeof refreshToken === "string" ? issuedRefreshTokens.get(refreshToken) : undefined;
-    if (!label) {
+    const refreshEntry = typeof refreshToken === "string" ? await consumeRefreshToken(refreshToken) : null; // rotated on use
+    if (!refreshEntry) {
       res.status(400).json({ error: "invalid_grant", error_description: "Refresh token is invalid or revoked." });
       return;
     }
-    issuedRefreshTokens.delete(refreshToken); // rotate on use
-    res.json(issueTokenPair(label));
+    res.json(await issueTokenPair(refreshEntry.label, refreshEntry.full));
     return;
   }
 
@@ -632,14 +965,14 @@ app.post("/token", express.urlencoded({ extended: false }), (req, res) => {
 });
 
 app.post("/mcp", async (req, res) => {
-  const label = resolveAccessLabel(req);
-  if (!label) {
+  const auth = await resolveAccessLabel(req);
+  if (!auth) {
     sendUnauthorized(req, res);
     return;
   }
-  console.log(`MCP request from "${label}"`);
+  console.log(`MCP request from "${auth.label}"${auth.full ? " (full access)" : ""}`);
 
-  const server = buildServer();
+  const server = buildServer(auth.label, auth.full);
   const transport = new StreamableHTTPServerTransport({
     sessionIdGenerator: undefined,
   });
@@ -660,8 +993,8 @@ app.post("/mcp", async (req, res) => {
   }
 });
 
-app.get("/mcp", (req, res) => {
-  if (!resolveAccessLabel(req)) {
+app.get("/mcp", async (req, res) => {
+  if (!(await resolveAccessLabel(req))) {
     sendUnauthorized(req, res);
     return;
   }
@@ -686,9 +1019,33 @@ app.listen(PORT, "0.0.0.0", () => {
         "is closed to everyone until at least one \"label=token\" entry is configured."
     );
   } else {
-    console.log(`Access tokens configured for: ${[...ACCESS_TOKENS.values()].join(", ")}`);
+    console.log(
+      `Access tokens configured for: ${[...ACCESS_TOKENS.values()].map((e) => (e.full ? `${e.label} (full)` : e.label)).join(", ")}`
+    );
   }
   if (BYPASS_ACCESS_TIERS) {
     console.warn("Warning: BYPASS_ACCESS_TIERS is true. Access tiers are disabled — every character is readable.");
+  }
+  if (pool) {
+    console.log(
+      `DATABASE_URL configured (service_name="${SERVICE_NAME}") — db_add_note/db_edit_note/db_delete_note/db_list_notes ` +
+        "are available (mcp_notes table only), and OAuth client registrations/tokens are persisted in Postgres " +
+        "(survive restarts/spin-downs)."
+    );
+    // Best-effort periodic cleanup of expired rows that were never consumed (abandoned
+    // auth flows, expired access tokens nobody bothered to refresh). consumeAuthCode and
+    // resolveIssuedAccessToken already exclude expired rows from every read, so this is
+    // just table hygiene, not a correctness requirement.
+    setInterval(() => {
+      void ensureOAuthSchema().then(() => {
+        void pool!.query(`DELETE FROM oauth_auth_codes WHERE service_name = $1 AND expires_at < now()`, [SERVICE_NAME]);
+        void pool!.query(`DELETE FROM oauth_access_tokens WHERE service_name = $1 AND expires_at < now()`, [SERVICE_NAME]);
+      });
+    }, 15 * 60 * 1000).unref();
+  } else {
+    console.log(
+      "DATABASE_URL not set — db_add_note/db_edit_note/db_delete_note/db_list_notes will report an error if called, " +
+        "and OAuth client registrations/tokens are in-memory only (lost on restart)."
+    );
   }
 });

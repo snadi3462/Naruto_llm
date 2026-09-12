@@ -10,21 +10,14 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 22.10.0
+      - key: SERVICE_NAME
+        value: tiered
+      # Comma-separated "label=token" pairs. Append ":full" to a token's value
+      # (e.g. "you=abc123:full,alice=def456") to give that specific person's
+      # login full, unrestricted access — everyone else still goes through the
+      # access-tier gate. One service, one OAuth login page, one client_id;
+      # the password decides the access level. Set in the Render dashboard.
       - key: MCP_ACCESS_TOKENS
         sync: false
-
-  - type: web
-    name: mcp-render-server-full
-    runtime: node
-    plan: free
-    rootDir: mcp-render-server
-    buildCommand: npm install && npm run build
-    startCommand: npm start
-    healthCheckPath: /
-    envVars:
-      - key: NODE_VERSION
-        value: 22.10.0
-      - key: BYPASS_ACCESS_TIERS
-        value: "true"
-      - key: MCP_ACCESS_TOKENS
+      - key: DATABASE_URL
         sync: false
