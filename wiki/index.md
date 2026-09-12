@@ -1,6 +1,6 @@
-﻿---
+---
 type: index
-updated: 2026-09-04
+updated: 2026-09-11
 ---
 
 # Index
@@ -79,6 +79,11 @@ Catalog of every page in the wiki, by category. Read this first when answering a
 - [[Kabuto Yakushi (source)]] — biography of Kabuto: Orochimaru's spy-turned-successor, identity crisis, mass reincarnation mastermind. (2026-09-10)
 - [[Kaguya Ōtsutsuki (source)]] — biography of Kaguya: Earth's first chakra wielder, the original series' true final villain. (2026-09-10)
 - [[Chōmei (source)]] — biography of the Seven-Tails, formerly sealed within Fū. (2026-09-10)
+- [[Kushina Uzumaki (source)]] — first dedicated biography of Naruto's mother: her Uzumaki origins, courtship with Minato, and death sealing Kurama. (2026-09-11)
+- [[Minato Namikaze (source)]] — first dedicated biography of the Fourth Hokage: Team Minato, becoming Hokage, and his death/war-arc reincarnation. (2026-09-11)
+- [[Jiraiya (source)]] — first dedicated biography of the Toad Sage: the Ame orphans (Nagato/Yahiko/Konan), mentoring Minato and Naruto, and his death decoding Pain's identity. (2026-09-11)
+- [[Obito Uchiha (source)]] — first dedicated biography of Obito: precise Kannabi Bridge account (origin of the "comrades" line), ability specifics, and his final death shielding Kakashi against Kaguya. (2026-09-11)
+- [[Shikamaru Nara (source)]] — first dedicated biography of Shikamaru; the wiki's deepest look yet into the New Era crisis (provisional Eighth Hokage, the Ada's Omnipotence memory-alteration reveal, and his secret operation to clear Boruto). (2026-09-11)
 
 ## Entities
 
@@ -88,12 +93,12 @@ Catalog of every page in the wiki, by category. Read this first when answering a
 - [[Kakashi Hatake]] — Team 7 leader, later Sixth Hokage, now a retired advisor still active in the current arc. (2026-09-04)
 - [[Hinata Hyuga]] — Naruto's wife; trapped alongside him as of the latest status update. (2026-09-04)
 - [[Kurama]] — the Nine-Tails, Naruto's tailed beast; dies using Baryon Mode against Isshiki; possible successor jinchūriki unresolved. (2026-09-04)
-- [[Jiraiya]] — Naruto's mentor and godfather; killed by Pain. (2026-09-04)
-- [[Minato Namikaze]] — Naruto's father, Fourth Hokage; dies sealing Kurama into Naruto. (2026-09-04)
-- [[Kushina Uzumaki]] — Naruto's mother, second jinchūriki of Kurama. (2026-09-04)
+- [[Jiraiya]] — Naruto's mentor and godfather; trained the Ame orphans (Nagato/Yahiko/Konan) and Minato before him; killed by Pain. (2026-09-11)
+- [[Minato Namikaze]] — Naruto's father, Fourth Hokage; dies sealing Kurama into Naruto. (2026-09-11)
+- [[Kushina Uzumaki]] — Naruto's mother, second jinchūriki of Kurama. (2026-09-11)
 - [[Kawaki]] — Kara defector taken in by Naruto; later implicated in Naruto's disappearance and Konoha's destruction. (2026-09-04)
 - [[Itachi Uchiha]] — *deceased*; Sasuke's brother, secret Konoha double agent inside [[Akatsuki]]; killed the Uchiha clan under an impossible choice from Danzō while secretly protecting Sasuke, reconciled fully with him before dying a second time in the war. (2026-09-04)
-- [[Obito Uchiha]] — Kakashi's childhood teammate; gave him his Sharingan, rebuilt and manipulated by Madara Uchiha into the masked mastermind behind Akatsuki, redeemed and dies in the Kaguya fight. (2026-09-04)
+- [[Obito Uchiha]] — Kakashi's childhood teammate; gave him his Sharingan, rebuilt and manipulated by Madara Uchiha into the masked mastermind behind Akatsuki, redeemed and dies in the Kaguya fight. (2026-09-11)
 - [[Rin Nohara]] — third member of Team Minato alongside Kakashi and Obito. (2026-09-04)
 - [[Sarada Uchiha]] — daughter of Sasuke and Sakura; genin partnered with Boruto in the current era. (2026-09-04)
 - [[Himawari Uzumaki]] — Naruto and Hinata's daughter; new Nine-Tails jinchūriki, now confirmed by two independent sources (mechanism still unresolved, see [[Kurama]]). (2026-09-04)
@@ -102,7 +107,7 @@ Catalog of every page in the wiki, by category. Read this first when answering a
 - [[Yamato]] — Orochimaru's sole surviving Wood Release test subject; Team 7's Part II acting captain, Naruto's chakra suppressor. (2026-09-04)
 - [[Orochimaru]] — Sannin, former antagonist and Sasuke's mentor; reformed post-war researcher and father to Mitsuki. (2026-09-04)
 - [[Tsunade]] — Fifth Hokage, Sannin, world's strongest kunoichi and greatest medical-nin; Sakura's mentor, Kakashi's predecessor. (2026-09-04)
-- [[Shikamaru Nara]] — *expanded stub*; [[Team 10]] member, Naruto's Hokage advisor, confirmed acting/interim Hokage during the current crisis, torn between believing Boruto and political pressure. (2026-09-04)
+- [[Shikamaru Nara]] — [[Team 10]] member, Naruto's Hokage advisor, now confirmed **provisional Eighth Hokage** during the current crisis; secretly aiding Boruto after learning his guilt rests on memory manipulation (Ada's Omnipotence). (2026-09-11)
 - [[Kiba Inuzuka]] — [[Team 8]] tracker, [[Akamaru]]'s partner; adult dog breeder and Military Police investigator. (2026-09-04)
 - [[Akamaru]] — Kiba's ninken partner and full [[Team 8]] member. (2026-09-04)
 - [[Shino Aburame]] — [[Team 8]]'s insect-user; later Academy homeroom teacher to Boruto's generation. (2026-09-04)
@@ -182,12 +187,19 @@ Catalog of every page in the wiki, by category. Read this first when answering a
   Boruto himself is now imprisoned in Konoha as a suspected traitor. Any future source
   touching the *Boruto* endgame should be checked against this before treating any of these
   fates as settled.
-- **[[Shikamaru Nara]] is acting/interim Hokage** during Naruto's disappearance, confirmed by
-  both [[Sai (source)]] and [[Ino Yamanaka (source)]], with political tension
-  building around whether he'll be removed over his handling of Boruto. Of all sources
-  ingested so far, only these two reach the *New Era: Part II* chapters directly — every
-  other current-era character's status (Might Guy, Yamato, Orochimaru, Tsunade, and every
-  Team 8/Team 10/Team Guy member) is unconfirmed rather than "unaffected" during this period.
+- **[[Shikamaru Nara]] is Konoha's provisional Eighth Hokage** (explicitly a three-year
+  appointment) during Naruto's disappearance — confirmed in detail by his own dedicated
+  source, [[Shikamaru Nara (source)]], which also resolves *why* the village believes Boruto
+  guilty: an antagonist technique, **Ada's Omnipotence**, altered everyone's memories
+  (Shikamaru's included) to swap Boruto's and Kawaki's histories. Shikamaru is now secretly
+  running a covert operation (with Ino, Mitsuki, Inojin, Sai, and Konohamaru) to support
+  Boruto while publicly maintaining the hunt for him — see [[Team 7]] "Current crisis" for
+  full detail. Political tension is building around whether he'll be exposed and removed:
+  the Council of Elders has traced Boruto's custody escape back to Shikamaru himself. Of all
+  sources ingested so far, only [[Sai (source)]], [[Ino Yamanaka (source)]], and
+  [[Shikamaru Nara (source)]] reach the *New Era: Part II* chapters directly — every other
+  current-era character's status (Might Guy, Yamato, Orochimaru, Tsunade, and every Team
+  8/Team Guy member) is unconfirmed rather than "unaffected" during this period.
 - **[[Himawari Uzumaki]] is the new Nine-Tails jinchūriki because Kurama was reborn within
   her** — resolved by [[Kurama (source)]] (2026-09-10): the beast's remaining chakra found
   its way into Himawari after its death, and it reformed as a cub inside her, taking on a
@@ -202,6 +214,11 @@ Catalog of every page in the wiki, by category. Read this first when answering a
   Boruto-era characters (Boruto, Mitsuki, Konohamaru, the Boruto-generation genin, and the
   Ōtsutsuki antagonists Momoshiki/Kinshiki/Urashiki/Isshiki) were deliberately held out of
   this batch per the user's request and remain without dedicated sources.
+- **2026-09-11 gap-closing ingest** filed the last five raw sources that had sat unprocessed
+  since earlier sessions (dedicated biographies for [[Jiraiya]], [[Kushina Uzumaki]],
+  [[Minato Namikaze]], [[Obito Uchiha]], and [[Shikamaru Nara]] — the last four were
+  previously wiki pages built only secondhand from other characters' bios). No raw sources
+  remain unfiled as of this ingest.
 - Named repeatedly but still without their own wiki pages: Hanzō, Shisui Uchiha,
   Konohamaru Sarutobi, Gengetsu Hōzuki, Yagura Karatachi, Ōnoki, Kurotsuchi, Akatsuchi, Mū
   (Iwagakure's Kage-tier cast, mentioned across the new Kage biographies but not yet

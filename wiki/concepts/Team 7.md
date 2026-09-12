@@ -3,8 +3,8 @@ type: concept
 tags: [naruto, team]
 access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-09
-sources: ["[[List of Naruto characters]]", "[[Naruto Uzumaki (source)]]", "[[Sasuke Uchiha (source)]]", "[[Kakashi Hatake (source)]]", "[[Sakura Haruno (source)]]", "[[Sai (source)]]", "[[Yamato (source)]]", "[[Tsunade (source)]]", "[[Ino Yamanaka (source)]]"]
+updated: 2026-09-11
+sources: ["[[List of Naruto characters]]", "[[Naruto Uzumaki (source)]]", "[[Sasuke Uchiha (source)]]", "[[Kakashi Hatake (source)]]", "[[Sakura Haruno (source)]]", "[[Sai (source)]]", "[[Yamato (source)]]", "[[Tsunade (source)]]", "[[Ino Yamanaka (source)]]", "[[Shikamaru Nara (source)]]"]
 ---
 
 # Team 7
@@ -59,25 +59,43 @@ of Team 7 is in an unresolved crisis simultaneously:
   ([[Sakura Haruno (source)]] and [[Ino Yamanaka (source)]], the latter showing her
   healing an injured Boruto with it) — see [[Kurama]] for the still-unresolved question of
   the mechanism.
-- **Who is running the village in Naruto's absence**: [[Sai (source)]] and
-  [[Ino Yamanaka (source)]] fill in a gap the earlier sources left open —
-  [[Shikamaru Nara]] (Team 10, Naruto's long-time advisor) is serving as **acting/interim
-  Hokage** during this crisis, with [[Sai]] as his security chief and [[Ino Yamanaka]]
-  running his private telepathic communications. This isn't a quiet caretaking role: the
-  Fire Daimyō's advisor Kobu suspects Shikamaru of covering for the criminalized Boruto
-  Uzumaki and is building a case to have him removed, and per [[Ino Yamanaka
-  (source)]]'s Boruto's Return Arc, **Boruto himself has been captured and interrogated
-  (escalating to physical force) by Konoha as a suspected traitor** after briefly returning
-  to fight off Code — even though he's the source of Shikamaru's information that Naruto and
-  Hinata are alive. Shikamaru privately believes Boruto but can't act on it openly; Ino,
-  asked to help him secretly reconnect with Boruto, refuses out of suspicion and loyalty to
-  protocol. See [[Shikamaru Nara]], [[Sai]], and [[Ino Yamanaka]] for detail.
+- **Who is running the village in Naruto's absence — resolved in detail**:
+  [[Shikamaru Nara (source)]] is now the wiki's deepest source on this, superseding the
+  earlier "acting/interim Hokage" framing from [[Sai (source)]] and
+  [[Ino Yamanaka (source)]]: [[Shikamaru Nara]] holds the seat as **provisional Eighth
+  Hokage, explicitly on a three-year basis**, with [[Sai]] as his security chief and
+  [[Ino Yamanaka]] running his private telepathic communications. This isn't a quiet
+  caretaking role: the Fire Daimyō's advisor Kobu suspects Shikamaru of covering for the
+  criminalized Boruto Uzumaki and is building a case to have him removed, and per
+  [[Ino Yamanaka (source)]]'s Boruto's Return Arc, **Boruto himself has been captured and
+  interrogated (escalating to physical force) by Konoha as a suspected traitor** after
+  briefly returning to fight off Code — even though he's the source of Shikamaru's
+  information that Naruto and Hinata are alive. As Hokage, Shikamaru issued a formal
+  **execution order against Boruto** and **re-listed Sasuke Uchiha as a wanted criminal**
+  (matching Sasuke's own status above), refusing Sarada Uchiha's repeated demands to rescind
+  either.
+- **Why Boruto is believed guilty — resolved**: [[Shikamaru Nara (source)]] reveals the
+  village's collective belief in Boruto's guilt (Shikamaru's own included) is the result of
+  an antagonist technique, **Ada's Omnipotence**, which swapped Boruto's and Kawaki's
+  histories in everyone's memory and suppressed lingering doubts over time — not a matter of
+  evidence pointing genuinely to Boruto.
+- **A secret rescue operation is underway**: Shikamaru's resolve cracked once Sai's
+  surveillance revealed Amado had independently concluded memories were altered. Pressured
+  by Konoha elders Koharu and Homura to permanently claim the Hokage title, Shikamaru
+  instead began secretly supporting Boruto while publicly maintaining the hunt for him —
+  working through Ino (off-record comms, later refuses further breaches as too risky),
+  Mitsuki (secretly freed Boruto from his cuffs, staged as an escape), Inojin Yamanaka
+  (mind-transmission contact with the mysterious ally Koji Kashin), Sai, and Konohamaru
+  Sarutobi. The Council of Elders has since traced Boruto's escape back to Shikamaru
+  himself, and Kobu is threatening to expose it — unresolved as of the Mamushi Arc, the
+  most current chapter any source in this wiki reaches. See [[Shikamaru Nara]] for full
+  detail.
 
 This should be treated as the wiki's current frontier on the Naruto storyline — any new
 source touching the *Boruto* endgame should be checked against all of the above before
-anything here is treated as settled. Of the sources ingested so far, [[Sai (source)]]
-and [[Ino Yamanaka (source)]] are the only ones to reach these *New Era: Part II*
-chapters directly — [[Might Guy (source)]], [[Yamato (source)]],
+anything here is treated as settled. Of the sources ingested so far, [[Sai (source)]],
+[[Ino Yamanaka (source)]], and [[Shikamaru Nara (source)]] are the only ones to reach
+these *New Era: Part II* chapters directly — [[Might Guy (source)]], [[Yamato (source)]],
 [[Orochimaru (source)]], [[Tsunade (source)]], and the *Team 8*/*Team 10*/*Team
 Guy* member sources ingested alongside this batch all stop earlier in the *New Era*, so
 those characters' status during the crisis is unconfirmed rather than "unaffected."
@@ -106,3 +124,4 @@ idea, though Team 10 was itself inherited from their parents' generation.
 - [[Yamato (source)]]
 - [[Tsunade (source)]]
 - [[Ino Yamanaka (source)]]
+- [[Shikamaru Nara (source)]]

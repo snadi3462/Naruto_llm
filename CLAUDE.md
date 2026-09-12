@@ -72,8 +72,9 @@ a page unless the user asks for that character to be gated.
 ### Ingest (adding a new source)
 
 1. Read the raw source fully (and its images, if any — see Images below).
-2. Discuss key takeaways with the user briefly before writing anything, unless they've
-   asked for unsupervised batch ingestion.
+2. Proceed automatically — a new file appearing in `raw/` is itself the instruction to
+   ingest it. Don't pause to discuss takeaways with the user first; file the source, then
+   let the finished wiki pages and the `log.md` entry speak for what was found.
 3. Write (or update) `wiki/sources/<Source Title>.md` — a summary page with key facts and
    a link back to the `raw/` file.
 4. Update every `wiki/entities/` and `wiki/concepts/` page this source touches: add new
@@ -134,8 +135,10 @@ Optionally a sentence or two beneath the header noting what changed.
 
 ## Working style
 
-- Default to ingesting one source at a time, staying in the loop with the user, unless they
-  ask for batch/unsupervised processing.
+- Ingestion is automatic and unsupervised by default: whenever you notice a `raw/` file
+  with no corresponding `wiki/sources/` page, ingest it without waiting for the user to ask
+  or to discuss it first. Still surface what you found afterward (the source page, the
+  entities/concepts touched, the log entry) so the user stays informed after the fact.
 - Never modify `raw/`.
 - Prefer editing existing wiki pages over creating near-duplicates — check `index.md` before
   creating a new page.

@@ -321,3 +321,44 @@ and it now has content. Filed [[Chōmei (source)]] and [[Chōmei]] (Seven-Tails,
 sealed within Fū) following the same pattern as the other eight tailed beasts. Updated
 [[Tailed Beasts]]'s roster table and sources to include it — the tailed beast roster is
 now complete, all nine filed.
+
+## [2026-09-11] ingest | Jiraiya, Kushina Uzumaki, Minato Namikaze, Obito Uchiha, Shikamaru Nara (source) — closing the raw/ backlog
+
+Unsupervised gap-closing batch at the user's request ("fix all the gap"), covering the last
+five raw sources that had never been ingested despite sitting in `raw/` since earlier
+sessions. Four of the five (all but Kushina) already had wiki entity pages, but those pages
+had only ever been built secondhand from other characters' biographies — [[Shikamaru Nara]]
+was explicitly flagged as a stub. This ingest gives all five their first dedicated source.
+
+Created five new `wiki/sources/` pages: [[Jiraiya (source)]], [[Kushina Uzumaki (source)]],
+[[Minato Namikaze (source)]], [[Obito Uchiha (source)]], [[Shikamaru Nara (source)]].
+Substantially expanded [[Jiraiya]], [[Kushina Uzumaki]], [[Minato Namikaze]], and
+[[Obito Uchiha]] with Background/Death sections built from primary-source detail, and fully
+rewrote [[Shikamaru Nara]] from its stub state.
+
+**Most significant find**: [[Shikamaru Nara (source)]] is now the wiki's deepest look yet
+into the *New Era: Part II* crisis, superseding the earlier "acting/interim Hokage" framing
+from [[Sai (source)]] and [[Ino Yamanaka (source)]]:
+
+- Shikamaru holds the seat as **provisional Eighth Hokage**, explicitly on a three-year
+  basis, and as Hokage has issued a formal execution order against Boruto and re-listed
+  Sasuke Uchiha as a wanted criminal.
+- **Resolves *why* the village believes Boruto guilty**: an antagonist technique, Ada's
+  Omnipotence, altered everyone's memories (Shikamaru's own included) to swap Boruto's and
+  Kawaki's histories and suppress lingering doubts — not a matter of real evidence.
+- Reveals Shikamaru is secretly running a covert operation — with Ino Yamanaka, Mitsuki,
+  Inojin Yamanaka, Sai, and Konohamaru Sarutobi, plus a mysterious ally, Koji Kashin — to
+  support Boruto while publicly maintaining the hunt for him. The Council of Elders has since
+  traced Boruto's escape from custody back to Shikamaru himself, an unresolved and escalating
+  political threat.
+
+Updated [[Team 7]]'s "Current crisis" section and both [[Team 10]] and `wiki/index.md`'s open
+threads with all of the above. Also corroborated/deepened existing facts: [[Obito Uchiha
+(source)]] pins down the exact origin of the "those who abandon their comrades are worse than
+trash" line (said by Obito to Kakashi at Kannabi Bridge, not the reverse) and the precise
+circumstances of Obito's final death shielding Kakashi against Kaguya; [[Jiraiya (source)]]
+and [[Kushina Uzumaki (source)]]/[[Minato Namikaze (source)]] add background depth
+(the Ame-orphans training that seeds Akatsuki, and the full account of Naruto's birth night)
+without changing any previously-established fact.
+
+No raw sources remain unfiled as of this ingest.

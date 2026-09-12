@@ -2,8 +2,8 @@
 type: concept
 tags: [naruto, team]
 created: 2026-09-04
-updated: 2026-09-04
-sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source)]]", "[[Chōji Akimichi (source)]]", "[[Ino Yamanaka (source)]]", "[[Asuma Sarutobi (source)]]"]
+updated: 2026-09-11
+sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source)]]", "[[Chōji Akimichi (source)]]", "[[Ino Yamanaka (source)]]", "[[Asuma Sarutobi (source)]]", "[[Shikamaru Nara (source)]]"]
 ---
 
 # Team 10
@@ -16,10 +16,10 @@ they can avenge him (see [[Kakashi Hatake]], [[Tsunade]] — access restricted).
 
 ## Roster
 
-- **[[Shikamaru Nara]]** — see his (stub) page; becomes a close advisor to a prominent leader,
-  and — per [[Sai (source)]] and [[Ino Yamanaka (source)]]'s current-era chapters —
-  acting/interim Hokage during a later crisis (see [[Naruto Uzumaki]] — access restricted).
-  Marries Temari; son Shikadai.
+- **[[Shikamaru Nara]]** — becomes a close advisor to a prominent leader, and — per his own
+  dedicated source, [[Shikamaru Nara (source)]] — **provisional Eighth Hokage** (explicitly
+  a three-year basis) during the current-era crisis (see [[Naruto Uzumaki]] — access
+  restricted). Marries Temari; son Shikadai.
 - **[[Chōji Akimichi]]** — kind-hearted, self-doubting heavy hitter; marries Karui, daughter
   Chōchō.
 - **[[Ino Yamanaka]]** — mind-technique specialist; marries [[Sai]] (see his page for detail
@@ -40,14 +40,16 @@ they can avenge him (see [[Kakashi Hatake]], [[Tsunade]] — access restricted).
   obvious habit (food for Chōji, complaining for Shikamaru, obsessing over a teammate for
   Ino).
 - Team 10 is the source of the wiki's most current information on the *New Era: Part II*
-  crisis — see [[Ino Yamanaka]] and [[Shikamaru Nara]] for Shikamaru's tenure as acting
-  Hokage. See [[Team 7]] "Current crisis" for the combined picture (access restricted).
+  crisis — see [[Ino Yamanaka]] and [[Shikamaru Nara]] for Shikamaru's tenure as provisional
+  Eighth Hokage, including the secret operation to clear Boruto's name. See [[Team 7]]
+  "Current crisis" for the combined picture (access restricted).
 
 ## Sources
 
 - [[Team 10 (Asuma) (source)]]
 - [[Sai (source)]]
 - [[Tsunade (source)]]
+- [[Shikamaru Nara (source)]]
 - [[Chōji Akimichi (source)]]
 - [[Ino Yamanaka (source)]]
 - [[Asuma Sarutobi (source)]]
