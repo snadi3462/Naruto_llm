@@ -1,0 +1,17 @@
+{
+  "name": "secondbrain-db-sync",
+  "version": "1.0.0",
+  "description": "Watches raw/ and wiki/ and syncs file contents into Postgres tables (raw_files, wiki_pages).",
+  "type": "module",
+  "main": "watch.js",
+  "scripts": {
+    "start": "node watch.js",
+    "sync-once": "node watch.js --once"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "gray-matter": "^4.0.3",
+    "pg": "^8.13.0"
+  }
+}
