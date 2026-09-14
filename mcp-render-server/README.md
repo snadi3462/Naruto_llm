@@ -152,12 +152,22 @@ service.
 
 ## Access tiers
 
-Any `wiki/entities/<Name>.md` page can carry `access_tier: restricted` in its
-frontmatter (see `CLAUDE.md`). The server reads that frontmatter on every
-request — it's the single source of truth for who's gated, no server-side
-list to keep in sync. For a restricted character, all three of their files
-are gated by name: `wiki/entities/<Name>.md`, `wiki/sources/<Name>
-(source).md`, and `raw/<Name>.md`.
+Any `wiki/entities/<Name>.md` or `wiki/concepts/<Name>.md` page can carry
+`access_tier: restricted` in its frontmatter (see `CLAUDE.md`). The server
+reads that frontmatter on every request — it's the single source of truth
+for who's gated, no server-side list to keep in sync. For a restricted
+character, all three of their files are gated by name: `wiki/entities/<Name>.md`,
+`wiki/sources/<Name> (source).md`, and `raw/<Name>.md`.
+
+`wiki/sources/<Title>.md` pages are scanned for `access_tier: restricted`
+too, not just entities/concepts — for the case of a general-reference source
+that isn't a single character's page but whose raw content still discloses a
+gated character's facts in full (e.g. a Wikipedia-style character-list
+article with a complete bio per character; see `wiki/sources/List of Naruto
+characters.md`). This gates that source page and its `raw/<Title>.md`
+counterpart together by filename, same mechanism as an entity's files — at
+the cost of also gating any unrestricted characters' info the same source
+happens to cover, since a source page can't be partially gated.
 
 - `read_note` on a locked file returns an `isError` result explaining it's
   restricted, instead of the content.

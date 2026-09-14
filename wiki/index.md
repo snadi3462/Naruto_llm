@@ -9,7 +9,7 @@ Catalog of every page in the wiki, by category. Read this first when answering a
 
 ## Sources
 
-- [[List of Naruto characters]] — Wikipedia's Naruto character roster: creation background + Team 7 arc. (2026-09-04)
+- [[List of Naruto characters]] — Wikipedia's Naruto character roster: creation background + Team 7 arc. Gated (access_tier: restricted) 2026-09-14 — its raw content discloses full bios for restricted characters. (2026-09-14)
 - [[Naruto Characters (aniSearch)]] — aniSearch community roster/index, useful as a checklist of characters not yet covered in prose. (2026-09-04)
 - [[Naruto Uzumaki (source)]] — exhaustive fan-wiki biography of Naruto Uzumaki, birth through the current Boruto-era arcs. (2026-09-04)
 - [[Sasuke Uchiha (source)]] — companion biography of Sasuke: the Uchiha massacre, his descent and reconciliation, post-war life and current-arc crisis. (2026-09-04)

@@ -420,13 +420,25 @@ async function scanDirectory(directory: string, onFile: (fullPath: string) => Pr
 // character name, since those can't carry the same frontmatter (raw/ is immutable).
 // Concepts (e.g. a team page built entirely around restricted members) have no raw/sources
 // counterpart, so gating the concept file itself is the whole gate.
+//
+// wiki/sources/ is scanned too (in addition to entities/ and concepts/) for the rare case of
+// a general-reference source — not itself a single character's page — whose raw content
+// still discloses restricted characters' facts (e.g. a Wikipedia-derived character-list
+// article with a full bio per character). Marking that source page access_tier: restricted
+// gates it and its raw/ counterpart together by name, same as an entity's files, even though
+// nothing in wiki/entities/ or wiki/concepts/ points at it. The " (source)" filename suffix
+// is stripped so the key matches what characterKeyForPath() computes for the same file.
 async function getRestrictedCharacterNames(bypass: boolean): Promise<Set<string>> {
   const restricted = new Set<string>();
   if (bypass) return restricted;
 
-  const dirs = [path.join(VAULT_PATH, "wiki", "entities"), path.join(VAULT_PATH, "wiki", "concepts")];
+  const dirs = [
+    { dir: path.join(VAULT_PATH, "wiki", "entities"), stripSourceSuffix: false },
+    { dir: path.join(VAULT_PATH, "wiki", "concepts"), stripSourceSuffix: false },
+    { dir: path.join(VAULT_PATH, "wiki", "sources"), stripSourceSuffix: true },
+  ];
 
-  for (const dir of dirs) {
+  for (const { dir, stripSourceSuffix } of dirs) {
     let entries: string[];
     try {
       entries = await fs.readdir(dir);
@@ -442,7 +454,8 @@ async function getRestrictedCharacterNames(bypass: boolean): Promise<Set<string>
         const content = raw.charCodeAt(0) === 0xfeff ? raw.slice(1) : raw;
         const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
         if (frontmatter && /^access_tier:\s*restricted\s*$/m.test(frontmatter[1])) {
-          restricted.add(entry.slice(0, -3));
+          const key = stripSourceSuffix ? entry.slice(0, -3).replace(/ \(source\)$/, "") : entry.slice(0, -3);
+          restricted.add(key);
         }
       } catch {
         // Ignore files that cannot be read

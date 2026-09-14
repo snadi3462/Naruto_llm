@@ -151,14 +151,20 @@ directly out of the deployed checkout — no separate data sync step.
 Purpose: let the vault owner hide specific characters' content from the shared connector,
 independent of who can connect at all.
 
-- Any `wiki/entities/*.md` or `wiki/concepts/*.md` page carries `access_tier: restricted` in
-  its frontmatter. The server has **no hardcoded list** — it scans both directories on every
-  request (`getRestrictedCharacterNames()`) and treats whatever it finds as current truth.
-  Gating/ungating a character is therefore a wiki-content commit, not a server config change.
+- Any `wiki/entities/*.md`, `wiki/concepts/*.md`, or `wiki/sources/*.md` page carries
+  `access_tier: restricted` in its frontmatter. The server has **no hardcoded list** — it
+  scans all three directories on every request (`getRestrictedCharacterNames()`) and treats
+  whatever it finds as current truth. Gating/ungating is therefore a wiki-content commit,
+  not a server config change.
 - For an entity page, gating covers three files by name-matching
   (`characterKeyForPath()`): `wiki/entities/<Name>.md`, `wiki/sources/<Name> (source).md`,
   and `raw/<Name>.md`. For a concept page (used when a whole team page is inseparable from
-  restricted members, e.g. Team 7), only the concept file itself is gated.
+  restricted members, e.g. Team 7), only the concept file itself is gated. For a source page
+  that isn't a single character's page but whose raw content still discloses a gated
+  character's facts in full (e.g. `wiki/sources/List of Naruto characters.md`, a
+  Wikipedia-derived character-list article), the frontmatter goes directly on the source
+  page and gates it plus its `raw/<Title>.md` counterpart together by filename — at the
+  cost of gating unrestricted characters' info the same source covers too.
 - `read_note` on a locked file returns an `isError` result. `search_notes` skips locked
   files entirely — never appears in results. `list_notes` still lists locked paths, appended
   `[restricted]`.
@@ -167,11 +173,17 @@ independent of who can connect at all.
   `ALL`. Only matters for non-`:full` tokens (see Layer 2) — a `:full` token bypasses this
   gate outright. Requires a Render dashboard edit + redeploy (~1-2 min) — deliberately not
   something Claude can do itself.
-- **Currently gated (12 characters)**: Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, Kakashi
-  Hatake, Jiraiya, Tsunade, Might Guy, Itachi Uchiha (Team 7 core + mentors), plus the full
-  Hokage line — Hashirama Senju, Tobirama Senju, Hiruzen Sarutobi, Minato Namikaze. (A
-  2026-09-07 attempt to extend this to all 45 entity pages was reverted the same day as a
-  misread of the user's intent — only these 12 are meant to be gated.)
+- **Currently gated (14 entity pages)**: Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno,
+  Kakashi Hatake, Jiraiya, Tsunade, Might Guy, Itachi Uchiha (Team 7 core + mentors), the
+  full Hokage line — Hashirama Senju, Tobirama Senju, Hiruzen Sarutobi, Minato Namikaze —
+  plus Kurama and Rin Nohara (inseparable from Naruto's and Kakashi's stories,
+  respectively). (A 2026-09-07 attempt to extend this to all 45 entity pages was reverted
+  the same day as a misread of the user's intent — only this set is meant to be gated.)
+  Also gated: the `wiki/concepts/Team 7.md` concept page (wholesale, all four members
+  restricted), and `wiki/sources/List of Naruto characters.md` + its `raw/` counterpart —
+  gated 2026-09-14 as a source-level exception (see "Layer 1" below) after their raw
+  content was confirmed to leak a restricted character's full bio via `search_notes`/
+  `read_note` despite the character's own dedicated pages being correctly gated.
 - **Cross-reference leak fix** (2026-09-09/10): gating a character's own 3 files didn't stop
   their facts leaking through other unrestricted pages' cross-references (a single source can
   touch 10-15 pages). Fixed by (1) redacting disclosed facts on unrestricted pages in place —

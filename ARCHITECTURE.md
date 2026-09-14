@@ -65,17 +65,28 @@ the `mcp_notes` table within it — never the filesystem, and never `wiki_pages`
 **Purpose**: let the vault owner permanently or temporarily hide specific characters'
 content from the shared connector, independent of who's allowed to connect at all.
 
-**How a page becomes gated**: any `wiki/entities/*.md` or `wiki/concepts/*.md` page
-carries `access_tier: restricted` in its YAML frontmatter. The server has no hardcoded
-list — it scans both directories on every request (`getRestrictedCharacterNames()`) and
-treats whatever it finds as the current source of truth. This means gating or ungating a
-character is a wiki-content edit (commit + push), not a server config change.
+**How a page becomes gated**: any `wiki/entities/*.md`, `wiki/concepts/*.md`, or
+`wiki/sources/*.md` page carries `access_tier: restricted` in its YAML frontmatter. The
+server has no hardcoded list — it scans all three directories on every request
+(`getRestrictedCharacterNames()`) and treats whatever it finds as the current source of
+truth. This means gating or ungating a character is a wiki-content edit (commit + push),
+not a server config change.
 
 **What gating actually blocks**: for an *entity* page (a character), the gate covers
 three files by name-matching (`characterKeyForPath()`): `wiki/entities/<Name>.md`,
 `wiki/sources/<Name> (source).md`, and `raw/<Name>.md`. For a *concept* page (used when a
 whole team/group page is inseparable from its restricted members — see "Team 7" below),
-only the concept file itself is gated, since those have no raw/sources counterpart.
+only the concept file itself is gated, since those have no raw/sources counterpart. A
+*source* page can also carry the frontmatter directly — for a general-reference source
+that isn't a single character's page but whose raw content still discloses a gated
+character's facts in full (e.g. `wiki/sources/List of Naruto characters.md`, a
+Wikipedia-derived character-list article with a complete bio per character, gated
+2026-09-14 after its raw content was confirmed to leak a restricted character's full bio
+through `search_notes`/`read_note` even though the character's own dedicated pages were
+correctly gated). This gates the source page and its `raw/<Title>.md` counterpart
+together by filename (the " (source)" suffix is stripped to compute the shared key),
+at the cost of gating whatever unrestricted characters' info the same source covers too,
+since a source page can't be partially gated.
 
 - `read_note` on a locked file returns an `isError` result instead of content.
 - `search_notes` skips locked files entirely — never appears in results, matching or not.

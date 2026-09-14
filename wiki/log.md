@@ -362,3 +362,27 @@ and [[Kushina Uzumaki (source)]]/[[Minato Namikaze (source)]] add background dep
 without changing any previously-established fact.
 
 No raw sources remain unfiled as of this ingest.
+
+## [2026-09-14] schema | Access tiers extended to wiki/sources/ pages; List of Naruto characters gated
+
+User-directed, prompted by a live leak check: asked via the `restricted` MCP connector
+token to summarize [[Sakura Haruno]] (one of the 14 gated entities), and the response came
+back with real content — her forehead-teasing backstory, Kishimoto's creator note, the
+Ino Yamanaka friendship, both voice actors — verbatim from `raw/List of Naruto
+characters.md`. Verified `read_note` on her actual gated files (`wiki/entities/Sakura
+Haruno.md`, `wiki/sources/Sakura Haruno (source).md`) still correctly returned "Access
+restricted", so this wasn't a bug in the existing per-character gate — it was a gap: that
+raw source is a Wikipedia-derived character-list article with a full bio per character,
+including every gated one, and nothing in the access-tier mechanism had ever pointed at it
+since it isn't itself a single character's page.
+
+Fixed by extending `getRestrictedCharacterNames()` (`mcp-render-server/src/index.ts`) to
+also scan `wiki/sources/*.md` frontmatter, not just `wiki/entities/` and `wiki/concepts/`,
+and adding `access_tier: restricted` to [[List of Naruto characters]]. This gates
+it and `raw/List of Naruto characters.md` together by filename, the same mechanism an
+entity's three files already used. Tradeoff, accepted by the user: the article covers
+every major character, restricted or not, so gating it wholesale also blocks the
+unrestricted characters' overviews it contains — there's no partial-gate option for a
+single source file. Verified post-fix: `read_note`/`search_notes` on both files now
+correctly restricted; existing entity-level gates and an unrelated unrestricted source
+page unaffected (regression-checked).

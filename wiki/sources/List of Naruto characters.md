@@ -1,8 +1,9 @@
 ---
 type: source
 tags: [naruto, source]
+access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-14
 raw: "[[../../raw/List of Naruto characters.md|raw source]]"
 ---
 
@@ -10,6 +11,13 @@ raw: "[[../../raw/List of Naruto characters.md|raw source]]"
 
 Source: [Wikipedia — List of Naruto characters](https://en.wikipedia.org/wiki/List_of_Naruto_characters)
 Raw file: `raw/List of Naruto characters.md`
+
+**Gated 2026-09-14**: the raw source's per-character entries include full bios for every
+access-tier-restricted character (e.g. Sakura Haruno's, verbatim), so both this page and
+`raw/List of Naruto characters.md` are gated as a pair by name-matching, the same way an
+entity's three files are — even though this page isn't itself a single character's page.
+The tradeoff: unrestricted characters' entries in the raw article are gated along with it
+too, since the article isn't split per-character in a way the gate can partially apply to.
 
 ## Summary
 

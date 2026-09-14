@@ -67,6 +67,15 @@ of the field means the page is unrestricted; this is the default for all pages. 
 this field is a deliberate, user-directed action — don't add `access_tier: restricted` to
 a page unless the user asks for that character to be gated.
 
+A `wiki/sources/` page can also carry `access_tier: restricted` directly, for the case of
+a general-reference source that isn't a single character's page but whose raw content
+still discloses a gated character's facts in full (e.g. a Wikipedia-style character-list
+article with a complete bio per character) — see `wiki/sources/List of Naruto
+characters.md` for an example and the reasoning. This gates that source page and its
+`raw/` counterpart together by filename, same as an entity's files, at the cost of also
+gating whatever unrestricted characters' info the same source happens to cover — same
+deliberate, user-directed-only rule applies.
+
 ## Operations
 
 ### Ingest (adding a new source)
