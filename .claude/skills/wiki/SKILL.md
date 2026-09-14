@@ -12,6 +12,19 @@ already this session**; this skill is a quick-reference operational checklist, n
 replacement for it. If this skill and `CLAUDE.md` ever disagree, `CLAUDE.md` wins — update
 this file to match rather than the other way around.
 
+## Session-start reachability check
+
+Once per session, on the first turn that touches this skill, silently check whether the
+vault is actually reachable — a filesystem checkout (`raw/`, `wiki/`, `CLAUDE.md` present)
+or a connected MCP server responding to `get_server_status`. Don't repeat the check
+mid-session.
+
+- **Reachable:** proceed normally, no announcement needed.
+- **Not reachable:** say so plainly once, near the start of that response (e.g. "the vault
+  isn't reachable in this session, so I can't read or write it right now") rather than
+  simulating an ingest/query/lint from memory. If Aditya later asks something that needs the
+  vault, remind him again then rather than assuming he remembers the earlier note.
+
 ## Layers (never confuse these)
 
 - `raw/` — immutable source documents. Never edit or delete. Ground truth: if wiki and raw
@@ -100,6 +113,35 @@ remove `access_tier: restricted` on your own initiative, only when the user expl
 for a character to be gated or ungated. A prior session over-applied this to all 45 entity
 pages by misreading intent and had to revert it same-day — when in doubt, ask rather than
 gate.
+
+A `wiki/sources/` page can also carry `access_tier: restricted` directly, for a
+general-reference source that isn't a single character's page but whose raw content still
+discloses a gated character's facts in full (see `wiki/sources/List of Naruto
+characters.md`, gated 2026-09-14 after its raw content was confirmed to leak a restricted
+character's full bio through `search_notes`/`read_note`). Same rule applies: user-directed
+only.
+
+The gate protects this vault's own content only — it has no effect on what Claude already
+knows about a character from its own pretrained knowledge (most mainline *Naruto*
+characters are famous enough to already be "known" independent of anything in this vault).
+Don't imply to the user that gating a character prevents Claude from discussing them at
+all; it doesn't, and no wiki-content or server change can make it so.
+
+## MCP server caveats (when connected remotely instead of via filesystem)
+
+- `db_add_note` / `db_edit_note` / `db_delete_note` / `db_list_notes` write only to a
+  separate Postgres `mcp_notes` scratchpad table (see `mcp-render-server/README.md`) — never
+  to `wiki/` or `raw/`. Don't treat a successful `db_add_note` call as if it performed an
+  Ingest, Query-filing, or any other vault write; those still only happen by writing the
+  actual `wiki/*.md` files.
+- `read_note`/`search_notes`/`list_notes` over MCP are read-only for `wiki/` and `raw/` —
+  there is no MCP tool that writes those directories at all. A filesystem checkout is
+  required for any actual Ingest/Query-filing/Lint-fix write.
+- `MCP_ACCESS_TOKENS` and `UNLOCKED_CHARACTERS` live only in the Render dashboard's
+  Environment tab, `sync: false` — never committed to the repo. Never paste a real token
+  into wiki content, a commit, or chat. Granting/revoking a token or unlocking/relocking a
+  character both require editing that dashboard and triggering a redeploy — there is no
+  in-chat mechanism for either, by design; don't imply one exists.
 
 ## Working style reminders
 
