@@ -507,11 +507,24 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
   server.registerTool(
     "get_server_status",
     {
-      description: "Check whether the Obsidian MCP server is running",
+      description:
+        "Check whether the Obsidian MCP server is running, and which access level the " +
+        "current login has (full access, which bypasses access tiers, vs. tiered, which " +
+        "enforces them).",
       inputSchema: {},
     },
     async () => ({
-      content: [{ type: "text", text: "Obsidian MCP server is online!" }],
+      content: [
+        {
+          type: "text",
+          text:
+            `Obsidian MCP server is online! Signed in as "${label}" with ` +
+            (bypass
+              ? "full access — access tiers are bypassed, every character is readable."
+              : "tiered access — access-tier-gated characters stay locked unless unlocked via UNLOCKED_CHARACTERS.") +
+            (BYPASS_ACCESS_TIERS ? " (Note: BYPASS_ACCESS_TIERS is set server-wide, so this applies to every login right now.)" : ""),
+        },
+      ],
     })
   );
 

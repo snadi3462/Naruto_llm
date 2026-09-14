@@ -16,7 +16,7 @@ through the gate below. See "Access tokens" and "Access tiers" further down.
 
 | Tool | Description |
 | --- | --- |
-| `get_server_status` | Health check — confirms the server is reachable. |
+| `get_server_status` | Health check — confirms the server is reachable, and reports which access level (`full` or `tiered`) the current login has. This is how to tell which one a given connector session is using — just ask Claude to check server status. |
 | `list_notes` | Lists every Markdown note in the vault. |
 | `read_note` | Reads one note by its vault-relative path. |
 | `search_notes` | Full-text search across every note in the vault. |
