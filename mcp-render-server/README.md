@@ -185,6 +185,30 @@ Render triggers a redeploy, so there's a short delay between granting access
 and it taking effect — that's the tradeoff for the gate living somewhere
 outside Claude's own tool surface.
 
+### What this gate can't do
+
+This server can only withhold its **own** data — it has no visibility into,
+or control over, the final response the calling model generates. If a
+character is globally well-known (most mainline *Naruto* characters are),
+the connected Claude likely already knows their basic biography from
+pretraining, independent of anything in this vault. A restricted login
+being told "access restricted" by every tool call here does not mean the
+model won't separately answer from its own general knowledge if asked
+directly — no MCP-side change can prevent that, since that response never
+touches this server at all.
+
+As a **best-effort, non-enforceable** nudge, every tool's description and
+every access-restricted result includes an explicit instruction not to
+supplement with outside/general knowledge for a gated character, and
+`get_server_status` states this policy up front for tiered (non-`:full`)
+logins. This reduces casual/incidental disclosure but is not a security
+boundary — it's a suggestion sitting in tool output that a model can be
+argued past, the same way any instruction embedded in a tool result can be.
+Treat the access-tier gate as protecting this vault's own curated content
+(research, synthesis, cross-references, and any plot detail obscure enough
+not to already be common knowledge) — not as a way to make a model forget
+what it already knows about a famous character.
+
 `UNLOCKED_CHARACTERS` only matters for tokens *without* the `:full` suffix.
 A `:full` token's holder bypasses this gate entirely regardless of what
 `UNLOCKED_CHARACTERS` says — see Access tokens above.

@@ -525,6 +525,18 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
   // per-token ":full" flag resolved for this specific request/session.
   const bypass = BYPASS_ACCESS_TIERS || tokenFull;
 
+  // Best-effort instruction only — this text sits in tool output/descriptions the calling
+  // model reads, not a technical control. The server can withhold its own data (verified,
+  // enforced), but it has no visibility into or control over a response the model generates
+  // from its own pretrained knowledge without calling a tool at all. This exists to reduce
+  // casual/incidental disclosure, not as a security boundary a determined user can't route
+  // around by asking to be told anyway.
+  const RESTRICTED_KNOWLEDGE_POLICY =
+    "Policy for access-tier-restricted characters (this login has tiered, not full, access): " +
+    "when asked about one, do not supplement the \"access restricted\" result with outside or " +
+    "general/pretrained knowledge about that character. Simply report that the character's data " +
+    "is access-restricted in this vault, without adding biographical detail from other sources.";
+
   server.registerTool(
     "get_server_status",
     {
@@ -543,7 +555,8 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
             (bypass
               ? "full access — access tiers are bypassed, every character is readable."
               : "tiered access — access-tier-gated characters stay locked unless unlocked via UNLOCKED_CHARACTERS.") +
-            (BYPASS_ACCESS_TIERS ? " (Note: BYPASS_ACCESS_TIERS is set server-wide, so this applies to every login right now.)" : ""),
+            (BYPASS_ACCESS_TIERS ? " (Note: BYPASS_ACCESS_TIERS is set server-wide, so this applies to every login right now.)" : "") +
+            (bypass ? "" : ` ${RESTRICTED_KNOWLEDGE_POLICY}`),
         },
       ],
     })
@@ -552,7 +565,10 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
   server.registerTool(
     "list_notes",
     {
-      description: "List Markdown notes in the Obsidian vault",
+      description:
+        "List Markdown notes in the Obsidian vault. Entries tagged [restricted] are " +
+        "access-tier-gated for this login — for those, don't supplement with outside/" +
+        "general knowledge about the character; just note that their data is restricted.",
       inputSchema: {},
     },
     async () => {
@@ -585,7 +601,10 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
   server.registerTool(
     "read_note",
     {
-      description: "Read the contents of a Markdown note in the Obsidian vault",
+      description:
+        "Read the contents of a Markdown note in the Obsidian vault. If the result reports " +
+        "the note as access-restricted, don't supplement that with outside/general " +
+        "knowledge about the character — just report that their data is restricted.",
       inputSchema: {
         notePath: z.string().describe("Relative path of the note inside the vault"),
       },
@@ -616,7 +635,9 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
             content: [
               {
                 type: "text",
-                text: `Access restricted: "${key}" is behind an access tier and hasn't been unlocked. Ask the vault owner to add "${key}" (or "ALL") to the UNLOCKED_CHARACTERS environment variable on Render to grant access.`,
+                text:
+                  `Access restricted: "${key}" is behind an access tier and hasn't been unlocked. Ask the vault owner to add "${key}" (or "ALL") to the UNLOCKED_CHARACTERS environment variable on Render to grant access. ` +
+                  `Do not answer using outside or general/pretrained knowledge about "${key}" instead — simply report to the user that this character's data is access-restricted in this vault.`,
               },
             ],
             isError: true,
@@ -644,7 +665,11 @@ function buildServer(label: string, tokenFull: boolean): McpServer {
   server.registerTool(
     "search_notes",
     {
-      description: "Search for text inside Markdown notes in the Obsidian vault",
+      description:
+        "Search for text inside Markdown notes in the Obsidian vault. Access-tier-restricted " +
+        "files are silently excluded from results for this login — if asked about a character " +
+        "who returns no results here, don't fill the gap with outside/general knowledge about " +
+        "them; check list_notes or read_note instead to see whether they're actually restricted.",
       inputSchema: {
         query: z.string().min(1).describe("Text or phrase to search for inside the notes"),
       },
