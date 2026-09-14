@@ -23,7 +23,15 @@ const VAULT_PATH = process.env.OBSIDIAN_VAULT_PATH
 // touch `wiki_pages` or `raw_files` — so a write tool existing at all can't be turned into
 // a way to edit or delete wiki/raw content. If DATABASE_URL isn't set, the db_* tools
 // report that clearly instead of the server failing to start.
-const pool = process.env.DATABASE_URL ? new pg.Pool({ connectionString: process.env.DATABASE_URL }) : null;
+// Managed Postgres (Render, Neon, Supabase, ...) requires SSL for external connections;
+// a local Postgres on localhost/127.0.0.1 (for local dev) typically doesn't support it at
+// all, so this is skipped only in that case. rejectUnauthorized: false is the standard,
+// widely-used setting for these providers' certs rather than a security weakening specific
+// to this project.
+const isLocalDb = /^postgres(?:ql)?:\/\/[^@]*@(localhost|127\.0\.0\.1)(?::|\/)/i.test(process.env.DATABASE_URL ?? "");
+const pool = process.env.DATABASE_URL
+  ? new pg.Pool({ connectionString: process.env.DATABASE_URL, ssl: isLocalDb ? false : { rejectUnauthorized: false } })
+  : null;
 
 const ENSURE_NOTES_TABLE_SQL = `
   CREATE TABLE IF NOT EXISTS mcp_notes (

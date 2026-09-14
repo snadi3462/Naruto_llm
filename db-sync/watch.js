@@ -11,8 +11,13 @@ const WIKI_DIR = path.join(ROOT, 'wiki');
 
 const TEXT_EXTENSIONS = new Set(['.md', '.txt', '.json', '.csv', '.yaml', '.yml']);
 
+// Managed Postgres (Render, Neon, Supabase, ...) requires SSL for external connections;
+// a local Postgres on localhost/127.0.0.1 typically doesn't support it at all, so this is
+// skipped only in that case.
+const isLocalDb = /^postgres(?:ql)?:\/\/[^@]*@(localhost|127\.0\.0\.1)(?::|\/)/i.test(process.env.DATABASE_URL ?? '');
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: isLocalDb ? false : { rejectUnauthorized: false },
 });
 
 async function ensureSchema() {
