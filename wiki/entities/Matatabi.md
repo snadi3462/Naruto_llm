@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character, tailed-beast]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 sources: ["[[Matatabi (source)]]"]
 ---
 
@@ -29,8 +29,8 @@ nine.
 Extracted from Yugito Nii by [[Hidan]] and [[Kakuzu]] well before the Fourth Shinobi
 World War; refuses Naruto's telepathic call for help against Urashiki Ōtsutsuki during
 the *New Era* One-Tail Escort Arc, wary of renewed human contact despite trusting Naruto
-personally; later senses Kurama's death during the Kawaki Arc — the most current status
-the ingested source covers.
+personally; later senses Kurama's death during the Kawaki Arc (see [[Kurama]] — access
+restricted) — the most current status the ingested source covers.
 
 ## Sources
 

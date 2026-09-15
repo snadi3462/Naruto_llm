@@ -2,7 +2,7 @@
 type: source
 tags: [naruto, source]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 raw: "[[../../raw/Matatabi.md|raw source]]"
 ---
 
@@ -27,8 +27,8 @@ Biography of Matatabi, the Two-Tails, sealed within Yugito Nii of Kumogakure —
   before the Fourth Shinobi World War.
 - Reaches the *New Era* One-Tail Escort Arc as one of the beasts that refuses Naruto's
   call for help against Urashiki Ōtsutsuki, wary of renewed human contact despite
-  trusting Naruto personally, and later senses Kurama's death during the Kawaki Arc — the
-  most current status this source covers.
+  trusting Naruto personally, and later senses Kurama's death during the Kawaki Arc (see
+  [[Kurama]] — access restricted) — the most current status this source covers.
 
 ## Sources
 

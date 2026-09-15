@@ -395,8 +395,7 @@ Full wiki lint at the user's request, followed by fixes for everything it found:
   affected link onto one line; no link targets changed.
 - **Yakumo Kurama identified as an untracked gap**: named in five raw sources (Kurenai,
   Kiba, Shino, Sakura's biographies, and the aniSearch roster) via anime-filler mission
-  mentions only, not enough for a dedicated biography yet. Changed the sole `[[Yakumo
-  Kurama]]` wikilink on [[Kurenai Yūhi (source)]] to plain text (it pointed at a page that
+  mentions only, not enough for a dedicated biography yet. Changed the sole `[[Yakumo Kurama]]` wikilink on [[Kurenai Yūhi (source)]] to plain text (it pointed at a page that
   doesn't exist) and added her to `wiki/index.md`'s "named repeatedly but no page yet" list,
   matching how Hanzō and Shisui Uchiha are already handled.
 - **`wiki/index.md` frontmatter**: was missing a `created` field; added `2026-09-04`
@@ -449,7 +448,47 @@ Kurama's/Rin Nohara's, per the a63491d precedent — appearing without an "acces
 pointer nearby) across every unrestricted `wiki/` page, to check whether other post-09-09
 ingests caused the same kind of regression. It surfaced ~35 more files with at least one
 unflagged mention, but most read as the same kind of bare relationship/citation mention this
-page's intro line already established as acceptable (e.g. "Son of the Third Hokage, [[Hiruzen
-Sarutobi]]" on [[Asuma Sarutobi]]) rather than disclosed plot facts. Did not edit any of
+page's intro line already established as acceptable (e.g. "Son of the Third Hokage, [[Hiruzen Sarutobi]]" on [[Asuma Sarutobi]]) rather than disclosed plot facts. Did not edit any of
 them this pass — flagged for the user to review rather than risk misjudging the same
 line again.
+
+## [2026-09-15] schema | Went through the wider leak-scan list; fixed 12 more files
+
+Followed up on the scan from the previous entry — reviewed every flagged mention
+individually rather than batch-editing, judging each against the standard the wiki already
+uses elsewhere (a bare relationship/citation mention is fine; a specific fact drawn from a
+restricted character's own content needs a generic description plus "(see [[X]] — access
+restricted)"). Confirmed most of the ~35 flagged files were already-accepted bare mentions
+(false positives from the scan's line-wrap-narrow context window) and left them untouched.
+Fixed genuine gaps in 12 files:
+
+- **Kurama's death, unpointed** on all seven other tailed beasts' pages plus
+  [[Tailed Beasts]] itself ([[Gyūki]], [[Isobu]], [[Kokuō]], [[Matatabi]], [[Saiken]],
+  [[Son Gokū]], [[Chōmei]], and their `wiki/sources/` counterparts) — a systemic gap from
+  the 2026-09-10 batch ingest, which never got a redaction pass since it postdates
+  `d8d3a5d`. Added "(see [[Kurama]] — access restricted)" everywhere it was missing,
+  matching how [[Himawari Uzumaki]]'s page already treated the same fact.
+- **[[Kushina Uzumaki]]** (entity + source): the 2026-09-11 ingest disclosed Naruto's birth
+  night mechanics, Minato's courtship/Rasengan backstory, and the Part II mindscape scene in
+  full. Redacted to keep Kushina's own story (her clan origin, kidnapping, sacrifice) while
+  generalizing the parts that are specifically Naruto's or Minato's.
+- **[[Shikamaru Nara]]** (entity + source): same 09-11-ingest pattern as Obito — the "Current
+  crisis" section plainly disclosed Naruto's disappearance, Kakashi's and Naruto's Hokage
+  succession, and Sasuke's wanted-criminal status with zero redaction. Fixed to match the
+  rest of the page.
+- **[[Obito Uchiha (source)]]**: the same leak already fixed on the entity page also existed
+  on its source-summary page; applied the identical redaction.
+- **[[Danzō Shimura]]** (entity + source): a repeated fact (rivalry with Hiruzen, Sasuke
+  killing him) had a pointer on its first mention but not its second — the same "stated
+  twice, only one copy caught" bug `a63491d` fixed elsewhere. Added the missing pointers.
+- **[[Kaguya Ōtsutsuki]]**: her defeat by Naruto and Sasuke lacked a pointer in two places.
+- **[[Karin]]** and **[[Rock Lee]]**: one unpointed specific fact each (her ongoing closeness
+  to Sasuke's family; Might Guy's specific actions training Lee).
+
+Left the following as acceptable bare mentions, consistent with how the rest of the wiki
+already treats simple identity/relationship/citation references without a pointer:
+[[Asuma Sarutobi]] ("son of the Third Hokage"), [[Hinata Hyuga]], [[Shizune]],
+[[Team Guy]], [[Team 10]], `wiki/concepts/Akatsuki.md`, and passing mentions on
+[[Gaara (source)]], [[Killer B (source)]], [[Kankurō (source)]], [[Nagato (source)]],
+[[Chiyo]]/[[Chiyo (source)]], [[Karui]], [[Mei Terumī]], [[Suigetsu Hōzuki]]/(source),
+[[Shukaku]]/(source), [[Orochimaru (source)]], [[Zetsu (source)]].

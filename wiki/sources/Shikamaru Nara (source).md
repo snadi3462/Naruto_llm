@@ -2,7 +2,7 @@
 type: source
 tags: [naruto, source]
 created: 2026-09-11
-updated: 2026-09-11
+updated: 2026-09-15
 raw: "[[../../raw/Shikamaru Nara.md|raw source]]"
 ---
 
@@ -43,16 +43,18 @@ New Era section.
   manipulation (Gengo) over him, after which they date. Married by *Konoha Hiden*; one son,
   Shikadai. Confirms the "Shikamaru easygoing / Temari strict" household dynamic already on
   his stub page.
-- **Post-war career**: chief coordinator of the Shinobi Union after the war, then Sixth Hokage
-  Kakashi's assistant, then Seventh Hokage Naruto's chief aide — handling paperwork,
-  intelligence, and running the village whenever Naruto is away.
-- **New Era — the most significant find**: after Naruto's apparent death/disappearance
-  (sealed away via Kawaki's Daikokuten), **Shikamaru was appointed Eighth Hokage on an
-  explicitly provisional, three-year basis** — a more specific and higher-stakes status than
-  the wiki's prior "acting/interim Hokage" framing from [[Sai (source)]] and
-  [[Ino Yamanaka (source)]]. As Hokage he issued a formal **execution order against Boruto**
-  (believed to have killed Naruto) and **re-listed Sasuke Uchiha as a wanted criminal** —
-  decisions Sarada Uchiha repeatedly and unsuccessfully demanded he rescind.
+- **Post-war career**: chief coordinator of the Shinobi Union after the war, then the Sixth
+  Hokage's assistant (see [[Kakashi Hatake]] — access restricted), then the Seventh Hokage's
+  chief aide (see [[Naruto Uzumaki]] — access restricted) — handling paperwork, intelligence,
+  and running the village whenever that Hokage is away.
+- **New Era — the most significant find**: after the Seventh Hokage's apparent
+  death/disappearance — specifics belong to that story (see [[Naruto Uzumaki]] — access
+  restricted) — **Shikamaru was appointed Eighth Hokage on an explicitly provisional,
+  three-year basis** — a more specific and higher-stakes status than the wiki's prior
+  "acting/interim Hokage" framing from [[Sai (source)]] and [[Ino Yamanaka (source)]]. As
+  Hokage he issued a formal **execution order against Boruto** (believed to have killed the
+  Seventh Hokage) and **re-listed [[Sasuke Uchiha]] (access restricted) as a wanted
+  criminal** — decisions Sarada Uchiha repeatedly and unsuccessfully demanded he rescind.
 - **Why Boruto is believed guilty — resolved**: everyone's memories, Shikamaru's included,
   were altered by an antagonist technique, **Ada's Omnipotence**, which swapped Boruto's and
   Kawaki's histories in the village's collective memory and suppressed lingering doubts over

@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character, tailed-beast]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 sources: ["[[Saiken (source)]]"]
 ---
 
@@ -27,8 +27,8 @@ nine beasts share.
 
 Extracted from Utakata by [[Akatsuki]] well before the Fourth Shinobi World War; answers
 Naruto's telepathic call for help against Urashiki Ōtsutsuki during the *New Era*
-One-Tail Escort Arc, and later senses Kurama's death during the Kawaki Arc — the most
-current status the ingested source covers.
+One-Tail Escort Arc, and later senses Kurama's death during the Kawaki Arc (see
+[[Kurama]] — access restricted) — the most current status the ingested source covers.
 
 ## Sources
 

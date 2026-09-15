@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character]
 created: 2026-09-04
-updated: 2026-09-11
+updated: 2026-09-15
 sources: ["[[Team 10 (Asuma) (source)]]", "[[Sai (source)]]", "[[Tsunade (source)]]", "[[Chōji Akimichi (source)]]", "[[Asuma Sarutobi (source)]]", "[[Ino Yamanaka (source)]]", "[[Neji Hyūga (source)]]", "[[Temari (source)]]", "[[Gaara (source)]]", "[[Shikamaru Nara (source)]]"]
 ---
 
@@ -55,18 +55,20 @@ assertive half of the marriage — a dynamic compared to Shikamaru's own parents
 
 ## Post-war career
 
-Chief coordinator of the Shinobi Union after the war, then assistant to Sixth Hokage
-[[Kakashi Hatake]], then chief aide to Seventh Hokage [[Naruto Uzumaki]] — handling
-paperwork, intelligence, and kage summits, and running the village whenever Naruto is away.
+Chief coordinator of the Shinobi Union after the war, then assistant to the Sixth Hokage
+(see [[Kakashi Hatake]] — access restricted), then chief aide to the Seventh Hokage (see
+[[Naruto Uzumaki]] — access restricted) — handling paperwork, intelligence, and kage
+summits, and running the village whenever that Hokage is away.
 
 ## Current crisis (New Era: Part II) — provisional Eighth Hokage
 
-After Naruto's apparent death/disappearance (sealed away via Kawaki's Daikokuten), Shikamaru
-was appointed **Eighth Hokage on an explicitly provisional, three-year basis** — a more
-specific status than earlier sources' "acting/interim Hokage" framing. As Hokage he issued a
-formal **execution order against Boruto** (believed to have killed Naruto) and **re-listed
-Sasuke Uchiha as a wanted criminal**, decisions Sarada Uchiha repeatedly and unsuccessfully
-demanded he rescind.
+After the Seventh Hokage's apparent death/disappearance — the specific circumstances belong
+to that story, not this one (see [[Naruto Uzumaki]] — access restricted) — Shikamaru was
+appointed **Eighth Hokage on an explicitly provisional, three-year basis** — a more specific
+status than earlier sources' "acting/interim Hokage" framing. As Hokage he issued a formal
+**execution order against Boruto** (believed to have killed the Seventh Hokage) and
+**re-listed [[Sasuke Uchiha]] (access restricted) as a wanted criminal**, decisions Sarada
+Uchiha repeatedly and unsuccessfully demanded he rescind.
 
 **Why he believes Boruto is guilty**: everyone's memories, his own included, were altered by
 an antagonist technique — **Ada's Omnipotence** — which swapped Boruto's and Kawaki's
@@ -88,8 +90,8 @@ mysterious Koji Kashin, infiltrates elder Kobu's body during an interrogation cr
 Kobu, opened a formal inquiry into Shikamaru's "validity as village leader," and the
 investigation has traced Boruto's escape from custody back to Shikamaru himself — Kobu vows
 to expose it. Unresolved as of the Mamushi Arc, the most current chapter reached by any
-source in this wiki. See [[Team 7]]'s "Current crisis" section for how this connects to
-Naruto, Sasuke, and Sakura's own threads.
+source in this wiki. See [[Team 7]] (access restricted) for how this connects to its
+members' own threads.
 
 ## Sources
 

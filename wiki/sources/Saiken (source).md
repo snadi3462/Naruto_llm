@@ -2,7 +2,7 @@
 type: source
 tags: [naruto, source]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 raw: "[[../../raw/Saiken.md|raw source]]"
 ---
 
@@ -26,7 +26,8 @@ Biography of Saiken, the Six-Tails, sealed within Utakata of Kirigakure — see 
   before the Fourth Shinobi World War.
 - Reaches the *New Era* One-Tail Escort Arc as one of the beasts willing to answer
   Naruto's telepathic call for help against Urashiki Ōtsutsuki, and later senses Kurama's
-  death during the Kawaki Arc — the most current status this source covers.
+  death during the Kawaki Arc (see [[Kurama]] — access restricted) — the most current
+  status this source covers.
 
 ## Sources
 

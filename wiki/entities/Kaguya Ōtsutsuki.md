@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character, deceased]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 sources: ["[[Kaguya Ōtsutsuki (source)]]"]
 ---
 
@@ -10,7 +10,7 @@ sources: ["[[Kaguya Ōtsutsuki (source)]]"]
 
 Ancient Ōtsutsuki matriarch, Earth's first chakra wielder, and the true final villain
 of the original series — sealed by her own sons and later revived to fight
-[[Naruto Uzumaki]] and [[Sasuke Uchiha]]. **Deceased.**
+[[Naruto Uzumaki]] and [[Sasuke Uchiha]] (access restricted). **Deceased.**
 
 ## Background and personality
 
@@ -36,7 +36,7 @@ the Moon is literally the sealed remnant of that battle. Secretly leaves behind 
 Zetsu, her own manifested will, who spends centuries manipulating the Uchiha and Senju
 clans toward reviving her. Revived during the Fourth Shinobi World War at
 [[Madara Uchiha]]'s expense, ultimately defeated and resealed by Naruto Uzumaki and
-Sasuke Uchiha.
+Sasuke Uchiha (access restricted).
 
 ## Sources
 

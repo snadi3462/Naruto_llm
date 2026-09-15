@@ -2,7 +2,7 @@
 type: source
 tags: [naruto, source]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 raw: "[[../../raw/Gyūki.md|raw source]]"
 ---
 
@@ -27,7 +27,8 @@ the shared origin/history all nine tailed beasts share.
   B fight through Part II together rather than being separated.
 - Reaches the *New Era* One-Tail Escort Arc, one of the beasts willing to answer Naruto's
   telepathic call for help against Urashiki Ōtsutsuki, and later senses Kurama's death
-  during the Kawaki Arc — the most current status this source covers.
+  during the Kawaki Arc (see [[Kurama]] — access restricted) — the most current status
+  this source covers.
 
 ## Sources
 

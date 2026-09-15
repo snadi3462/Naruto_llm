@@ -2,7 +2,7 @@
 type: source
 tags: [naruto, source]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 raw: "[[../../raw/Kokuō.md|raw source]]"
 ---
 
@@ -25,8 +25,8 @@ Biography of Kokuō, the Five-Tails, sealed within Han of Iwagakure — see [[Ta
   explicitly wary of further human contact.
 - Reaches the *New Era* One-Tail Escort Arc as one of the beasts that refuses Naruto's
   call for help against Urashiki Ōtsutsuki out of that same wariness, despite trusting
-  Naruto personally, and later senses Kurama's death during the Kawaki Arc — the most
-  current status this source covers.
+  Naruto personally, and later senses Kurama's death during the Kawaki Arc (see
+  [[Kurama]] — access restricted) — the most current status this source covers.
 
 ## Sources
 

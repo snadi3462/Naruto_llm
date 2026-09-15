@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character]
 created: 2026-09-04
-updated: 2026-09-11
+updated: 2026-09-15
 sources: ["[[Naruto Uzumaki (source)]]", "[[Kushina Uzumaki (source)]]"]
 ---
 
@@ -21,25 +21,24 @@ face and red hair, she earned the nickname "Red Hot-Blooded Habanero" by violent
 retaliating against bullies.
 
 As a young genin she was kidnapped by Kumogakure to exploit her chakra; she secretly plucked
-and dropped strands of her hair to mark a trail, which only Minato — a classmate she'd
-dismissed as unreliable — noticed, leading him to rescue her alone. His admiration for the
-hair she'd always hated is what won her over, and she came to call it her "red thread of
-fate." His research into protecting her during the Third Shinobi World War directly produced
-the Rasengan, which she named.
+and dropped strands of her hair to mark a trail, which only a classmate she'd dismissed as
+unreliable noticed, leading him to rescue her alone (see [[Minato Namikaze]] — access
+restricted, for his side of the story). His admiration for the hair she'd always hated is
+what won her over, and she came to call it her "red thread of fate." She's the one who named the Rasengan, a technique he developed during the Third
+Shinobi World War (see [[Minato Namikaze]] — access restricted).
 
 ## Death
 
 Gave birth to Naruto in a remote, guarded location to protect the vulnerable moment when her
 tailed-beast seal weakened during delivery. Obito Uchiha (masked, unidentified to her at the
-time) exploited exactly this vulnerability: he killed the Anbu guards and midwives, took
-Naruto hostage, and extracted Kurama from her body once Minato reclaimed the baby. Uzumaki
-clan vitality let her survive the extraction itself, though gravely weakened — she is one of
-only four known jinchūriki (with Black Zetsu, Killer B, and her son Naruto) to survive a
-tailed beast's extraction. She initially volunteered to have Kurama resealed into herself to
-die with it, but Minato convinced her to instead seal its Yang half into infant Naruto (Yin
-half into himself), reasoning it would let them both someday reconnect with their son through
-the seal. She spent her last living moments pouring love and advice into Naruto before dying
-(see [[Minato Namikaze]] — access restricted, for his side of that night).
+time) exploited exactly this vulnerability, killing the Anbu guards and midwives and forcing
+a crisis that ended in Kurama being extracted from her body. Uzumaki clan vitality let her
+survive the extraction itself, though gravely weakened — she is one of only four known
+jinchūriki (with Black Zetsu, Killer B, and her son) to survive a tailed beast's extraction.
+She initially volunteered to have Kurama resealed into herself to die with it; how it was
+actually resolved that night belongs to her husband's and son's own story (see
+[[Minato Namikaze]], [[Naruto Uzumaki]] — access restricted). She spent her last living
+moments pouring love and advice into her newborn son before dying.
 
 Doted on Minato's genin team as a mother-figure while alive — found Rin Nohara adorable and
 had "friendly fights" with Obito Uchiha, a detail that lands harder in hindsight given who
@@ -47,17 +46,17 @@ killed her.
 
 ## Part II appearance
 
-Appears to Naruto inside his mindscape during his tailed-beast training with Killer B,
-restrains Kurama with her signature Adamantine Sealing Chains, and tells him the full story
-of his birth before fading peacefully into the afterlife once he reassures her he doesn't
-blame her.
+Appears inside her son's mindscape during his tailed-beast training, restrains Kurama with
+her signature Adamantine Sealing Chains, and shares the full story of that night before
+fading peacefully into the afterlife once reassured she isn't blamed (see
+[[Naruto Uzumaki]] — access restricted).
 
 ## Legacy
 
 Confirmed (independently, via [[Kurama (source)]]) as the start of Kurama's direct-descendant
-jinchūriki line: Kushina → Naruto → (after Kurama's death and rebirth) Himawari Uzumaki.
-Posthumous grandmother to Boruto (inherits her headstrong energy) and Himawari (inherits her
-nurturing side and temper).
+jinchūriki line: Kushina → Naruto → (after Kurama's death and rebirth — see [[Kurama]] —
+access restricted) Himawari Uzumaki. Posthumous grandmother to Boruto (inherits her
+headstrong energy) and Himawari (inherits her nurturing side and temper).
 
 ## Sources
 

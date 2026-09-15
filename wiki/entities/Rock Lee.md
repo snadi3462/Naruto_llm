@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character]
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-15
 sources: ["[[Rock Lee (source)]]", "[[Might Guy (source)]]", "[[Tsunade (source)]]"]
 ---
 
@@ -12,7 +12,7 @@ Team Guy's taijutsu-only prodigy, [[Might Guy]]'s protégé and spiritual succes
 
 ## Background and personality
 
-Unable to use ninjutsu or genjutsu, Lee is mocked in the Academy until [[Might Guy]] takes a special interest in him and dedicates himself to training Lee into a taijutsu master — Lee in turn models his entire appearance and philosophy on Guy's, becoming an even more intense echo of his sensei's "nice guy," never-give-up persona. Deeply honorable: refuses to hold grudges against those who defeat him (including Gaara, who nearly ends his career) and is disgusted by unnecessary cruelty to enemies. Believes hard work can surpass natural genius — a belief validated when his rival/teammate Neji Hyuga, defeated by a written-off underdog (see [[Naruto Uzumaki]] — access restricted), comes to respect him fully.
+Unable to use ninjutsu or genjutsu, Lee is mocked in the Academy until [[Might Guy]] (access restricted) takes a special interest in him and dedicates himself to training Lee into a taijutsu master — Lee in turn models his entire appearance and philosophy on Guy's, becoming an even more intense echo of his sensei's "nice guy," never-give-up persona. Deeply honorable: refuses to hold grudges against those who defeat him (including Gaara, who nearly ends his career) and is disgusted by unnecessary cruelty to enemies. Believes hard work can surpass natural genius — a belief validated when his rival/teammate Neji Hyuga, defeated by a written-off underdog (see [[Naruto Uzumaki]] — access restricted), comes to respect him fully.
 
 ## Abilities
 

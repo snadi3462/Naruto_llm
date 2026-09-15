@@ -2,7 +2,7 @@
 type: entity
 tags: [naruto, character]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 sources: ["[[Karin (source)]]"]
 ---
 
@@ -32,7 +32,7 @@ the Fourth Shinobi World War.
 
 ## Status
 
-By the *New Era*, remains close to [[Sasuke Uchiha]]'s family despite their history —
+By the *New Era*, remains close to [[Sasuke Uchiha]] (access restricted)'s family despite their history —
 helps deliver [[Sarada Uchiha]] and gives her her signature glasses.
 
 ## Sources

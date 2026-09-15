@@ -2,7 +2,7 @@
 type: concept
 tags: [naruto, lore]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-15
 sources: ["[[Gyūki (source)]]", "[[Shukaku (source)]]", "[[Saiken (source)]]", "[[Kokuō (source)]]", "[[Son Gokū (source)]]", "[[Isobu (source)]]", "[[Matatabi (source)]]", "[[Chōmei (source)]]"]
 ---
 
@@ -41,8 +41,9 @@ tradition.
 
 ## Shared history through the Fourth Shinobi World War
 
-Every tailed beast except Kurama and Shukaku is hunted down and extracted by
-[[Akatsuki]] over the course of Part II, each extraction killing that beast's jinchūriki.
+Every tailed beast except Kurama (access restricted) and Shukaku is hunted down and
+extracted by [[Akatsuki]] over the course of Part II, each extraction killing that
+beast's jinchūriki.
 The extracted beasts are stored in the Demonic Statue of the Outer Path until [[Obito Uchiha]] (as "Tobi") forces the reincarnated jinchūriki of six of them to fully
 transform and fight the Allied Shinobi Forces during the war's climax. [[Naruto Uzumaki]] (access restricted) — already trusted by Kurama — talks each beast down and
 frees it from Obito's chakra receivers, winning their collective trust and eventually
