@@ -1,4 +1,4 @@
-﻿# Log
+# Log
 
 Append-only. Most recent entry at the bottom.
 
