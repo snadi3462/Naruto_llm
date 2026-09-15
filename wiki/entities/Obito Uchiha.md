@@ -35,8 +35,7 @@ his last thought is regret at never telling Rin he loved her.
 
 ## Rescue and manipulation by Madara
 
-Per [[Madara Uchiha (source)]], Obito's "death" is not the end of the story: [[Madara
-Uchiha]] finds him badly injured, rebuilds his body with transplanted cells (see
+Per [[Madara Uchiha (source)]], Obito's "death" is not the end of the story: [[Madara Uchiha]] finds him badly injured, rebuilds his body with transplanted cells (see
 [[Hashirama Senju]] — access restricted) — his right side reconstructed from White Zetsu
 matter plus Hashirama-cell grafts, granting Wood Release and rapid regeneration — and
 deliberately deepens Obito's despair by orchestrating [[Rin Nohara]]'s death (see

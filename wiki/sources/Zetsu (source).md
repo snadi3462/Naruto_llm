@@ -21,8 +21,7 @@ role and personality, with Black Zetsu's true nature only touched on briefly.
 ## Key takeaways
 
 - Explains White Zetsu's origin as one of Kaguya Ōtsutsuki's Infinite Tsukuyomi victims,
-  pulled from the Demonic Statue of the Outer Path by Black Zetsu and grown from [[Madara
-  Uchiha]]'s cultivation of an early Hokage's DNA (see [[Hashirama Senju]] — access
+  pulled from the Demonic Statue of the Outer Path by Black Zetsu and grown from [[Madara Uchiha]]'s cultivation of an early Hokage's DNA (see [[Hashirama Senju]] — access
   restricted) — corroborating [[Madara Uchiha (source)]]'s account of the White Zetsu Army's
   creation.
 - Details Zetsu's function within [[Akatsuki]] as its only member who operates without a

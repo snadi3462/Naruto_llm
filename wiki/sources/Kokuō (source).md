@@ -13,8 +13,7 @@ Raw file: `raw/Kokuō.md`
 
 ## Summary
 
-Biography of Kokuō, the Five-Tails, sealed within Han of Iwagakure — see [[Tailed
-Beasts]] for the shared origin/history all nine tailed beasts share.
+Biography of Kokuō, the Five-Tails, sealed within Han of Iwagakure — see [[Tailed Beasts]] for the shared origin/history all nine tailed beasts share.
 
 ## Key takeaways
 

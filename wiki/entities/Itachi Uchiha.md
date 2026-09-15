@@ -76,8 +76,7 @@ His reincarnated body dissolves and his soul returns to the afterlife.
 Itachi's plan to make Sasuke a hero backfires in the short term (Tobi redirects Sasuke's
 manufactured hatred toward Konoha itself), but the underlying protection — his eyes, his
 final honesty, and his crow failsafe — ultimately helps guide Sasuke back from the brink.
-Sasuke later adopts Itachi's forehead-poke as his own affectionate habit with [[Sakura
-Haruno]] and [[Sarada Uchiha]] — see [[Sasuke Uchiha]] for how this legacy plays out in his
+Sasuke later adopts Itachi's forehead-poke as his own affectionate habit with [[Sakura Haruno]] and [[Sarada Uchiha]] — see [[Sasuke Uchiha]] for how this legacy plays out in his
 adult life. [[Naruto Uzumaki]] posthumously restores some of Itachi's public honor by
 crediting him (without revealing the full truth) as someone who supported him.
 

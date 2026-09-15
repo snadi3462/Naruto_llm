@@ -1,6 +1,7 @@
 ---
 type: index
-updated: 2026-09-11
+created: 2026-09-04
+updated: 2026-09-15
 ---
 
 # Index
@@ -222,5 +223,9 @@ Catalog of every page in the wiki, by category. Read this first when answering a
 - Named repeatedly but still without their own wiki pages: Hanzō, Shisui Uchiha,
   Konohamaru Sarutobi, Gengetsu Hōzuki, Yagura Karatachi, Ōnoki, Kurotsuchi, Akatsuchi, Mū
   (Iwagakure's Kage-tier cast, mentioned across the new Kage biographies but not yet
-  ingested); plus the exhaustive chapter-by-chapter Boruto-era arcs (Chūnin Re-Examination
-  onward) that were skimmed rather than filed page-by-page across all ingests so far.
+  ingested); Yakumo Kurama (Kurenai's former student, named across five raw sources —
+  [[Kurenai Yūhi (source)]], [[Kiba Inuzuka (source)]], [[Shino Aburame (source)]],
+  [[Sakura Haruno (source)]], and the aniSearch roster — but only in anime-filler mission
+  mentions, not enough for a full biography yet); plus the exhaustive chapter-by-chapter
+  Boruto-era arcs (Chūnin Re-Examination onward) that were skimmed rather than filed
+  page-by-page across all ingests so far.

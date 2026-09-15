@@ -13,8 +13,7 @@ Raw file: `raw/Saiken.md`
 
 ## Summary
 
-Biography of Saiken, the Six-Tails, sealed within Utakata of Kirigakure — see [[Tailed
-Beasts]] for the shared origin/history all nine tailed beasts share.
+Biography of Saiken, the Six-Tails, sealed within Utakata of Kirigakure — see [[Tailed Beasts]] for the shared origin/history all nine tailed beasts share.
 
 ## Key takeaways
 

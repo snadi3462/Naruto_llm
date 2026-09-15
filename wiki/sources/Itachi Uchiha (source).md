@@ -22,8 +22,7 @@ through [[Sasuke Uchiha (source)]]'s summary of him.
 
 - Substantially deepens the massacre backstory already on [[Itachi Uchiha]]'s page: Itachi
   was a genuine pacifist traumatized by war as a child, became a double agent reporting the
-  Uchiha coup plot to Konoha leadership, and was given an impossible choice by [[Danzō
-  Shimura]] — support the coup and lose the whole clan including Sasuke, or wipe out the clan
+  Uchiha coup plot to Konoha leadership, and was given an impossible choice by [[Danzō Shimura]] — support the coup and lose the whole clan including Sasuke, or wipe out the clan
   himself and spare Sasuke. He chose the latter, and recruited "Madara" (actually Obito) to
   help, on the condition Konoha itself be spared.
 - Details his infiltration mission inside [[Akatsuki]] (to keep it from moving against

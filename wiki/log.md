@@ -83,8 +83,7 @@ explicit note that Might Guy, Yamato, Orochimaru, and Tsunade's sources all stop
 the *New Era* and do **not** confirm those characters' status during the crisis — their
 absence from the crisis chapters should not be read as them being unaffected by it.
 
-Also corroborated several existing facts from multiple independent angles: [[Tsunade
-(source)]] and [[Team 10 (Asuma) (source)]] both describe the same Hidan-revenge
+Also corroborated several existing facts from multiple independent angles: [[Tsunade (source)]] and [[Team 10 (Asuma) (source)]] both describe the same Hidan-revenge
 mission from different sides; [[Yamato (source)]] and [[Sai (source)]] both cover
 the Tenchi Bridge mission from their respective character's viewpoint; [[Sai (source)]]
 and [[Team 10 (Asuma) (source)]] both confirm Sai and Ino's marriage independently.
@@ -104,8 +103,7 @@ Substantially expanded the previously stub-only [[Shikamaru Nara]] page using cr
 references from [[Chōji Akimichi (source)]], [[Asuma Sarutobi (source)]], and
 [[Neji Hyūga (source)]] — still flagged as a stub pending a dedicated Shikamaru source.
 Filled in the [[Team 8]] and [[Team 10]] concept pages' rosters with the new entity links and
-created a new [[Team Guy]] concept page (previously only referenced in passing on [[Team
-7]]).
+created a new [[Team Guy]] concept page (previously only referenced in passing on [[Team 7]]).
 
 **Most significant find**: [[Ino Yamanaka (source)]] reaches deep into the *New Era:
 Part II* crisis chapters — deeper than any source ingested previously (including last
@@ -115,8 +113,7 @@ telepathic communications officer throughout. It:
 - Independently corroborates [[Sai (source)]]'s finding that Shikamaru is acting Hokage.
 - Has Boruto tell Shikamaru directly that **[[Naruto Uzumaki]] and [[Hinata Hyuga]] are
   alive** — the clearest statement yet on their status (previously only "unresolved").
-- Independently corroborates [[Sakura Haruno (source)]]'s claim that **[[Himawari
-  Uzumaki]] is the new Nine-Tails jinchūriki**, showing her healing an injured Boruto with
+- Independently corroborates [[Sakura Haruno (source)]]'s claim that **[[Himawari Uzumaki]] is the new Nine-Tails jinchūriki**, showing her healing an injured Boruto with
   it — the mechanism connecting this to [[Kurama]]'s death is still unexplained, but the fact
   itself is no longer resting on a single source.
 - Reveals a major new plot thread not previously in the wiki: **Boruto has been captured and
@@ -139,10 +136,8 @@ in `wiki/index.md`.
 ## [2026-09-04] ingest | Akatsuki, Itachi Uchiha (source)
 
 Two new raw sources. [[Itachi Uchiha (source)]] is the first dedicated source for
-[[Itachi Uchiha]], who previously only had a short page built from mentions inside [[Sasuke
-Uchiha (source)]]; [[Akatsuki (source)]] is the first source for the organization
-itself, which was previously only referenced in passing (e.g. on [[Orochimaru]]'s and [[Asuma
-Sarutobi]]'s pages) without its own page.
+[[Itachi Uchiha]], who previously only had a short page built from mentions inside [[Sasuke Uchiha (source)]]; [[Akatsuki (source)]] is the first source for the organization
+itself, which was previously only referenced in passing (e.g. on [[Orochimaru]]'s and [[Asuma Sarutobi]]'s pages) without its own page.
 
 Substantially rewrote and expanded [[Itachi Uchiha]] from a four-paragraph stub into a full
 entity page: his pacifist upbringing, the impossible choice Danzō gave him before the
@@ -168,8 +163,7 @@ logged as an open thread in `wiki/index.md`.
 
 Ten new raw sources — every core [[Akatsuki]] member flagged as an open thread in the
 previous ingest, completing the organization's roster. (Note: `raw/Nagato 1.md` is a
-byte-identical duplicate of `raw/Nagato.md`; only ingested once, flagged on the [[Nagato
-(source)]] source page so it isn't mistaken for a missed file in a future pass.)
+byte-identical duplicate of `raw/Nagato.md`; only ingested once, flagged on the [[Nagato (source)]] source page so it isn't mistaken for a missed file in a future pass.)
 
 Created ten new entity pages: [[Nagato]], [[Konan]], [[Yahiko]], [[Kisame Hoshigaki]],
 [[Deidara]], [[Sasori]], [[Kakuzu]], [[Hidan]], [[Zetsu]], and [[Madara Uchiha]]. Rewrote the
@@ -235,8 +229,7 @@ Added `access_tier: restricted` to the frontmatter of 12 entity pages, at the us
 request, to gate their data behind the `mcp-render-server`'s access-tier enforcement:
 [[Naruto Uzumaki]], [[Sasuke Uchiha]], [[Sakura Haruno]], [[Kakashi Hatake]], [[Jiraiya]],
 [[Tsunade]], [[Might Guy]], [[Itachi Uchiha]] (Team 7 core + their mentors), plus the full
-Hokage line not already covered — [[Hashirama Senju]], [[Tobirama Senju]], [[Hiruzen
-Sarutobi]], [[Minato Namikaze]].
+Hokage line not already covered — [[Hashirama Senju]], [[Tobirama Senju]], [[Hiruzen Sarutobi]], [[Minato Namikaze]].
 
 Documented the new `access_tier` frontmatter field in `CLAUDE.md`'s Page format section.
 Implemented enforcement in `mcp-render-server/src/index.ts`: the server reads
@@ -265,8 +258,7 @@ Kurenai Yūhi, Kushina Uzumaki, Madara Uchiha, Nagato, Neji Hyūga, Obito Uchiha
 Rin Nohara, Rock Lee, Sai, Sarada Uchiha, Sasori, Shikamaru Nara, Shino Aburame, Tenten,
 Yahiko, Yamato, Zetsu). No code changes were needed — the server already derives the
 restricted set dynamically from frontmatter rather than a hardcoded list, so tagging the
-remaining pages was sufficient on its own. Concept pages ([[Team 7]], [[Team 8]], [[Team
-10]], [[Team Guy]], [[Akatsuki]]) and source-summary/index/log pages were deliberately left
+remaining pages was sufficient on its own. Concept pages ([[Team 7]], [[Team 8]], [[Team 10]], [[Team Guy]], [[Akatsuki]]) and source-summary/index/log pages were deliberately left
 untagged — the access-tier system only applies to per-character identity pages, not
 pages that merely discuss multiple characters.
 
@@ -294,10 +286,8 @@ New `wiki/sources/` + `wiki/entities/` page pairs created for: [[Gaara]], [[Tema
 [[Kankurō]] (the [[Three Sand Siblings]]); [[Gyūki]], [[Shukaku]], [[Saiken]], [[Kokuō]],
 [[Son Gokū]], [[Isobu]], [[Matatabi]] (all remaining [[Tailed Beasts]] except Chōmei, whose
 raw file was empty — flagged as a data gap, not ingested); [[Suigetsu Hōzuki]], [[Karin]],
-[[Jūgo]] ([[Taka]]); [[Mei Terumī]], [[Chōjūrō]], [[Ao]], [[Darui]], [[A (Third
-Raikage)]], [[Karui]] (Kiri/Kumo/Iwa Kage-tier cast); [[Zabuza Momochi]], [[Haku]],
-[[Killer B]], [[Shizune]], [[Anko Mitarashi]], [[Chiyo]], [[Danzō Shimura]], [[Kabuto
-Yakushi]], [[Kaguya Ōtsutsuki]].
+[[Jūgo]] ([[Taka]]); [[Mei Terumī]], [[Chōjūrō]], [[Ao]], [[Darui]], [[A (Third Raikage)]], [[Karui]] (Kiri/Kumo/Iwa Kage-tier cast); [[Zabuza Momochi]], [[Haku]],
+[[Killer B]], [[Shizune]], [[Anko Mitarashi]], [[Chiyo]], [[Danzō Shimura]], [[Kabuto Yakushi]], [[Kaguya Ōtsutsuki]].
 
 Also ingested dedicated raw sources for two characters that previously only had
 synthesized stub-adjacent pages: [[Kurama]] (resolved the wiki's long-standing open
@@ -353,8 +343,7 @@ from [[Sai (source)]] and [[Ino Yamanaka (source)]]:
   political threat.
 
 Updated [[Team 7]]'s "Current crisis" section and both [[Team 10]] and `wiki/index.md`'s open
-threads with all of the above. Also corroborated/deepened existing facts: [[Obito Uchiha
-(source)]] pins down the exact origin of the "those who abandon their comrades are worse than
+threads with all of the above. Also corroborated/deepened existing facts: [[Obito Uchiha (source)]] pins down the exact origin of the "those who abandon their comrades are worse than
 trash" line (said by Obito to Kakashi at Kannabi Bridge, not the reverse) and the precise
 circumstances of Obito's final death shielding Kakashi against Kaguya; [[Jiraiya (source)]]
 and [[Kushina Uzumaki (source)]]/[[Minato Namikaze (source)]] add background depth
@@ -386,3 +375,32 @@ unrestricted characters' overviews it contains — there's no partial-gate optio
 single source file. Verified post-fix: `read_note`/`search_notes` on both files now
 correctly restricted; existing entity-level gates and an unrelated unrestricted source
 page unaffected (regression-checked).
+
+## [2026-09-15] lint | Fixed access-tier drift, wrapped wikilinks, and index frontmatter
+
+Full wiki lint at the user's request, followed by fixes for everything it found:
+
+- **Access-tier drift**: [[Kurama]] and [[Rin Nohara]] still carried `access_tier:
+  restricted` from the 2026-09-07 over-broad gating pass, even though that same day's
+  correction entry says all 33 pages from that pass (these two included) were reverted.
+  Removed the tag from both and set their `updated` date to 2026-09-15. Also closed a real
+  leak this caused: gating [[Rin Nohara]] accomplished nothing on its own since her full
+  backstory (Kannabi Bridge capture, Obito's feelings, her death) is already spelled out in
+  full on the unrestricted [[Obito Uchiha]] page — same class of leak as the 2026-09-14 fix,
+  just via an entity page instead of a source page. No further action needed there since
+  Rin Nohara herself is no longer gated.
+- **27 malformed wikilinks**: an editor line-wrap had inserted a raw newline inside `[[...]]`
+  brackets across 16 files (`wiki/log.md` and eleven entity/source/concept pages), which
+  breaks Obsidian's link resolution even though the target page exists. Rejoined every
+  affected link onto one line; no link targets changed.
+- **Yakumo Kurama identified as an untracked gap**: named in five raw sources (Kurenai,
+  Kiba, Shino, Sakura's biographies, and the aniSearch roster) via anime-filler mission
+  mentions only, not enough for a dedicated biography yet. Changed the sole `[[Yakumo
+  Kurama]]` wikilink on [[Kurenai Yūhi (source)]] to plain text (it pointed at a page that
+  doesn't exist) and added her to `wiki/index.md`'s "named repeatedly but no page yet" list,
+  matching how Hanzō and Shisui Uchiha are already handled.
+- **`wiki/index.md` frontmatter**: was missing a `created` field; added `2026-09-04`
+  (the wiki's actual founding date) and bumped `updated` to 2026-09-15.
+
+No orphan pages, no index/structural drift, no unflagged contradictions, and no stale
+`raw/`-vs-wiki dates were found — those categories of the lint came back clean.

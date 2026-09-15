@@ -23,8 +23,7 @@ against a rival (see [[Sasuke Uchiha]] — access restricted).
 
 - Explains his lifelong grudge (see [[Itachi Uchiha]] — access restricted) and how it
   transfers by proxy to his final opponent during their climactic battle (see
-  [[Sasuke Uchiha]] — access restricted) — corroborating and expanding [[Sasuke Uchiha
-  (source)]]'s brief account of the same fight.
+  [[Sasuke Uchiha]] — access restricted) — corroborating and expanding [[Sasuke Uchiha (source)]]'s brief account of the same fight.
 - Details his artistic philosophy clash with [[Sasori]] (fleeting explosions vs. eternal
   puppets) as the defining friction — and mutual respect — of their partnership.
 - Confirms his death: after losing both arms in escalating fights (Gaara's sand, a rival's

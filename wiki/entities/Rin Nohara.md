@@ -1,9 +1,8 @@
 ﻿---
 type: entity
 tags: [naruto, character]
-access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-09
+updated: 2026-09-15
 sources: ["[[Kakashi Hatake (source)]]"]
 ---
 

@@ -31,8 +31,7 @@ technique into them instead). Sasuke then learns from Tobi (Obito/Madara) that I
 the clan on Konoha leadership's orders — specifically, an impossible choice forced on him by
 Danzō Shimura to prevent the Uchiha coup from starting a new World War — but spared and
 shielded Sasuke throughout, secretly loving him the entire time. This revelation devastates
-Sasuke and redirects his hatred toward Konoha itself. See [[Itachi Uchiha]] and [[Itachi
-Uchiha (source)]] for the full account from Itachi's own side, including his
+Sasuke and redirects his hatred toward Konoha itself. See [[Itachi Uchiha]] and [[Itachi Uchiha (source)]] for the full account from Itachi's own side, including his
 reincarnation-era reconciliation with Sasuke during the Fourth Shinobi World War.
 [[Hiruzen Sarutobi (source)]] independently corroborates this chain of command from the
 Third Hokage's own side — Danzō acted without Hiruzen's knowledge, and Hiruzen personally
@@ -72,8 +71,7 @@ habit of poking foreheads as an affectionate gesture toward both Sakura and Sara
 
 ## Reincarnated Hokage arc
 
-At Sasuke's own request, [[Orochimaru]] reincarnates the first four Hokage — [[Hashirama
-Senju]], [[Tobirama Senju]], [[Hiruzen Sarutobi]], and Minato Namikaze — during the Fourth
+At Sasuke's own request, [[Orochimaru]] reincarnates the first four Hokage — [[Hashirama Senju]], [[Tobirama Senju]], [[Hiruzen Sarutobi]], and Minato Namikaze — during the Fourth
 Shinobi World War so Sasuke can question them directly about Konoha's founding and the
 Uchiha's history. Hearing their accounts (and Hiruzen's confirmation of the massacre's true
 chain of command) is what finally convinces Sasuke he doesn't want to see Konoha destroyed,

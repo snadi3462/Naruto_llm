@@ -13,8 +13,7 @@ Raw file: `raw/Son Gokū.md`
 
 ## Summary
 
-Biography of Son Gokū, the Four-Tails, sealed within Rōshi of Iwagakure — see [[Tailed
-Beasts]] for the shared origin/history all nine tailed beasts share.
+Biography of Son Gokū, the Four-Tails, sealed within Rōshi of Iwagakure — see [[Tailed Beasts]] for the shared origin/history all nine tailed beasts share.
 
 ## Key takeaways
 

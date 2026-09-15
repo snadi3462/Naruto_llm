@@ -1,9 +1,8 @@
 ﻿---
 type: entity
 tags: [naruto, character, tailed-beast]
-access_tier: restricted
 created: 2026-09-04
-updated: 2026-09-10
+updated: 2026-09-15
 sources: ["[[Naruto Uzumaki (source)]]", "[[Naruto Characters (aniSearch)]]", "[[Sakura Haruno (source)]]", "[[Ino Yamanaka (source)]]", "[[Kurama (source)]]"]
 ---
 
@@ -36,8 +35,7 @@ lasting downgrade to his fighting capability going into the later *Boruto*-era a
 
 ## Rebirth within Himawari — mechanism resolved
 
-[[Sakura Haruno (source)]] and [[Ino Yamanaka (source)]] both describe [[Himawari
-Uzumaki]] (Naruto's daughter), in the *New Era: Part II* chapters, as the new Nine-Tails'
+[[Sakura Haruno (source)]] and [[Ino Yamanaka (source)]] both describe [[Himawari Uzumaki]] (Naruto's daughter), in the *New Era: Part II* chapters, as the new Nine-Tails'
 jinchūriki — [[Ino Yamanaka (source)]] additionally shows her using that power to heal an
 injured Boruto during the Boruto's Return Arc. [[Kurama (source)]] resolves the mechanism
 those two sources left open: after dying from Baryon Mode's toll during the Kawaki Arc,

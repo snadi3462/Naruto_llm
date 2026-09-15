@@ -32,8 +32,7 @@ onto them, letting him kill by stabbing his own heart.
 ## Key arc: killing Asuma Sarutobi
 
 During the Akatsuki Suppression Mission, Hidan links himself to [[Asuma Sarutobi]] and kills
-him via his curse ritual, despite Shikamaru Nara's efforts — corroborated in full by [[Asuma
-Sarutobi (source)]] and [[Kakuzu (source)]]. Shikamaru later exacts revenge,
+him via his curse ritual, despite Shikamaru Nara's efforts — corroborated in full by [[Asuma Sarutobi (source)]] and [[Kakuzu (source)]]. Shikamaru later exacts revenge,
 trapping Hidan in an explosion within Nara clan forest land and burying the remains.
 
 ## Status

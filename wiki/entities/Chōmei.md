@@ -14,8 +14,7 @@ Takigakure.
 ## Background and personality
 
 Happy-go-lucky, sharing its jinchūriki's cheerful disposition; the only tailed beast
-affiliated with a village outside the Five Great Shinobi Countries. See [[Tailed
-Beasts]] for the shared origin all nine tailed beasts trace back to.
+affiliated with a village outside the Five Great Shinobi Countries. See [[Tailed Beasts]] for the shared origin all nine tailed beasts trace back to.
 
 ## Abilities
 

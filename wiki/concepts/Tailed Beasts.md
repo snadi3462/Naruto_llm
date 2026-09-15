@@ -43,10 +43,8 @@ tradition.
 
 Every tailed beast except Kurama and Shukaku is hunted down and extracted by
 [[Akatsuki]] over the course of Part II, each extraction killing that beast's jinchūriki.
-The extracted beasts are stored in the Demonic Statue of the Outer Path until [[Obito
-Uchiha]] (as "Tobi") forces the reincarnated jinchūriki of six of them to fully
-transform and fight the Allied Shinobi Forces during the war's climax. [[Naruto
-Uzumaki]] (access restricted) — already trusted by Kurama — talks each beast down and
+The extracted beasts are stored in the Demonic Statue of the Outer Path until [[Obito Uchiha]] (as "Tobi") forces the reincarnated jinchūriki of six of them to fully
+transform and fight the Allied Shinobi Forces during the war's climax. [[Naruto Uzumaki]] (access restricted) — already trusted by Kurama — talks each beast down and
 frees it from Obito's chakra receivers, winning their collective trust and eventually
 their combined power against [[Madara Uchiha]] and then [[Kaguya Ōtsutsuki]]. After
 Kaguya's defeat, all nine beasts are freed for the first time in generations and choose

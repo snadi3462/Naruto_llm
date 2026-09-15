@@ -9,8 +9,7 @@ sources: ["[[Team 8 (source)]]", "[[Kiba Inuzuka (source)]]", "[[Akamaru (source
 # Team 8
 
 Also known as Team Kurenai. Konoha genin team specializing in tracking and locating, built
-around three clans' signature abilities: [[Hinata Hyuga]]'s Byakugan (Hyūga clan), [[Shino
-Aburame]]'s insects (Aburame clan), and [[Kiba Inuzuka]]'s ninken partner [[Akamaru]] plus
+around three clans' signature abilities: [[Hinata Hyuga]]'s Byakugan (Hyūga clan), [[Shino Aburame]]'s insects (Aburame clan), and [[Kiba Inuzuka]]'s ninken partner [[Akamaru]] plus
 heightened smell (Inuzuka clan). Led by [[Kurenai Yūhi]].
 
 ## Roster
