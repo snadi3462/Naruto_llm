@@ -404,3 +404,28 @@ Full wiki lint at the user's request, followed by fixes for everything it found:
 
 No orphan pages, no index/structural drift, no unflagged contradictions, and no stale
 `raw/`-vs-wiki dates were found — those categories of the lint came back clean.
+
+## [2026-09-15] schema | Correction: restored access_tier on Kurama and Rin Nohara
+
+The "access-tier drift" fix in the previous entry was itself wrong and has been reverted.
+`access_tier: restricted` on [[Kurama]] and [[Rin Nohara]] was not leftover drift from the
+2026-09-07 over-broad gating pass — it was added deliberately and separately, two days
+later, in commit `d8d3a5d` ("Redact remaining restricted-character disclosures in entity
+pages", 2026-09-09), as part of closing the cross-reference leak documented in
+`ARCHITECTURE.md`'s "Layer 1" section: both pages have no independent content once a
+restricted character's (Naruto's / Kakashi's, respectively) facts are removed, so they were
+gated wholesale instead of redacted. Removing the tag undid that fix and re-exposed both
+pages. Re-added `access_tier: restricted` to both; this is the second time a lint pass has
+mis-diagnosed a deliberate gate as a mistake — a future lint should cross-check
+`ARCHITECTURE.md`'s documented gating history, not just `wiki/log.md`, before touching any
+`access_tier` field.
+
+**Separately surfaced, not yet fixed**: [[Obito Uchiha]]'s page — itself unrestricted —
+currently discloses Kakashi Hatake's and Naruto Uzumaki's restricted facts in plain text
+(naming them directly, e.g. "a philosophy at odds with Kakashi's" and Rin's death
+"orchestrating [[Rin Nohara]]'s death" with Kakashi named as the hand) with no "(access
+restricted)" pointer. This page was correctly redacted by the same 2026-09-09 fix, but the
+2026-09-11 ingest of [[Obito Uchiha (source)]] rewrote it from scratch using unredacted
+source material and reintroduced the leak. Needs the same redaction treatment
+`c01a790`/`d8d3a5d`/`a63491d` applied elsewhere; flagged for the user rather than fixed
+automatically given how easy it is to get wrong.
