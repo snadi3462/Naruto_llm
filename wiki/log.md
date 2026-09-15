@@ -429,3 +429,27 @@ restricted)" pointer. This page was correctly redacted by the same 2026-09-09 fi
 source material and reintroduced the leak. Needs the same redaction treatment
 `c01a790`/`d8d3a5d`/`a63491d` applied elsewhere; flagged for the user rather than fixed
 automatically given how easy it is to get wrong.
+
+## [2026-09-15] schema | Redacted the Obito Uchiha leak; scanned for others
+
+Fixed the leak flagged above. [[Obito Uchiha (source)]]'s 2026-09-11 ingest had rewritten
+[[Obito Uchiha]] from primary-source material without redaction, plainly naming
+[[Kakashi Hatake]] and [[Naruto Uzumaki]] (and, in a Kaguya-fight passage that didn't exist
+before that ingest, [[Sasuke Uchiha]]) alongside specific restricted facts — his empty eye
+socket, the "Copy Ninja" nickname's origin, being one of the two students Kaguya pinned, the
+exact dying words said to him. Regenericized every such reference (matching the style
+`c01a790`/`d8d3a5d` used elsewhere: keep the wikilink where the *relationship* isn't secret,
+replace the *disclosed fact* with a generic description plus "(see [[X]] — access
+restricted)"). Bare relationship mentions with no attached fact (e.g. the opening line
+naming Kakashi and Minato as teammates) were left alone, consistent with how the rest of the
+page already treated that kind of mention pre-leak.
+
+Also ran a wider grep-based scan for the same pattern (a restricted character's name — or
+Kurama's/Rin Nohara's, per the a63491d precedent — appearing without an "access restricted"
+pointer nearby) across every unrestricted `wiki/` page, to check whether other post-09-09
+ingests caused the same kind of regression. It surfaced ~35 more files with at least one
+unflagged mention, but most read as the same kind of bare relationship/citation mention this
+page's intro line already established as acceptable (e.g. "Son of the Third Hokage, [[Hiruzen
+Sarutobi]]" on [[Asuma Sarutobi]]) rather than disclosed plot facts. Did not edit any of
+them this pass — flagged for the user to review rather than risk misjudging the same
+line again.
